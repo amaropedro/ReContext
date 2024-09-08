@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddy1t5ppfrpth"]
+
+[ext_resource type="Script" path="res://Test/test.gd" id="1_1brqb"]
+
+[node name="Test" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1brqb")
+
+[node name="TestApi" type="Button" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 944.0
+offset_right = 448.0
+offset_bottom = 1080.0
+text = "AQUI"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_top = 824.0
+offset_right = 704.0
+offset_bottom = 888.0
+bbcode_enabled = true
+text = "[center]Aperte o botão abaixo"
+
+[connection signal="pressed" from="TestApi" to="." method="_on_test_api_pressed"]

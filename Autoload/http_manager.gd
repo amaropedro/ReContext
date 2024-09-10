@@ -9,13 +9,13 @@ signal requestCompleted
 @onready var print_on_screen: RichTextLabel = $CanvasLayer/PrintOnScreen #Debug
 
 func _on_http_request_request_completed(result, response_code, headers, body):
-	print_on_screen.text += '\n' + str(response_code)
+	print_on_screen.text = '[center][color=blue]\n\n' + str(response_code)
 	if response_code == 200:
 		response_str = parse_gemini_response(body)
 		requestCompleted.emit()
 		return
 	
-	print_on_screen.text += "Error:" + str(response_code)
+	print_on_screen.text += '\n'+ "Error:" + str(response_code)
 	print_on_screen.text += '\n' + str(result)
 	print_on_screen.text += '\n' + str(headers)
 	response_str = "Error:" + str(response_code)
@@ -41,7 +41,7 @@ func parse_gemini_response(body):
 	return content
 
 func generate_sentence(keyword: String, display_node: RichTextLabel):
-	print_on_screen.text = '[center][color=blue]\n\n\nSending...' # Debug
+	print_on_screen.text = '[center][color=blue]\n\n\nSending...\n' # Debug
 	display_node.text = "sending..." # Debug
 	
 	generate_content(

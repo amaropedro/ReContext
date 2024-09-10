@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddy1t5ppfrpth"]
+[gd_scene load_steps=4 format=3 uid="uid://ddy1t5ppfrpth"]
 
 [ext_resource type="Script" path="res://Test/test.gd" id="1_1brqb"]
+[ext_resource type="Script" path="res://Test/button.gd" id="2_ch7x0"]
+[ext_resource type="Script" path="res://Test/rich_text_label_2.gd" id="2_e4qf0"]
 
 [node name="Test" type="Control"]
 layout_mode = 3
@@ -17,7 +19,7 @@ offset_left = 256.0
 offset_top = 944.0
 offset_right = 448.0
 offset_bottom = 1080.0
-text = "AQUI"
+text = "GERAR FRASE"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -27,4 +29,38 @@ offset_bottom = 888.0
 bbcode_enabled = true
 text = "[center]Aperte o botão abaixo"
 
+[node name="Front" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 608.0
+offset_right = 195.063
+offset_bottom = 639.0
+placeholder_text = "Carro"
+
+[node name="Back" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 608.0
+offset_right = 323.063
+offset_bottom = 639.0
+placeholder_text = "Car"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 656.0
+offset_right = 275.0
+offset_bottom = 687.0
+text = "Add word"
+script = ExtResource("2_ch7x0")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 576.0
+offset_bottom = 384.0
+bbcode_enabled = true
+script = ExtResource("2_e4qf0")
+
 [connection signal="pressed" from="TestApi" to="." method="_on_test_api_pressed"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

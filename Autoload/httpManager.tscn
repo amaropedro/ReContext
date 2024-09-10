@@ -7,13 +7,4 @@ script = ExtResource("1_aj0bo")
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PrintOnScreen" type="RichTextLabel" parent="CanvasLayer"]
-offset_right = 704.0
-offset_bottom = 384.0
-bbcode_enabled = true
-text = "[center][color=blue]
-Debug info here"
-
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

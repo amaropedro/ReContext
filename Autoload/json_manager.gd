@@ -1,10 +1,11 @@
 extends Node
 
 const path = "res://Decks/AllWords.json"
+const deck_folder = "res://Decks/"
 
 signal word_added
 
-func add_word(front: String, back: String) -> bool:
+func add_card(front: String, back: String) -> bool:
 	var file = FileAccess.open(path, FileAccess.READ_WRITE)
 	var all_words = JSON.parse_string(file.get_as_text())
 	
@@ -20,7 +21,7 @@ func add_word(front: String, back: String) -> bool:
 	word_added.emit()
 	return false
 
-func get_all_words() -> Dictionary:
+func get_all_cards() -> Dictionary:
 	var file = FileAccess.open(path, FileAccess.READ_WRITE)
 	var all_words = JSON.parse_string(file.get_as_text())
 	
@@ -31,7 +32,59 @@ func get_all_words() -> Dictionary:
 # Posso também pegar aleatoriamente uma palavra e ir removendo ela do array
 func iterate_deck(deck):
 	if deck == 'all':
-		var all_words = get_all_words()
+		var all_words = get_all_cards()
 		var values = all_words.keys()
 		for word in values:
 			print(word, " ", all_words[word])
+
+func new_deck(DeckName: String) -> bool:
+	var new_deck_path = deck_folder + DeckName.capitalize() + ".json"
+	if !FileAccess.file_exists(new_deck_path):
+		var file = FileAccess.open(new_deck_path, FileAccess.WRITE)
+		var dict = {}
+		file.store_string(JSON.stringify(dict, "\t"))
+		file.close()
+		return true
+	
+	print("Erro: já existe um deck com esse nome")
+	return false
+
+func delete_deck(DeckName: String) -> bool:
+	var deck_path = deck_folder + DeckName + ".json"
+	
+	if DeckName == "AllWords":
+		var file = FileAccess.open(deck_path, FileAccess.WRITE)
+		var dict = {}
+		file.store_string(JSON.stringify(dict, "\t"))
+		file.close()
+		return true
+	
+	if FileAccess.file_exists(deck_path):
+		DirAccess.remove_absolute(deck_path)
+		return true
+	
+	#Nunca deve conseguir chegar aqui
+	return false
+
+func get_decks() -> Array:
+	var decks = []
+	for file in DirAccess.get_files_at(deck_folder):
+		decks.append(file.substr(0, file.length()-5))
+	
+	return decks
+
+func add_to_deck(front: String, back: String, deckName: String):
+	var deck_path = deck_folder + deckName + ".json"
+	var file = FileAccess.open(deck_path, FileAccess.READ_WRITE)
+	var words = JSON.parse_string(file.get_as_text())
+	
+	if words.get(front) == null:
+		words.get_or_add(front.capitalize(), back.capitalize())
+		
+		file.store_string(JSON.stringify(words, "\t"))
+		file.close()
+		return true
+	
+	file.close()
+	print('Palavra já está nesse deck')
+	return false

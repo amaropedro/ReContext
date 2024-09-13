@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddy1t5ppfrpth"]
+[gd_scene load_steps=8 format=3 uid="uid://ddy1t5ppfrpth"]
 
 [ext_resource type="Script" path="res://Test/test.gd" id="1_1brqb"]
 [ext_resource type="Script" path="res://Test/button.gd" id="2_ch7x0"]
 [ext_resource type="Script" path="res://Test/rich_text_label_2.gd" id="2_e4qf0"]
+[ext_resource type="Script" path="res://Test/button_2.gd" id="4_4pls2"]
+[ext_resource type="Script" path="res://Test/option_button.gd" id="5_6ke0q"]
+[ext_resource type="Script" path="res://Test/button_3.gd" id="6_1mvyy"]
+[ext_resource type="Script" path="res://Test/option_button_2.gd" id="7_pot2d"]
 
 [node name="Test" type="Control"]
 layout_mode = 3
@@ -12,6 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1brqb")
+metadata/_edit_lock_ = true
 
 [node name="TestApi" type="Button" parent="."]
 layout_mode = 0
@@ -62,5 +67,58 @@ offset_bottom = 384.0
 bbcode_enabled = true
 script = ExtResource("2_e4qf0")
 
+[node name="NewDeck" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 608.0
+offset_right = 664.0
+offset_bottom = 639.0
+placeholder_text = "Nova Categoria"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 648.0
+offset_right = 604.0
+offset_bottom = 679.0
+text = "criar"
+script = ExtResource("4_4pls2")
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 432.0
+offset_right = 544.0
+offset_bottom = 452.0
+script = ExtResource("5_6ke0q")
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 464.0
+offset_right = 609.0
+offset_bottom = 495.0
+text = "delete deck"
+script = ExtResource("6_1mvyy")
+
+[node name="OptionButton2" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 384.0
+offset_right = 544.0
+offset_bottom = 404.0
+script = ExtResource("7_pot2d")
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 504.0
+offset_right = 688.0
+offset_bottom = 535.0
+text = "add selected word to deck"
+
 [connection signal="pressed" from="TestApi" to="." method="_on_test_api_pressed"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
+[connection signal="pressed" from="Button3" to="Button3" method="_on_pressed"]
+[connection signal="pressed" from="Button4" to="OptionButton2" method="_on_button_4_pressed"]

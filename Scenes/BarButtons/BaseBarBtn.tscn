@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://wv7webjyd443"]
+
+[ext_resource type="Script" path="res://Scenes/BarButtons/base_bar_btn.gd" id="1_nnhex"]
+[ext_resource type="Texture2D" uid="uid://c1t7mrm8ppo7v" path="res://Assets/Home.svg" id="2_4frfk"]
+
+[node name="BaseBarBtn" type="Button"]
+offset_right = 56.0
+offset_bottom = 64.0
+size_flags_horizontal = 6
+size_flags_vertical = 3
+flat = true
+script = ExtResource("1_nnhex")
+
+[node name="IconSVG" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(51, 51)
+layout_mode = 0
+offset_right = 56.0
+offset_bottom = 51.0
+texture = ExtResource("2_4frfk")
+stretch_mode = 4
+
+[node name="Current" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 56.0
+offset_right = 56.0
+offset_bottom = 64.0
+color = Color(0.278431, 0.741176, 0.658824, 1)

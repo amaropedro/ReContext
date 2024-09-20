@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdlafwkat3rfd"]
+
+[ext_resource type="Script" path="res://Autoload/meta.gd" id="1_ot78v"]
+
+[node name="Meta" type="Node"]
+script = ExtResource("1_ot78v")

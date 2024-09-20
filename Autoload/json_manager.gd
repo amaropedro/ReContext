@@ -1,9 +1,20 @@
 extends Node
 
-const path = "res://Decks/AllWords.json"
-const deck_folder = "res://Decks/"
+const deck_folder = "user://Decks/"
+const path = deck_folder + "AllWords.json"
 
 signal word_added
+
+func _ready() -> void:
+	verify_save_dir()
+
+func verify_save_dir():
+	DirAccess.make_dir_absolute(deck_folder)
+	if !FileAccess.file_exists(path):
+		var file = FileAccess.open(path, FileAccess.WRITE)
+		var dict = {}
+		file.store_string(JSON.stringify(dict, "\t"))
+		file.close()
 
 func add_card(front: String, back: String) -> bool:
 	var file = FileAccess.open(path, FileAccess.READ_WRITE)

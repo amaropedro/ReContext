@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://28cgr1b5gr3d"]
+
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_ltsr1"]
+[ext_resource type="PackedScene" uid="uid://wv7webjyd443" path="res://Scenes/BarButtons/BaseBarBtn.tscn" id="1_op4ys"]
+[ext_resource type="Texture2D" uid="uid://c1t7mrm8ppo7v" path="res://Assets/Home.svg" id="3_32c14"]
+[ext_resource type="Texture2D" uid="uid://dbon8y68ds740" path="res://Assets/Cards.svg" id="4_dt2t0"]
+[ext_resource type="Texture2D" uid="uid://dwcrnf02vwhmu" path="res://Assets/List.svg" id="5_xp04p"]
+[ext_resource type="Texture2D" uid="uid://deo5mfctfpsvp" path="res://Assets/Group.svg" id="6_yrngx"]
+[ext_resource type="Texture2D" uid="uid://bkl0ebfj86cnv" path="res://Assets/Plus.svg" id="7_75f6f"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ltsr1")
+
+[node name="RenderedScene" type="CanvasLayer" parent="."]
+
+[node name="BottomBar" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="BottomBar"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+color = Color(0.964706, 0.968627, 0.984314, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomBar"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BottomBar/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+alignment = 1
+
+[node name="Home" parent="BottomBar/VBoxContainer/HBoxContainer" instance=ExtResource("1_op4ys")]
+layout_mode = 2
+icon_file = ExtResource("3_32c14")
+
+[node name="Play" parent="BottomBar/VBoxContainer/HBoxContainer" instance=ExtResource("1_op4ys")]
+layout_mode = 2
+icon_file = ExtResource("4_dt2t0")
+
+[node name="List" parent="BottomBar/VBoxContainer/HBoxContainer" instance=ExtResource("1_op4ys")]
+layout_mode = 2
+icon_file = ExtResource("5_xp04p")
+
+[node name="Decks" parent="BottomBar/VBoxContainer/HBoxContainer" instance=ExtResource("1_op4ys")]
+layout_mode = 2
+icon_file = ExtResource("6_yrngx")
+
+[node name="Add" parent="BottomBar/VBoxContainer/HBoxContainer" instance=ExtResource("1_op4ys")]
+layout_mode = 2
+icon_file = ExtResource("7_75f6f")

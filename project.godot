@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ReContext"
-run/main_scene="res://Test/test.tscn"
+run/main_scene="res://Autoload/Main.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 HttpManager="*res://Autoload/httpManager.tscn"
 JsonManager="*res://Autoload/json_manager.gd"
 Meta="*res://Autoload/Meta.gd"
+Main="*res://Autoload/Main.tscn"
 
 [display]
 

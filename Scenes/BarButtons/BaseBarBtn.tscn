@@ -4,27 +4,36 @@
 [ext_resource type="Texture2D" uid="uid://c1t7mrm8ppo7v" path="res://Assets/Home.svg" id="2_4frfk"]
 
 [node name="BaseBarBtn" type="Button"]
-custom_minimum_size = Vector2(40, 48)
-offset_right = 40.0
-offset_bottom = 48.0
+custom_minimum_size = Vector2(60, 72)
+offset_right = 60.0
+offset_bottom = 72.0
 size_flags_horizontal = 6
 size_flags_vertical = 3
 flat = true
 script = ExtResource("1_nnhex")
 
 [node name="IconSVG" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_right = 30.0
+offset_bottom = 60.0
+grow_horizontal = 2
 texture = ExtResource("2_4frfk")
 expand_mode = 2
 stretch_mode = 4
 
 [node name="Current" type="ColorRect" parent="."]
-layout_mode = 0
-offset_top = 40.0
-offset_right = 40.0
-offset_bottom = 48.0
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
 color = Color(0.278431, 0.741176, 0.658824, 1)
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

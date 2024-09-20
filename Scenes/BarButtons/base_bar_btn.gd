@@ -7,13 +7,14 @@ class_name NavBtn
 
 @onready var current: ColorRect = $Current
 @onready var icon_svg: TextureRect = $IconSVG
+@onready var main: Control = $"../../../.."
 
 func _ready() -> void:
 	icon_svg.texture = icon_file
 	set_enabled(false)
 
 func set_enabled(value: bool):
-	current.visible = value
+	current.call_deferred("set_visible", value)
 	
 	if value:
 		icon_svg.modulate = Color(Meta.COLORS["Green"], 1)
@@ -23,5 +24,5 @@ func set_enabled(value: bool):
 
 func _on_pressed() -> void:
 	if page != null:
-		Main.render(page, self)
+		main.render(page)
 		set_enabled(true)

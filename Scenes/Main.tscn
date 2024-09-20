@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://28cgr1b5gr3d"]
 
-[ext_resource type="Script" path="res://Autoload/main.gd" id="1_ltsr1"]
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_ltsr1"]
 [ext_resource type="PackedScene" uid="uid://wv7webjyd443" path="res://Scenes/BarButtons/BaseBarBtn.tscn" id="1_op4ys"]
 [ext_resource type="Texture2D" uid="uid://c1t7mrm8ppo7v" path="res://Assets/Home.svg" id="3_32c14"]
 [ext_resource type="Texture2D" uid="uid://dbon8y68ds740" path="res://Assets/Cards.svg" id="4_dt2t0"]

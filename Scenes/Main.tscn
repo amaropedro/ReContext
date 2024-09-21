@@ -2,10 +2,10 @@
 
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="1_7inlb"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_ltsr1"]
-[ext_resource type="PackedScene" uid="uid://wv7webjyd443" path="res://Scenes/BarButtons/BaseBarBtn.tscn" id="1_op4ys"]
+[ext_resource type="PackedScene" uid="uid://wv7webjyd443" path="res://Scenes/Components/BaseBarBtn.tscn" id="1_op4ys"]
 [ext_resource type="Texture2D" uid="uid://c1t7mrm8ppo7v" path="res://Assets/Home.svg" id="3_32c14"]
 [ext_resource type="Texture2D" uid="uid://dbon8y68ds740" path="res://Assets/Cards.svg" id="4_dt2t0"]
-[ext_resource type="PackedScene" uid="uid://ddy1t5ppfrpth" path="res://Test/test.tscn" id="4_qwasr"]
+[ext_resource type="PackedScene" uid="uid://btr3inifrxa8h" path="res://Scenes/Home.tscn" id="5_oe7lw"]
 [ext_resource type="Texture2D" uid="uid://dwcrnf02vwhmu" path="res://Assets/List.svg" id="5_xp04p"]
 [ext_resource type="Texture2D" uid="uid://deo5mfctfpsvp" path="res://Assets/Group.svg" id="6_yrngx"]
 [ext_resource type="Texture2D" uid="uid://bkl0ebfj86cnv" path="res://Assets/Plus.svg" id="7_75f6f"]
@@ -72,7 +72,7 @@ alignment = 1
 [node name="Home" parent="BottomNavBar/NavBarContainer/NavBar" instance=ExtResource("1_op4ys")]
 layout_mode = 2
 icon_file = ExtResource("3_32c14")
-page = ExtResource("4_qwasr")
+page = ExtResource("5_oe7lw")
 
 [node name="Play" parent="BottomNavBar/NavBarContainer/NavBar" instance=ExtResource("1_op4ys")]
 layout_mode = 2

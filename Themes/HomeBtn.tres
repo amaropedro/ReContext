@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://vdp0ma3noevw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5yeor"]
+bg_color = Color(0.964706, 0.968627, 0.984314, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.25098)
+shadow_size = 1
+shadow_offset = Vector2(0, 2)
+
+[resource]
+Panel/styles/panel = SubResource("StyleBoxFlat_5yeor")

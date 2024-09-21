@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://wv7webjyd443"]
 
 [ext_resource type="Script" path="res://Scenes/Components/base_bar_btn.gd" id="1_nnhex"]
-[ext_resource type="Texture2D" uid="uid://c1t7mrm8ppo7v" path="res://Assets/Home.svg" id="2_4frfk"]
+[ext_resource type="Texture2D" uid="uid://dkvkic830pjlg" path="res://Assets/Home.svg" id="2_4frfk"]
 
 [node name="BaseBarBtn" type="Button"]
 custom_minimum_size = Vector2(60, 72)

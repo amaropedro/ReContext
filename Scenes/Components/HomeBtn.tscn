@@ -1,24 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://chtapnkoca6b5"]
+[gd_scene load_steps=5 format=3 uid="uid://chtapnkoca6b5"]
 
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="1_e4dqm"]
+[ext_resource type="Script" path="res://Scenes/Components/home_btn.gd" id="2_0nfd1"]
 [ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="2_3kguf"]
 [ext_resource type="Texture2D" uid="uid://dbon8y68ds740" path="res://Assets/Cards.svg" id="2_frqud"]
 
-[node name="HomeBtn" type="Button"]
+[node name="Panel" type="Panel"]
 custom_minimum_size = Vector2(280, 240)
-theme = ExtResource("1_e4dqm")
-flat = true
-
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -440.0
+offset_bottom = -1040.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_3kguf")
+script = ExtResource("2_0nfd1")
 
-[node name="Container" type="Control" parent="."]
+[node name="HomeBtn" type="Button" parent="."]
+custom_minimum_size = Vector2(280, 240)
+offset_right = 280.0
+offset_bottom = 240.0
+theme = ExtResource("1_e4dqm")
+
+[node name="Container" type="VBoxContainer" parent="HomeBtn"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,29 +37,21 @@ offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Icon" type="TextureRect" parent="Container"]
+[node name="Icon" type="TextureRect" parent="HomeBtn/Container"]
 modulate = Color(0.278431, 0.741176, 0.658824, 1)
 custom_minimum_size = Vector2(140, 120)
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -50.0
-offset_right = 50.0
-offset_bottom = 56.0
-grow_horizontal = 2
+layout_mode = 2
 texture = ExtResource("2_frqud")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Name" type="RichTextLabel" parent="Container"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -48.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="MarginContainer" type="MarginContainer" parent="HomeBtn/Container"]
+layout_mode = 2
+
+[node name="Name" type="RichTextLabel" parent="HomeBtn/Container"]
+custom_minimum_size = Vector2(0, 84)
+layout_mode = 2
 bbcode_enabled = true
-text = "[center][color=47BDA8][font_size=30]NAME"
+text = "[center][color=47BDA8][font_size=30]LISTA DE PALAVRAS"
+
+[connection signal="pressed" from="HomeBtn" to="." method="_on_home_btn_pressed"]

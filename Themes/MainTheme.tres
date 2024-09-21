@@ -4,7 +4,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1rnvp"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_keav8"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_574r3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tijuo"]
 
@@ -13,6 +13,6 @@
 [resource]
 Button/styles/disabled = SubResource("StyleBoxEmpty_gf1bs")
 Button/styles/focus = SubResource("StyleBoxEmpty_1rnvp")
-Button/styles/hover = SubResource("StyleBoxEmpty_keav8")
+Button/styles/hover = SubResource("StyleBoxEmpty_574r3")
 Button/styles/normal = SubResource("StyleBoxEmpty_tijuo")
 Button/styles/pressed = SubResource("StyleBoxEmpty_6c4i0")

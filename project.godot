@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 HttpManager="*res://Autoload/httpManager.tscn"
 JsonManager="*res://Autoload/json_manager.gd"
-Meta="*res://Autoload/Meta.gd"
+Meta="*res://Autoload/Meta.tscn"
 
 [display]
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjj87jfo810oo"]
+[gd_scene load_steps=8 format=3 uid="uid://bjj87jfo810oo"]
 
 [ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="1_m886k"]
 [ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="2_kea7k"]
 [ext_resource type="Theme" uid="uid://c253vp51ejqap" path="res://Themes/LineEditTheme.tres" id="3_uj3x4"]
+[ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="4_5aj18"]
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="4_pdp1e"]
 [ext_resource type="Script" path="res://Scenes/Scripts/AddWord.gd" id="5_erwkn"]
 
@@ -96,7 +97,7 @@ fit_content = true
 [node name="FrontInput" type="LineEdit" parent="VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
-placeholder_text = "    English Word"
+placeholder_text = "English Word"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
@@ -111,7 +112,7 @@ fit_content = true
 [node name="BackInput" type="LineEdit" parent="VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
-placeholder_text = "    Palavra em Português"
+placeholder_text = "Palavra em Português"
 
 [node name="AddWordBtn" type="Panel" parent="VBoxContainer/Panel"]
 custom_minimum_size = Vector2(0, 32)
@@ -129,6 +130,7 @@ grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_q5eaj")
+script = ExtResource("4_5aj18")
 
 [node name="AddBtn" type="Button" parent="VBoxContainer/Panel/AddWordBtn"]
 layout_mode = 1

@@ -4,8 +4,7 @@ extends Button
 @onready var back_input: LineEdit = $"../../VBoxContainer/BackInput"
 
 func _on_pressed() -> void:
-	if front_input.text != '' && back_input.text != '':
-		JsonManager.add_card(front_input.text, back_input.text)
-		return
-	
-	print("Erro: insira nos campos frente e verso")
+	JsonManager.add_card(front_input.text, back_input.text)
+
+func _process(_delta: float) -> void:
+	disabled = !(front_input.text != '' && back_input.text != '')

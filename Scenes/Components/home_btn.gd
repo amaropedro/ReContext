@@ -12,4 +12,4 @@ func _ready() -> void:
 	name_btn.text += card_name
 
 func _on_home_btn_pressed() -> void:
-	get_parent().get_parent().get_parent().get_parent().btn_dict[card_name]._on_pressed()
+	SceneManager.main.btn_dict[card_name]._on_pressed()

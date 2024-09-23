@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 HttpManager="*res://Autoload/httpManager.tscn"
 JsonManager="*res://Autoload/json_manager.gd"
 Meta="*res://Autoload/Meta.tscn"
+SceneManager="*res://Autoload/sceneManager.tscn"
 
 [display]
 

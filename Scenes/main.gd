@@ -19,6 +19,7 @@ extends Control
 
 func _ready() -> void:
 	home._on_pressed()
+	SceneManager.main = self
 
 func clear_selected_btn():
 	for child in nav_bar.get_children():

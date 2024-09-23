@@ -1,0 +1,164 @@
+[gd_scene load_steps=8 format=3 uid="uid://b0ei7dbjr4xef"]
+
+[ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="2_le10t"]
+[ext_resource type="Theme" uid="uid://c253vp51ejqap" path="res://Themes/LineEditTheme.tres" id="3_cbmhv"]
+[ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="4_6glu4"]
+[ext_resource type="Texture2D" uid="uid://crtrny11c6j0s" path="res://Assets/List.svg" id="4_hm4ju"]
+[ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="5_ylbot"]
+[ext_resource type="Script" path="res://Scenes/Scripts/word_list.gd" id="6_51wm0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5eaj"]
+bg_color = Color(0.278431, 0.741176, 0.658824, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="AddWords" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_top = 32.0
+offset_right = 360.0
+offset_bottom = 1152.0
+grow_horizontal = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_right = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="IconSVG" type="TextureRect" parent="VBoxContainer/Control"]
+modulate = Color(0.278431, 0.741176, 0.658824, 1)
+layout_mode = 1
+offset_right = 124.0
+offset_bottom = 60.0
+texture = ExtResource("4_hm4ju")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[left][color=47BDA8][font_size=64] Lista de Palavras"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(640, 200)
+layout_mode = 2
+theme = ExtResource("2_le10t")
+
+[node name="Search" type="LineEdit" parent="VBoxContainer/Panel"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 24.0
+offset_top = 32.0
+offset_right = -24.0
+offset_bottom = 96.0
+grow_horizontal = 2
+theme = ExtResource("3_cbmhv")
+placeholder_text = "    Pesquisar Palavra"
+
+[node name="GotoAddWordBtn" type="Panel" parent="VBoxContainer/Panel"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -72.0
+offset_right = 296.0
+offset_bottom = -16.0
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_q5eaj")
+
+[node name="GotoAddBtn" type="Button" parent="VBoxContainer/Panel/GotoAddWordBtn"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_6glu4")
+theme_override_font_sizes/font_size = 24
+text = "Nova Palavra"
+icon = ExtResource("5_ylbot")
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="WordList" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(640, 700)
+layout_mode = 2
+theme = ExtResource("2_le10t")
+script = ExtResource("6_51wm0")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/WordList"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/WordList/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/WordList/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="Header" type="GridContainer" parent="VBoxContainer/WordList/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 8
+columns = 2
+
+[node name="Back" type="RichTextLabel" parent="VBoxContainer/WordList/ScrollContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center][color=8D8D8D]Portugês"
+
+[node name="Front" type="RichTextLabel" parent="VBoxContainer/WordList/ScrollContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center][color=8D8D8D]Inglês"

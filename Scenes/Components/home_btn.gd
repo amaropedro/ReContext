@@ -4,7 +4,7 @@ extends Panel
 @export var card_name: String
 
 @onready var icon_btn: TextureRect = $HomeBtn/Container/Icon
-@onready var name_btn: RichTextLabel = $HomeBtn/Container/Name
+@onready var name_btn: RichTextLabel = $HomeBtn/Container/VBoxContainer/Name
 
 func _ready() -> void:
 	icon_btn.texture = icon_svg

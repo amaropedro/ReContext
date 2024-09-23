@@ -49,10 +49,15 @@ stretch_mode = 5
 [node name="MarginContainer" type="MarginContainer" parent="HomeBtn/Container"]
 layout_mode = 2
 
-[node name="Name" type="RichTextLabel" parent="HomeBtn/Container"]
-custom_minimum_size = Vector2(0, 84)
+[node name="VBoxContainer" type="VBoxContainer" parent="HomeBtn/Container"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="HomeBtn/Container/VBoxContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[center][color=47BDA8][font_size=30]LISTA DE PALAVRAS"
+text = "[center][color=47BDA8][font_size=30]JOGAR"
+fit_content = true
 
 [connection signal="pressed" from="HomeBtn" to="." method="_on_home_btn_pressed"]

@@ -14,7 +14,8 @@ extends Control
 	"CATEGORIAS": decks,
 	"LISTA DE PALAVRAS": list,
 	"ADICIONAR PALAVRAS": add,
-	"COMO USAR": home
+	"COMO USAR": home,
+	"SOBRE": home
 }
 
 func _ready() -> void:

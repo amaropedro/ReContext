@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4vtraln6sqkm"]
+[gd_scene load_steps=13 format=3 uid="uid://b4vtraln6sqkm"]
 
 [ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="1_t10sh"]
 [ext_resource type="Texture2D" uid="uid://djkinp8vgm08l" path="res://Assets/Ellipse.svg" id="2_qend3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://c253vp51ejqap" path="res://Themes/LineEditTheme.tres" id="4_o6oq3"]
 [ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="5_ivims"]
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="6_06bgv"]
+[ext_resource type="PackedScene" uid="uid://dy4gf7t6n5uc0" path="res://Scenes/Components/DeckSelectBtn.tscn" id="6_rbkyp"]
 [ext_resource type="Script" path="res://Scenes/Scripts/add_to_deck_btn.gd" id="7_234ks"]
 [ext_resource type="Script" path="res://Scenes/Scripts/AddWord.gd" id="7_bi44i"]
 [ext_resource type="Texture2D" uid="uid://ce6y8an4ut4t4" path="res://Assets/Arrow.svg" id="8_yfawe"]
@@ -161,7 +162,14 @@ layout_mode = 2
 placeholder_text = "Pesquisar Categoria"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="DeckSelectBtn" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("6_rbkyp")]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 144)
 layout_mode = 2
 
 [node name="AddWordBtn" type="Panel" parent="VBoxContainer/Panel"]
@@ -173,9 +181,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -288.0
-offset_top = -84.0
+offset_top = -60.0
 offset_right = -16.0
-offset_bottom = -28.0
+offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 8
@@ -211,9 +219,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -288.0
-offset_top = -156.0
+offset_top = -132.0
 offset_right = -16.0
-offset_bottom = -100.0
+offset_bottom = -76.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 8

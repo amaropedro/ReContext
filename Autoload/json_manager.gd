@@ -109,3 +109,7 @@ func add_to_deck(front: String, back: String, deckName: String):
 	file.close()
 	print('Palavra já está nesse deck')
 	return false
+
+func add_temp_card_to_deck(deckName):
+	var front = newWord.keys()[0]
+	add_to_deck(front, newWord[front], deckName)

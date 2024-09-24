@@ -1,6 +1,11 @@
-extends ItemList
+extends ScrollContainer
 
-class_name DecKSelectBtn
+class_name DeckList
+
+@onready var v_box_container: VBoxContainer = $VBoxContainer
+
+const item = preload("res://Scenes/Components/SelectableLine.tscn")
+@export var selected: Array[String] = []
 
 func _ready() -> void:
 	var decks = JsonManager.get_decks()
@@ -12,12 +17,20 @@ func _ready() -> void:
 		add_item(d)
 
 func add_to_selected_decks():
-	var items = get_selected_items()
-	for i in items:
-		var deck_name = get_item_text(i)
-		JsonManager.add_temp_card_to_deck(deck_name)
+	for i in selected:
+		JsonManager.add_temp_card_to_deck(i)
 	
 	JsonManager.save_temp_card()
+
+func is_anything_selected():
+	return selected.is_empty()
+
+func add_item(deckName: String):
+	var line = item.instantiate()
+	line.deck = true
+	line.text_1 = deckName
+	line.text_2 = "n"
+	v_box_container.add_child(line)
 
 func _process(_delta: float) -> void:
 	pass

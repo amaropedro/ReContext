@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://d2otcyr4v4nk2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_treb2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3quag"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gwr14"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_idi3l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1j0ur"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_icfn5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_55ihv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4xplu"]
+
+[resource]
+CheckBox/styles/disabled = SubResource("StyleBoxEmpty_treb2")
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_3quag")
+CheckBox/styles/hover = SubResource("StyleBoxEmpty_gwr14")
+ItemList/colors/font_color = Color(0, 0, 0, 1)
+ItemList/colors/font_hovered_color = Color(0, 0, 0, 1)
+ItemList/colors/font_selected_color = Color(0.278431, 0.741176, 0.658824, 1)
+ItemList/colors/guide_color = Color(0.552941, 0.552941, 0.552941, 1)
+ItemList/styles/cursor = SubResource("StyleBoxEmpty_idi3l")
+ItemList/styles/focus = SubResource("StyleBoxEmpty_1j0ur")
+ItemList/styles/panel = SubResource("StyleBoxEmpty_icfn5")
+ItemList/styles/selected = SubResource("StyleBoxEmpty_55ihv")
+ItemList/styles/selected_focus = SubResource("StyleBoxEmpty_4xplu")

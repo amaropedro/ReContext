@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="5_ivims"]
 [ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="6_4aaxh"]
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="6_06bgv"]
-[ext_resource type="PackedScene" uid="uid://dy4gf7t6n5uc0" path="res://Scenes/Components/DeckSelectBtn.tscn" id="6_rbkyp"]
+[ext_resource type="PackedScene" uid="uid://dy4gf7t6n5uc0" path="res://Scenes/Components/DeckList.tscn" id="6_rbkyp"]
 [ext_resource type="Script" path="res://Scenes/Scripts/add_to_deck_btn.gd" id="7_234ks"]
 [ext_resource type="Script" path="res://Scenes/Scripts/AddWord.gd" id="7_bi44i"]
 [ext_resource type="Texture2D" uid="uid://ce6y8an4ut4t4" path="res://Assets/Arrow.svg" id="8_yfawe"]
@@ -166,7 +166,7 @@ placeholder = "Pesquisar Categoria"
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
-[node name="DeckSelectBtn" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("6_rbkyp")]
+[node name="DeckList" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("6_rbkyp")]
 layout_mode = 2
 
 [node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/Panel/VBoxContainer"]

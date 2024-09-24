@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="3_14r60"]
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="4_mqsyu"]
 [ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="5_lauks"]
-[ext_resource type="PackedScene" uid="uid://dy4gf7t6n5uc0" path="res://Scenes/Components/DeckSelectBtn.tscn" id="6_egw3a"]
+[ext_resource type="PackedScene" uid="uid://dy4gf7t6n5uc0" path="res://Scenes/Components/DeckList.tscn" id="6_egw3a"]
 [ext_resource type="Script" path="res://Scenes/Scripts/goto_cat_btn.gd" id="6_tx6h3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5eaj"]
@@ -120,17 +120,12 @@ script = ExtResource("6_tx6h3")
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="CatList" type="Panel" parent="VBoxContainer"]
+[node name="DeckListPanel" type="Panel" parent="VBoxContainer"]
 custom_minimum_size = Vector2(640, 700)
 layout_mode = 2
 theme = ExtResource("2_wno41")
 
-[node name="DeckSelectBtn" parent="VBoxContainer/CatList" instance=ExtResource("6_egw3a")]
+[node name="DeckList" parent="VBoxContainer/DeckListPanel" instance=ExtResource("6_egw3a")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [connection signal="pressed" from="VBoxContainer/Panel/GotoAddCatBtn/GotoCatBtn" to="VBoxContainer/Panel/GotoAddCatBtn/GotoCatBtn" method="_on_pressed"]

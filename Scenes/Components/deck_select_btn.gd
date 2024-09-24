@@ -31,6 +31,7 @@ func add_item(deckName: String):
 	line.text_1 = deckName
 	line.text_2 = "n"
 	v_box_container.add_child(line)
+	v_box_container.add_child(MarginContainer.new())
 
 func _process(_delta: float) -> void:
 	pass

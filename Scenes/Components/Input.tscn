@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://buf31y3lahf5b"]
+
+[ext_resource type="Theme" uid="uid://c253vp51ejqap" path="res://Themes/LineEditTheme.tres" id="1_ugpes"]
+[ext_resource type="Script" path="res://Scenes/Components/input.gd" id="2_kpcko"]
+
+[node name="Input" type="LineEdit"]
+custom_minimum_size = Vector2(0, 64)
+theme = ExtResource("1_ugpes")
+placeholder_text = "Palavra em Português"
+script = ExtResource("2_kpcko")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c253vp51ejqap"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c253vp51ejqap"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lv7nt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x65jw"]
 content_margin_left = 16.0
@@ -17,4 +19,5 @@ corner_radius_bottom_left = 5
 LineEdit/colors/font_color = Color(0, 0, 0, 1)
 LineEdit/colors/font_placeholder_color = Color(0.552941, 0.552941, 0.552941, 1)
 LineEdit/font_sizes/font_size = 20
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_lv7nt")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_x65jw")

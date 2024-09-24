@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b0ei7dbjr4xef"]
 
 [ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="2_le10t"]
-[ext_resource type="Theme" uid="uid://c253vp51ejqap" path="res://Themes/LineEditTheme.tres" id="3_cbmhv"]
+[ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="3_ap7w7"]
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="4_6glu4"]
 [ext_resource type="Texture2D" uid="uid://crtrny11c6j0s" path="res://Assets/List.svg" id="4_hm4ju"]
 [ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="5_ylbot"]
@@ -72,8 +72,7 @@ custom_minimum_size = Vector2(640, 200)
 layout_mode = 2
 theme = ExtResource("2_le10t")
 
-[node name="Search" type="LineEdit" parent="VBoxContainer/Panel"]
-custom_minimum_size = Vector2(0, 64)
+[node name="Input" parent="VBoxContainer/Panel" instance=ExtResource("3_ap7w7")]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -82,8 +81,7 @@ offset_top = 32.0
 offset_right = -24.0
 offset_bottom = 96.0
 grow_horizontal = 2
-theme = ExtResource("3_cbmhv")
-placeholder_text = "Pesquisar Palavra"
+placeholder = "Pesquisar Palavra"
 
 [node name="GotoAddWordBtn" type="Panel" parent="VBoxContainer/Panel"]
 custom_minimum_size = Vector2(0, 32)

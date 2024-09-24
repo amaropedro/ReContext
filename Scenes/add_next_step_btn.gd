@@ -1,7 +1,7 @@
 extends Button
 
-@onready var front_input: LineEdit = $"../../VBoxContainer/FrontInput"
-@onready var back_input: LineEdit = $"../../VBoxContainer/BackInput"
+@onready var front_input: LineEdit = $"../../VBoxContainer/FInput"
+@onready var back_input: LineEdit = $"../../VBoxContainer/BInput"
 
 const addToDeck = preload("res://Scenes/AddWordsToDeck.tscn")
 

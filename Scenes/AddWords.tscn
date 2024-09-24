@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bjj87jfo810oo"]
+[gd_scene load_steps=10 format=3 uid="uid://bjj87jfo810oo"]
 
 [ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="1_m886k"]
 [ext_resource type="Texture2D" uid="uid://djkinp8vgm08l" path="res://Assets/Ellipse.svg" id="2_a6j0w"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://c253vp51ejqap" path="res://Themes/LineEditTheme.tres" id="3_uj3x4"]
 [ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="4_5aj18"]
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="4_pdp1e"]
+[ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="5_ep2ny"]
 [ext_resource type="Script" path="res://Scenes/add_next_step_btn.gd" id="7_a0jgg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5eaj"]
@@ -116,10 +117,9 @@ bbcode_enabled = true
 text = "[color=black][font_size={18}]Palavra em Inglês (Frente): "
 fit_content = true
 
-[node name="FrontInput" type="LineEdit" parent="VBoxContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 64)
+[node name="FInput" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("5_ep2ny")]
 layout_mode = 2
-placeholder_text = "English Word"
+placeholder = "Palavra em Inglês"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
@@ -131,10 +131,9 @@ bbcode_enabled = true
 text = "[color=black][font_size={18}]Tradução em Português (Verso):"
 fit_content = true
 
-[node name="BackInput" type="LineEdit" parent="VBoxContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 64)
+[node name="BInput" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("5_ep2ny")]
 layout_mode = 2
-placeholder_text = "Palavra em Português"
+placeholder = "Palavra em Português"
 
 [node name="AddWordBtn" type="Panel" parent="VBoxContainer/Panel"]
 custom_minimum_size = Vector2(0, 32)

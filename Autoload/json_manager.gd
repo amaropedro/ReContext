@@ -4,6 +4,7 @@ const deck_folder = "user://Decks/"
 const path = deck_folder + "AllWords.json"
 
 var newWord = {}
+var newDeck = ""
 
 signal word_added
 
@@ -57,6 +58,13 @@ func iterate_deck(deck):
 		var values = all_words.keys()
 		for word in values:
 			print(word, " ", all_words[word])
+
+func create_temp_deck(deckName: String):
+	newDeck = deckName
+
+func save_temp_deck():
+	new_deck(newDeck)
+	newDeck = ""
 
 func new_deck(DeckName: String) -> bool:
 	var new_deck_path = deck_folder + DeckName.capitalize() + ".json"
@@ -113,3 +121,6 @@ func add_to_deck(front: String, back: String, deckName: String):
 func add_temp_card_to_deck(deckName):
 	var front = newWord.keys()[0]
 	add_to_deck(front, newWord[front], deckName)
+
+func fill_deck():
+	pass

@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjj87jfo810oo"]
+[gd_scene load_steps=11 format=3 uid="uid://bqjc08ymrx7aq"]
 
-[ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="1_m886k"]
-[ext_resource type="Texture2D" uid="uid://djkinp8vgm08l" path="res://Assets/Ellipse.svg" id="2_a6j0w"]
-[ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="2_kea7k"]
-[ext_resource type="Theme" uid="uid://c253vp51ejqap" path="res://Themes/LineEditTheme.tres" id="3_uj3x4"]
-[ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="4_5aj18"]
-[ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="4_pdp1e"]
-[ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="5_ep2ny"]
-[ext_resource type="Script" path="res://Scenes/Scripts/add_next_step_btn.gd" id="7_a0jgg"]
+[ext_resource type="Texture2D" uid="uid://dvf7ipmmmv8k0" path="res://Assets/Group.svg" id="1_5nd63"]
+[ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="1_ni0ga"]
+[ext_resource type="Texture2D" uid="uid://djkinp8vgm08l" path="res://Assets/Ellipse.svg" id="2_fjb03"]
+[ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="3_vylto"]
+[ext_resource type="Theme" uid="uid://c253vp51ejqap" path="res://Themes/LineEditTheme.tres" id="4_r1vqv"]
+[ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="5_gxnxj"]
+[ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="6_3o7nd"]
+[ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="7_dgi3y"]
+[ext_resource type="Script" path="res://Scenes/Scripts/add_deck_next_step_btn.gd" id="9_3rn6g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5eaj"]
 bg_color = Color(0.278431, 0.741176, 0.658824, 1)
@@ -49,7 +50,7 @@ modulate = Color(0.278431, 0.741176, 0.658824, 1)
 layout_mode = 1
 offset_right = 124.0
 offset_bottom = 60.0
-texture = ExtResource("1_m886k")
+texture = ExtResource("1_5nd63")
 expand_mode = 2
 stretch_mode = 4
 
@@ -62,7 +63,7 @@ offset_left = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
-text = "[left][color=47BDA8][font_size=64] Nova Palavra"
+text = "[left][color=47BDA8][font_size=64] Nova Categoria"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -72,7 +73,7 @@ alignment = 1
 modulate = Color(0.415686, 0.886275, 0.772549, 1)
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
-texture = ExtResource("2_a6j0w")
+texture = ExtResource("2_fjb03")
 expand_mode = 2
 stretch_mode = 4
 
@@ -80,7 +81,7 @@ stretch_mode = 4
 modulate = Color(0.964706, 0.968627, 0.984314, 1)
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
-texture = ExtResource("2_a6j0w")
+texture = ExtResource("2_fjb03")
 expand_mode = 2
 stretch_mode = 4
 
@@ -89,9 +90,9 @@ custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(640, 900)
+custom_minimum_size = Vector2(640, 400)
 layout_mode = 2
-theme = ExtResource("2_kea7k")
+theme = ExtResource("3_vylto")
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Panel"]
@@ -105,37 +106,24 @@ offset_left = -31.5
 offset_right = 31.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("3_uj3x4")
+theme = ExtResource("4_r1vqv")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="Front" type="RichTextLabel" parent="VBoxContainer/Panel/VBoxContainer"]
+[node name="Deck" type="RichTextLabel" parent="VBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[color=black][font_size={18}]Palavra em Inglês (Frente): "
+text = "[color=black][font_size={18}]Nome da Categoria"
 fit_content = true
 
-[node name="FInput" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("5_ep2ny")]
+[node name="DeckName" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("5_gxnxj")]
 layout_mode = 2
-placeholder = "Palavra em Inglês"
+placeholder_text = "Categoria 1"
+placeholder = "Categoria 1"
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-
-[node name="Back" type="RichTextLabel" parent="VBoxContainer/Panel/VBoxContainer"]
-layout_mode = 2
-bbcode_enabled = true
-text = "[color=black][font_size={18}]Tradução em Português (Verso):"
-fit_content = true
-
-[node name="BInput" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("5_ep2ny")]
-layout_mode = 2
-placeholder = "Palavra em Português"
-
-[node name="AddWordBtn" type="Panel" parent="VBoxContainer/Panel"]
+[node name="AddDeckBtn" type="Panel" parent="VBoxContainer/Panel"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 1
 anchors_preset = 3
@@ -151,9 +139,9 @@ grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_q5eaj")
-script = ExtResource("4_5aj18")
+script = ExtResource("6_3o7nd")
 
-[node name="AddNextStepBtn" type="Button" parent="VBoxContainer/Panel/AddWordBtn"]
+[node name="AddDeckNextStepBtn" type="Button" parent="VBoxContainer/Panel/AddDeckBtn"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -165,12 +153,12 @@ offset_right = -8.0
 offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("4_pdp1e")
+theme = ExtResource("7_dgi3y")
 theme_override_font_sizes/font_size = 24
-text = "Adicionar à categoria"
-icon = ExtResource("1_m886k")
+text = "Criar Categoria"
+icon = ExtResource("1_ni0ga")
 icon_alignment = 2
 expand_icon = true
-script = ExtResource("7_a0jgg")
+script = ExtResource("9_3rn6g")
 
-[connection signal="pressed" from="VBoxContainer/Panel/AddWordBtn/AddNextStepBtn" to="VBoxContainer/Panel/AddWordBtn/AddNextStepBtn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Panel/AddDeckBtn/AddDeckNextStepBtn" to="VBoxContainer/Panel/AddDeckBtn/AddDeckNextStepBtn" method="_on_pressed"]

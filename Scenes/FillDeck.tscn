@@ -1,17 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4vtraln6sqkm"]
+[gd_scene load_steps=12 format=3 uid="uid://df0mo1isncqev"]
 
-[ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="1_t10sh"]
-[ext_resource type="Texture2D" uid="uid://djkinp8vgm08l" path="res://Assets/Ellipse.svg" id="2_qend3"]
-[ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="3_tu2pg"]
-[ext_resource type="Script" path="res://Scenes/Scripts/new_words_container.gd" id="4_340wd"]
-[ext_resource type="Theme" uid="uid://c253vp51ejqap" path="res://Themes/LineEditTheme.tres" id="4_o6oq3"]
-[ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="5_ivims"]
-[ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="6_4aaxh"]
-[ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="6_06bgv"]
-[ext_resource type="PackedScene" uid="uid://dy4gf7t6n5uc0" path="res://Scenes/Components/DeckSelectBtn.tscn" id="6_rbkyp"]
-[ext_resource type="Script" path="res://Scenes/Scripts/add_to_deck_btn.gd" id="7_234ks"]
-[ext_resource type="Script" path="res://Scenes/Scripts/AddWord.gd" id="7_bi44i"]
-[ext_resource type="Texture2D" uid="uid://ce6y8an4ut4t4" path="res://Assets/Arrow.svg" id="8_yfawe"]
+[ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="1_7t313"]
+[ext_resource type="Texture2D" uid="uid://djkinp8vgm08l" path="res://Assets/Ellipse.svg" id="2_1vmms"]
+[ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="3_nycjx"]
+[ext_resource type="Script" path="res://Scenes/Scripts/new_deck_container.gd" id="4_bqvcm"]
+[ext_resource type="Theme" uid="uid://c253vp51ejqap" path="res://Themes/LineEditTheme.tres" id="5_oi40s"]
+[ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="6_x6f4e"]
+[ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="7_h6y8e"]
+[ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="8_arfao"]
+[ext_resource type="Texture2D" uid="uid://ce6y8an4ut4t4" path="res://Assets/Arrow.svg" id="10_2c7i3"]
+[ext_resource type="Script" path="res://Scenes/Scripts/add_deck_btn.gd" id="10_8tir4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5eaj"]
 bg_color = Color(0.278431, 0.741176, 0.658824, 1)
@@ -53,7 +51,7 @@ modulate = Color(0.278431, 0.741176, 0.658824, 1)
 layout_mode = 1
 offset_right = 124.0
 offset_bottom = 60.0
-texture = ExtResource("1_t10sh")
+texture = ExtResource("1_7t313")
 expand_mode = 2
 stretch_mode = 4
 
@@ -66,7 +64,7 @@ offset_left = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
-text = "[left][color=47BDA8][font_size=58] Adicionar à categoria"
+text = "[left][color=47BDA8][font_size=58] Preencher Categoria"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -76,7 +74,7 @@ alignment = 1
 modulate = Color(0.964706, 0.968627, 0.984314, 1)
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
-texture = ExtResource("2_qend3")
+texture = ExtResource("2_1vmms")
 expand_mode = 2
 stretch_mode = 4
 
@@ -84,7 +82,7 @@ stretch_mode = 4
 modulate = Color(0.415686, 0.886275, 0.772549, 1)
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
-texture = ExtResource("2_qend3")
+texture = ExtResource("2_1vmms")
 expand_mode = 2
 stretch_mode = 4
 
@@ -95,7 +93,7 @@ layout_mode = 2
 [node name="WordsPanel" type="Panel" parent="VBoxContainer"]
 custom_minimum_size = Vector2(640, 300)
 layout_mode = 2
-theme = ExtResource("3_tu2pg")
+theme = ExtResource("3_nycjx")
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/WordsPanel"]
@@ -117,15 +115,15 @@ layout_mode = 2
 [node name="Front" type="RichTextLabel" parent="VBoxContainer/WordsPanel/VBoxContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[color=black][font_size={18}]Palavra(s): "
+text = "[color=black][font_size={18}]Categoria(s): "
 fit_content = true
 
-[node name="NewWordsContainer" type="ScrollContainer" parent="VBoxContainer/WordsPanel/VBoxContainer"]
+[node name="NewDeckContainer" type="ScrollContainer" parent="VBoxContainer/WordsPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("4_340wd")
+script = ExtResource("4_bqvcm")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/WordsPanel/VBoxContainer/NewWordsContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/WordsPanel/VBoxContainer/NewDeckContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -137,7 +135,7 @@ layout_mode = 2
 [node name="Panel" type="Panel" parent="VBoxContainer"]
 custom_minimum_size = Vector2(640, 500)
 layout_mode = 2
-theme = ExtResource("3_tu2pg")
+theme = ExtResource("3_nycjx")
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Panel"]
@@ -151,22 +149,19 @@ offset_left = -31.5
 offset_right = 31.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("4_o6oq3")
+theme = ExtResource("5_oi40s")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="Input" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("6_4aaxh")]
+[node name="Input" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("6_x6f4e")]
 layout_mode = 2
-placeholder_text = "Pesquisar Categoria"
-placeholder = "Pesquisar Categoria"
+placeholder_text = "Pesquisar Palavra"
+placeholder = "Pesquisar Palavra"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 16)
-layout_mode = 2
-
-[node name="DeckSelectBtn" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("6_rbkyp")]
 layout_mode = 2
 
 [node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/Panel/VBoxContainer"]
@@ -189,9 +184,9 @@ grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_q5eaj")
-script = ExtResource("5_ivims")
+script = ExtResource("7_h6y8e")
 
-[node name="AddToDeckBtn" type="Button" parent="VBoxContainer/Panel/AddWordBtn"]
+[node name="FillDeckBtn" type="Button" parent="VBoxContainer/Panel/AddWordBtn"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -203,13 +198,12 @@ offset_right = -8.0
 offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("6_06bgv")
+theme = ExtResource("8_arfao")
 theme_override_font_sizes/font_size = 24
 text = "Adicionar"
-icon = ExtResource("1_t10sh")
+icon = ExtResource("1_7t313")
 icon_alignment = 2
 expand_icon = true
-script = ExtResource("7_234ks")
 
 [node name="SkipBtn" type="Panel" parent="VBoxContainer/Panel"]
 custom_minimum_size = Vector2(0, 32)
@@ -228,7 +222,7 @@ grow_vertical = 0
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_q5eaj")
 
-[node name="AddBtn" type="Button" parent="VBoxContainer/Panel/SkipBtn"]
+[node name="AddDeckBtn" type="Button" parent="VBoxContainer/Panel/SkipBtn"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -240,13 +234,12 @@ offset_right = -8.0
 offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("6_06bgv")
+theme = ExtResource("8_arfao")
 theme_override_font_sizes/font_size = 24
 text = "Pular"
-icon = ExtResource("8_yfawe")
+icon = ExtResource("10_2c7i3")
 icon_alignment = 2
 expand_icon = true
-script = ExtResource("7_bi44i")
+script = ExtResource("10_8tir4")
 
-[connection signal="pressed" from="VBoxContainer/Panel/AddWordBtn/AddToDeckBtn" to="VBoxContainer/Panel/AddWordBtn/AddToDeckBtn" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer/Panel/SkipBtn/AddBtn" to="VBoxContainer/Panel/SkipBtn/AddBtn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Panel/SkipBtn/AddDeckBtn" to="VBoxContainer/Panel/SkipBtn/AddDeckBtn" method="_on_pressed"]

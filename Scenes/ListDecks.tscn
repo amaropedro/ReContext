@@ -1,0 +1,136 @@
+[gd_scene load_steps=9 format=3 uid="uid://pvwrb0013kvv"]
+
+[ext_resource type="Texture2D" uid="uid://dvf7ipmmmv8k0" path="res://Assets/Group.svg" id="1_5q8d3"]
+[ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="2_wno41"]
+[ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="3_14r60"]
+[ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="4_mqsyu"]
+[ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="5_lauks"]
+[ext_resource type="PackedScene" uid="uid://dy4gf7t6n5uc0" path="res://Scenes/Components/DeckSelectBtn.tscn" id="6_egw3a"]
+[ext_resource type="Script" path="res://Scenes/Scripts/goto_cat_btn.gd" id="6_tx6h3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5eaj"]
+bg_color = Color(0.278431, 0.741176, 0.658824, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="ListDecks" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_top = 32.0
+offset_right = 360.0
+offset_bottom = 1152.0
+grow_horizontal = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_right = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="IconSVG" type="TextureRect" parent="VBoxContainer/Control"]
+modulate = Color(0.278431, 0.741176, 0.658824, 1)
+layout_mode = 1
+offset_right = 124.0
+offset_bottom = 60.0
+texture = ExtResource("1_5q8d3")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[left][color=47BDA8][font_size=64] Categorias"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(640, 200)
+layout_mode = 2
+theme = ExtResource("2_wno41")
+
+[node name="Input" parent="VBoxContainer/Panel" instance=ExtResource("3_14r60")]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 24.0
+offset_top = 32.0
+offset_right = -24.0
+offset_bottom = 96.0
+grow_horizontal = 2
+placeholder = "Pesquisar Categoria"
+
+[node name="GotoAddCatBtn" type="Panel" parent="VBoxContainer/Panel"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -72.0
+offset_right = 296.0
+offset_bottom = -16.0
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_q5eaj")
+
+[node name="GotoCatBtn" type="Button" parent="VBoxContainer/Panel/GotoAddCatBtn"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_mqsyu")
+theme_override_font_sizes/font_size = 24
+text = "Nova Categoria"
+icon = ExtResource("5_lauks")
+expand_icon = true
+script = ExtResource("6_tx6h3")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="CatList" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(640, 700)
+layout_mode = 2
+theme = ExtResource("2_wno41")
+
+[node name="DeckSelectBtn" parent="VBoxContainer/CatList" instance=ExtResource("6_egw3a")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="VBoxContainer/Panel/GotoAddCatBtn/GotoCatBtn" to="VBoxContainer/Panel/GotoAddCatBtn/GotoCatBtn" method="_on_pressed"]

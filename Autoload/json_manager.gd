@@ -3,6 +3,8 @@ extends Node
 const deck_folder = "user://Decks/"
 const path = deck_folder + "AllWords.json"
 
+var newWord = {}
+
 signal word_added
 
 func _ready() -> void:
@@ -15,6 +17,14 @@ func verify_save_dir():
 		var dict = {}
 		file.store_string(JSON.stringify(dict, "\t"))
 		file.close()
+
+func create_temp_card(front: String, back: String):
+	newWord.get_or_add(front.capitalize(), back.capitalize())
+
+func save_temp_card():
+	var front = newWord.keys()[0]
+	add_card(front, newWord[front])
+	newWord = {}
 
 func add_card(front: String, back: String) -> bool:
 	var file = FileAccess.open(path, FileAccess.READ_WRITE)

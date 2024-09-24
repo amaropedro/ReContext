@@ -15,7 +15,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="AddWords" type="Control"]
+[node name="ListWords" type="Control"]
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5

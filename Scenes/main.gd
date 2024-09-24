@@ -26,10 +26,11 @@ func clear_selected_btn():
 	for child in nav_bar.get_children():
 		child.set_enabled(false)
 
-func render(scene: PackedScene):
+func render(scene: PackedScene, clear_btn: bool = true):
 	if rendered_scene.get_child_count() > 0:
 		rendered_scene.get_child(0).queue_free()
 	
 	var instance = scene.instantiate()
 	rendered_scene.add_child(instance)
-	clear_selected_btn()
+	if clear_btn:
+		clear_selected_btn()

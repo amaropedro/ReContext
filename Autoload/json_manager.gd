@@ -118,9 +118,15 @@ func add_to_deck(front: String, back: String, deckName: String):
 	print('Palavra já está nesse deck')
 	return false
 
-func add_temp_card_to_deck(deckName):
+func add_temp_card_to_deck(deckName: String):
 	var front = newWord.keys()[0]
 	add_to_deck(front, newWord[front], deckName)
+
+func get_deck_size(deckName: String) -> int:
+	var deck_path = deck_folder + deckName + ".json"
+	var file = FileAccess.open(deck_path, FileAccess.READ_WRITE)
+	var words = JSON.parse_string(file.get_as_text()).keys()
+	return words.size()
 
 func fill_deck():
 	pass

@@ -115,7 +115,7 @@ layout_mode = 2
 [node name="Front" type="RichTextLabel" parent="VBoxContainer/WordsPanel/VBoxContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[color=black][font_size={18}]Categoria(s): "
+text = "[color=black][font_size={24}]Categoria(s): "
 fit_content = true
 
 [node name="NewDeckContainer" type="ScrollContainer" parent="VBoxContainer/WordsPanel/VBoxContainer"]

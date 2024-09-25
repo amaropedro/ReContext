@@ -7,5 +7,5 @@ func _ready() -> void:
 	var word = JsonManager.newDeck
 	
 	var entry = addWordLine.instantiate()
-	entry.text = "[color=black]" + word
+	entry.text = "[color=black][font_size={24}]- " + word
 	v_box_container.add_child(entry)

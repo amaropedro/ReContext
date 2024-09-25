@@ -117,7 +117,7 @@ layout_mode = 2
 [node name="Front" type="RichTextLabel" parent="VBoxContainer/WordsPanel/VBoxContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[color=black][font_size={18}]Palavra(s): "
+text = "[color=black][font_size={24}]Palavra(s): "
 fit_content = true
 
 [node name="NewWordsContainer" type="ScrollContainer" parent="VBoxContainer/WordsPanel/VBoxContainer"]
@@ -135,7 +135,7 @@ custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(640, 500)
+custom_minimum_size = Vector2(640, 600)
 layout_mode = 2
 theme = ExtResource("3_tu2pg")
 metadata/_edit_lock_ = true

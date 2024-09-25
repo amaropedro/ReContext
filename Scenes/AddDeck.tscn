@@ -115,7 +115,7 @@ layout_mode = 2
 [node name="Deck" type="RichTextLabel" parent="VBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[color=black][font_size={18}]Nome da Categoria"
+text = "[color=black][font_size={24}]Nome da Categoria"
 fit_content = true
 
 [node name="DeckName" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("5_gxnxj")]

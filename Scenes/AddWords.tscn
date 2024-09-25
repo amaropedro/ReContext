@@ -114,7 +114,7 @@ layout_mode = 2
 [node name="Front" type="RichTextLabel" parent="VBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[color=black][font_size={18}]Palavra em Inglês (Frente): "
+text = "[color=black][font_size={24}]Palavra em Inglês (Frente): "
 fit_content = true
 
 [node name="FInput" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("5_ep2ny")]
@@ -128,7 +128,7 @@ layout_mode = 2
 [node name="Back" type="RichTextLabel" parent="VBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[color=black][font_size={18}]Tradução em Português (Verso):"
+text = "[color=black][font_size={24}]Tradução em Português (Verso):"
 fit_content = true
 
 [node name="BInput" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("5_ep2ny")]

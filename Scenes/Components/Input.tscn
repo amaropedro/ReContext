@@ -6,6 +6,7 @@
 [node name="Input" type="LineEdit"]
 custom_minimum_size = Vector2(0, 64)
 theme = ExtResource("1_ugpes")
+theme_override_font_sizes/font_size = 24
 placeholder_text = "Palavra em Português"
 script = ExtResource("2_kpcko")
 

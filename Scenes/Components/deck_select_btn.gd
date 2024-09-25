@@ -29,7 +29,7 @@ func add_item(deckName: String):
 	var line = item.instantiate()
 	line.deck = true
 	line.text_1 = deckName
-	line.text_2 = "n"
+	line.text_2 = str(JsonManager.get_deck_size(deckName))
 	v_box_container.add_child(line)
 	v_box_container.add_child(MarginContainer.new())
 

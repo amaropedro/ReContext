@@ -9,5 +9,5 @@ func _ready() -> void:
 	
 	for word in values:
 		var entry = addWordLine.instantiate()
-		entry.text = "[color=black]" + all_words[word]
+		entry.text = "[color=black][font_size={24}]- " + all_words[word]
 		v_box_container.add_child(entry)

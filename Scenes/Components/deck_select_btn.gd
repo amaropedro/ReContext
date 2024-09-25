@@ -13,7 +13,9 @@ func _ready() -> void:
 	if decks.size() == 1:
 		return
 	
-	for d in decks.slice(1):
+	decks.erase("AllWords")
+	
+	for d in decks:
 		add_item(d)
 
 func add_to_selected_decks():

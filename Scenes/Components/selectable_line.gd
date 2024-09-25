@@ -4,7 +4,7 @@ class_name SelectableLine
 
 @export var deck: bool
 
-@onready var deck_list: DeckList = $"../.."
+var deck_list: DeckList
 @onready var col_1: VBoxContainer = $Col1
 @onready var col_2: VBoxContainer = $Col2
 @onready var col_1_text: RichTextLabel = $Col1/Col1Text
@@ -15,10 +15,11 @@ class_name SelectableLine
 @export var text_2: String = "2"
 
 var bbCodeAlign = "[center]"
-var bbCodeColor = "[color=8D8D8D]"
+var bbCodeColor = "[color=black]"
 
 func _ready() -> void:
 	if deck:
+		deck_list = get_parent().get_parent()
 		col_1.custom_minimum_size.x = deck_list.size.x * 0.8 - check_box.size.x
 		col_1.size_flags_horizontal = 2
 		col_2.custom_minimum_size.x = deck_list.size.x * 0.2
@@ -36,12 +37,28 @@ func updade_text():
 	col_2_text.text =bbCodeAlign + bbCodeColor + text_2
 
 func _on_check_box_pressed() -> void:
+	if deck:
+		deck_pressed()
+		return
+	
+	word_pressed()
+
+func deck_pressed():
 	if check_box.button_pressed:
 		bbCodeColor = "[color=47BDA8]"
 		updade_text()
 		deck_list.selected.append(text_1)
 		return
 	
-	bbCodeColor = "[color=8D8D8D]"
+	bbCodeColor = "[color=black]"
 	updade_text()
 	deck_list.selected.erase(text_1)
+
+func word_pressed():
+	if check_box.button_pressed:
+		bbCodeColor = "[color=47BDA8]"
+		updade_text()
+		return
+	
+	bbCodeColor = "[color=black]"
+	updade_text()

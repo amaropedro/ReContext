@@ -5,6 +5,7 @@ class_name SelectableLine
 @export var deck: bool
 
 var deck_list: DeckList
+var word_list: WordList
 @onready var col_1: VBoxContainer = $Col1
 @onready var col_2: VBoxContainer = $Col2
 @onready var col_1_text: RichTextLabel = $Col1/Col1Text
@@ -24,6 +25,8 @@ func _ready() -> void:
 		col_1.size_flags_horizontal = 2
 		col_2.custom_minimum_size.x = deck_list.size.x * 0.2
 		col_2.size_flags_horizontal = 2
+	else:
+		word_list = get_parent().get_parent()
 	
 	updade_text()
 
@@ -58,7 +61,9 @@ func word_pressed():
 	if check_box.button_pressed:
 		bbCodeColor = "[color=47BDA8]"
 		updade_text()
+		word_list.selected.get_or_add(text_2.capitalize(), text_1.capitalize())
 		return
 	
 	bbCodeColor = "[color=black]"
+	word_list.selected.erase(text_2.capitalize())
 	updade_text()

@@ -62,9 +62,11 @@ func iterate_deck(deck):
 func create_temp_deck(deckName: String):
 	newDeck = deckName
 
-func save_temp_deck():
+func save_temp_deck() -> String:
+	var d = newDeck
 	new_deck(newDeck)
 	newDeck = ""
+	return d
 
 func new_deck(DeckName: String) -> bool:
 	var new_deck_path = deck_folder + DeckName.capitalize() + ".json"
@@ -127,6 +129,3 @@ func get_deck_size(deckName: String) -> int:
 	var file = FileAccess.open(deck_path, FileAccess.READ_WRITE)
 	var words = JSON.parse_string(file.get_as_text()).keys()
 	return words.size()
-
-func fill_deck():
-	pass

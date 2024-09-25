@@ -30,7 +30,7 @@ func _ready() -> void:
 func updade_text():
 	# add crop de texto com '...'
 	if deck:
-		col_1_text.text = "[left]" + bbCodeColor + text_1
+		col_1_text.text = "[left]\t" + bbCodeColor + text_1
 	else:
 		col_1_text.text = bbCodeAlign + bbCodeColor + text_1
 	

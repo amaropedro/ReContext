@@ -6,5 +6,5 @@ extends HBoxContainer
 @onready var deck_list: DeckList = $"../.."
 
 func _ready() -> void:
-	deck_name.custom_minimum_size.x = deck_list.size.x * 0.8
+	deck_name.custom_minimum_size.x = deck_list.size.x * 0.8 - 56
 	num_words.custom_minimum_size.x = deck_list.size.x * 0.2

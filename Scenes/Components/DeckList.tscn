@@ -29,13 +29,17 @@ size_flags_vertical = 8
 theme_override_constants/separation = 0
 script = ExtResource("2_te2hj")
 
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Header"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+
 [node name="DeckName" type="RichTextLabel" parent="VBoxContainer/Header"]
 custom_minimum_size = Vector2(512, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 26
 bbcode_enabled = true
-text = "[left][color=8D8D8D]  Categoria"
+text = "[left][color=8D8D8D]	Categoria"
 scroll_active = false
 
 [node name="NumWords" type="RichTextLabel" parent="VBoxContainer/Header"]

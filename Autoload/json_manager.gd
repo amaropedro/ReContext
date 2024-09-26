@@ -19,8 +19,8 @@ func verify_save_dir():
 		file.store_string(JSON.stringify(dict, "\t"))
 		file.close()
 
-func create_temp_card(front: String, back: String):
-	newWord.get_or_add(front.capitalize(), back.capitalize())
+func create_temp_cards(cards: Dictionary):
+	newWord = cards
 
 func save_temp_card():
 	var front = newWord.keys()[0]
@@ -136,9 +136,9 @@ func add_to_deck(front: String, back: String, deckName: String):
 	print('Palavra já está nesse deck')
 	return false
 
-func add_temp_card_to_deck(deckName: String):
-	var front = newWord.keys()[0]
-	add_to_deck(front, newWord[front], deckName)
+func add_temp_cards_to_deck(deckName: String):
+	for front in newWord.keys():
+		add_to_deck(front, newWord[front], deckName)
 
 func get_deck_size(deckName: String) -> int:
 	var deck_path = deck_folder + deckName + ".json"

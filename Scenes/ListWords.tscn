@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b0ei7dbjr4xef"]
+[gd_scene load_steps=17 format=3 uid="uid://b0ei7dbjr4xef"]
 
 [ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="2_le10t"]
 [ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="3_ap7w7"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://uhnfeddhutx" path="res://Assets/Trash.svg" id="9_tgwte"]
 [ext_resource type="Script" path="res://Scenes/Scripts/rmv_btn.gd" id="10_m1ikv"]
 [ext_resource type="Script" path="res://Scenes/Scripts/add_to_specific_deck_btn.gd" id="11_dnk3l"]
+[ext_resource type="Script" path="res://Scenes/Scripts/cancel_rmv_btn.gd" id="12_nk5j2"]
+[ext_resource type="Script" path="res://Scenes/Scripts/confirm_rvm_btn.gd" id="13_78k7m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5eaj"]
 bg_color = Color(0.278431, 0.741176, 0.658824, 1)
@@ -216,6 +218,110 @@ icon = ExtResource("5_ylbot")
 expand_icon = true
 script = ExtResource("11_dnk3l")
 
+[node name="Confirmation" type="CanvasLayer" parent="."]
+layer = 100
+visible = false
+
+[node name="TextureRect" type="ColorRect" parent="Confirmation"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Panel" type="Panel" parent="Confirmation"]
+custom_minimum_size = Vector2(600, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_le10t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Confirmation/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_right = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Confirmation/Panel/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][color=black][font_size={36}]Tem Certeza?"
+fit_content = true
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Confirmation/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Não" type="Panel" parent="Confirmation/Panel/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_yvh4m")
+
+[node name="CancelRmvBtn" type="Button" parent="Confirmation/Panel/VBoxContainer/VBoxContainer/Não"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_6glu4")
+theme_override_font_sizes/font_size = 24
+text = "Cancelar"
+expand_icon = true
+script = ExtResource("12_nk5j2")
+
+[node name="RmvWordBtn" type="Panel" parent="Confirmation/Panel/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ruvf")
+
+[node name="ConfirmRvmBtn" type="Button" parent="Confirmation/Panel/VBoxContainer/VBoxContainer/RmvWordBtn"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_6glu4")
+theme_override_font_sizes/font_size = 24
+text = "Sim, Remover"
+icon = ExtResource("9_tgwte")
+expand_icon = true
+script = ExtResource("13_78k7m")
+
 [connection signal="pressed" from="VBoxContainer/Panel/GotoAddWordBtn/GotoAddBtn" to="VBoxContainer/Panel/GotoAddWordBtn/GotoAddBtn" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/WordList/VBoxContainer/RmvWordBtn/rmvBtn" to="VBoxContainer/WordList/VBoxContainer/RmvWordBtn/rmvBtn" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/WordList/VBoxContainer/AddWordBtn/addToDeckBtn" to="VBoxContainer/WordList/VBoxContainer/AddWordBtn/addToDeckBtn" method="_on_pressed"]
+[connection signal="pressed" from="Confirmation/Panel/VBoxContainer/VBoxContainer/Não/CancelRmvBtn" to="Confirmation/Panel/VBoxContainer/VBoxContainer/Não/CancelRmvBtn" method="_on_pressed"]
+[connection signal="pressed" from="Confirmation/Panel/VBoxContainer/VBoxContainer/RmvWordBtn/ConfirmRvmBtn" to="Confirmation/Panel/VBoxContainer/VBoxContainer/RmvWordBtn/ConfirmRvmBtn" method="_on_pressed"]

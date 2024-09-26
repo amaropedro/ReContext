@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://pvwrb0013kvv"]
+[gd_scene load_steps=19 format=3 uid="uid://pvwrb0013kvv"]
 
 [ext_resource type="Texture2D" uid="uid://dvf7ipmmmv8k0" path="res://Assets/Group.svg" id="1_5q8d3"]
 [ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="2_wno41"]
@@ -7,9 +7,43 @@
 [ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="5_lauks"]
 [ext_resource type="PackedScene" uid="uid://dy4gf7t6n5uc0" path="res://Scenes/Components/DeckList.tscn" id="6_egw3a"]
 [ext_resource type="Script" path="res://Scenes/Scripts/goto_cat_btn.gd" id="6_tx6h3"]
+[ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="8_8cc0s"]
+[ext_resource type="Script" path="res://Scenes/Scripts/cancel_rmv_deck_btn.gd" id="8_gxqgx"]
+[ext_resource type="Texture2D" uid="uid://uhnfeddhutx" path="res://Assets/Trash.svg" id="8_yhtb7"]
+[ext_resource type="Texture2D" uid="uid://ft4woqw7oydh" path="res://Assets/Search.svg" id="10_1b48i"]
+[ext_resource type="Script" path="res://Scenes/Scripts/rmv_deck_btn.gd" id="10_8t8bt"]
+[ext_resource type="Script" path="res://Scenes/Scripts/confirm_rvm_deck_btn.gd" id="10_kqlvb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5eaj"]
 bg_color = Color(0.278431, 0.741176, 0.658824, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1s13g"]
+bg_color = Color(0.839216, 0.180392, 0.180392, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wj086"]
+bg_color = Color(0.278431, 0.741176, 0.658824, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ejvis"]
+bg_color = Color(0.278431, 0.741176, 0.658824, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_llmpv"]
+bg_color = Color(0.839216, 0.180392, 0.180392, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -128,4 +162,174 @@ theme = ExtResource("2_wno41")
 [node name="DeckList" parent="VBoxContainer/DeckListPanel" instance=ExtResource("6_egw3a")]
 layout_mode = 1
 
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/DeckListPanel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -296.0
+offset_top = -128.0
+offset_right = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 1
+
+[node name="RmvDeck" type="Panel" parent="VBoxContainer/DeckListPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_1s13g")
+script = ExtResource("8_8cc0s")
+
+[node name="rmvDeckBtn" type="Button" parent="VBoxContainer/DeckListPanel/VBoxContainer/RmvDeck"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_mqsyu")
+theme_override_font_sizes/font_size = 24
+text = "Remover Categoria(s)"
+icon = ExtResource("8_yhtb7")
+expand_icon = true
+script = ExtResource("10_8t8bt")
+
+[node name="ManageBtn" type="Panel" parent="VBoxContainer/DeckListPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_wj086")
+script = ExtResource("8_8cc0s")
+
+[node name="manageDeckBtn" type="Button" parent="VBoxContainer/DeckListPanel/VBoxContainer/ManageBtn"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_mqsyu")
+theme_override_font_sizes/font_size = 24
+text = "Gerenciar Categoria"
+icon = ExtResource("10_1b48i")
+expand_icon = true
+
+[node name="Confirmation" type="CanvasLayer" parent="."]
+layer = 100
+visible = false
+
+[node name="TextureRect" type="ColorRect" parent="Confirmation"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Panel" type="Panel" parent="Confirmation"]
+custom_minimum_size = Vector2(600, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_wno41")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Confirmation/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_right = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Confirmation/Panel/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][color=black][font_size={36}]Tem Certeza?"
+fit_content = true
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Confirmation/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Não" type="Panel" parent="Confirmation/Panel/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_ejvis")
+
+[node name="CancelRmvDeckBtn" type="Button" parent="Confirmation/Panel/VBoxContainer/VBoxContainer/Não"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_mqsyu")
+theme_override_font_sizes/font_size = 24
+text = "Cancelar"
+expand_icon = true
+script = ExtResource("8_gxqgx")
+
+[node name="RmvWordBtn" type="Panel" parent="Confirmation/Panel/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_llmpv")
+
+[node name="ConfirmRvmDeckBtn" type="Button" parent="Confirmation/Panel/VBoxContainer/VBoxContainer/RmvWordBtn"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_mqsyu")
+theme_override_font_sizes/font_size = 24
+text = "Sim, Remover"
+icon = ExtResource("8_yhtb7")
+expand_icon = true
+script = ExtResource("10_kqlvb")
+
 [connection signal="pressed" from="VBoxContainer/Panel/GotoAddCatBtn/GotoCatBtn" to="VBoxContainer/Panel/GotoAddCatBtn/GotoCatBtn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/DeckListPanel/VBoxContainer/RmvDeck/rmvDeckBtn" to="VBoxContainer/DeckListPanel/VBoxContainer/RmvDeck/rmvDeckBtn" method="_on_pressed"]
+[connection signal="pressed" from="Confirmation/Panel/VBoxContainer/VBoxContainer/Não/CancelRmvDeckBtn" to="Confirmation/Panel/VBoxContainer/VBoxContainer/Não/CancelRmvDeckBtn" method="_on_pressed"]
+[connection signal="pressed" from="Confirmation/Panel/VBoxContainer/VBoxContainer/RmvWordBtn/ConfirmRvmDeckBtn" to="Confirmation/Panel/VBoxContainer/VBoxContainer/RmvWordBtn/ConfirmRvmDeckBtn" method="_on_pressed"]

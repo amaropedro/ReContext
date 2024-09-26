@@ -24,6 +24,10 @@ func add_to_selected_decks():
 	
 	JsonManager.save_temp_card()
 
+func del_selected_decks():
+	for d in selected:
+		JsonManager.delete_deck(d)
+
 func is_anything_selected():
 	return selected.is_empty()
 

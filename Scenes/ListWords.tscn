@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0ei7dbjr4xef"]
+[gd_scene load_steps=15 format=3 uid="uid://b0ei7dbjr4xef"]
 
 [ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="2_le10t"]
 [ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="3_ap7w7"]
@@ -7,8 +7,26 @@
 [ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="5_ylbot"]
 [ext_resource type="Script" path="res://Scenes/Scripts/goto_add_btn.gd" id="6_tobpp"]
 [ext_resource type="PackedScene" uid="uid://op156r078hkp" path="res://Scenes/Components/WordListComponent.tscn" id="7_dq0ox"]
+[ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="8_xotd6"]
+[ext_resource type="Texture2D" uid="uid://uhnfeddhutx" path="res://Assets/Trash.svg" id="9_tgwte"]
+[ext_resource type="Script" path="res://Scenes/Scripts/rmv_btn.gd" id="10_m1ikv"]
+[ext_resource type="Script" path="res://Scenes/Scripts/add_to_specific_deck_btn.gd" id="11_dnk3l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5eaj"]
+bg_color = Color(0.278431, 0.741176, 0.658824, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ruvf"]
+bg_color = Color(0.839216, 0.180392, 0.180392, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yvh4m"]
 bg_color = Color(0.278431, 0.741176, 0.658824, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
@@ -121,11 +139,83 @@ custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
 [node name="WordList" type="Panel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(640, 700)
+custom_minimum_size = Vector2(640, 728)
 layout_mode = 2
 theme = ExtResource("2_le10t")
 
 [node name="WordListComponent" parent="VBoxContainer/WordList" instance=ExtResource("7_dq0ox")]
 layout_mode = 1
 
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/WordList"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -296.0
+offset_top = -128.0
+offset_right = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 1
+
+[node name="RmvWordBtn" type="Panel" parent="VBoxContainer/WordList/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ruvf")
+script = ExtResource("8_xotd6")
+
+[node name="rmvBtn" type="Button" parent="VBoxContainer/WordList/VBoxContainer/RmvWordBtn"]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_6glu4")
+theme_override_font_sizes/font_size = 24
+text = "Remover Palavras(s)"
+icon = ExtResource("9_tgwte")
+expand_icon = true
+script = ExtResource("10_m1ikv")
+
+[node name="AddWordBtn" type="Panel" parent="VBoxContainer/WordList/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_yvh4m")
+script = ExtResource("8_xotd6")
+
+[node name="addToDeckBtn" type="Button" parent="VBoxContainer/WordList/VBoxContainer/AddWordBtn"]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_6glu4")
+theme_override_font_sizes/font_size = 24
+text = "Adicionar à categoria"
+icon = ExtResource("5_ylbot")
+expand_icon = true
+script = ExtResource("11_dnk3l")
+
 [connection signal="pressed" from="VBoxContainer/Panel/GotoAddWordBtn/GotoAddBtn" to="VBoxContainer/Panel/GotoAddWordBtn/GotoAddBtn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/WordList/VBoxContainer/RmvWordBtn/rmvBtn" to="VBoxContainer/WordList/VBoxContainer/RmvWordBtn/rmvBtn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/WordList/VBoxContainer/AddWordBtn/addToDeckBtn" to="VBoxContainer/WordList/VBoxContainer/AddWordBtn/addToDeckBtn" method="_on_pressed"]

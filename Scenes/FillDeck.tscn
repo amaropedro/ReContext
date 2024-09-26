@@ -174,7 +174,7 @@ custom_minimum_size = Vector2(0, 144)
 layout_mode = 2
 
 [node name="AddWordBtn" type="Panel" parent="VBoxContainer/Panel"]
-custom_minimum_size = Vector2(0, 32)
+custom_minimum_size = Vector2(0, 56)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -212,7 +212,7 @@ expand_icon = true
 script = ExtResource("10_0jqg6")
 
 [node name="SkipBtn" type="Panel" parent="VBoxContainer/Panel"]
-custom_minimum_size = Vector2(0, 32)
+custom_minimum_size = Vector2(0, 56)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

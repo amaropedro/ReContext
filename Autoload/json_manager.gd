@@ -50,6 +50,22 @@ func get_all_cards() -> Dictionary:
 	file.close()
 	return all_words
 
+func remove_card_from_all(card_key: String):
+	var decks = get_decks()
+	for d in decks:
+		remove_card_from_deck(card_key, d)
+
+func remove_card_from_deck(front: String, deckName: String):
+	var deck_path = deck_folder + deckName + ".json"
+	var file = FileAccess.open(deck_path, FileAccess.READ)
+	var words = JSON.parse_string(file.get_as_text())
+	file.close()
+	file = FileAccess.open(deck_path, FileAccess.WRITE)
+	
+	words.erase(front)
+	file.store_string(JSON.stringify(words, "\t"))
+	file.close()
+
 # Para iterar o deck seria algo do tipo
 # Posso também pegar aleatoriamente uma palavra e ir removendo ela do array
 func iterate_deck(deck):

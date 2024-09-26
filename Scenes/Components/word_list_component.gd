@@ -19,8 +19,13 @@ func is_anything_selected():
 func fill_deck():
 	var deck = JsonManager.save_temp_deck()
 	
+	#As vezes acontecia um problema aqui que não encontrava o arquivo do deck. Não consegui replicar com consistencia
 	for i in selected.keys():
 		JsonManager.add_to_deck(i, selected[i], deck)
+
+func remove_selected_cards_from_all():
+	for c in selected.keys():
+		JsonManager.remove_card_from_all(c)
 
 func add_item(front: String, back: String):
 	var line = item.instantiate()

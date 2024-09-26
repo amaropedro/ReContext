@@ -2,7 +2,7 @@ extends Button
 
 @onready var word_list_component: WordList = $"../../../WordListComponent"
 
-const addToDeck = preload("res://Scenes/AddWordsToDeck.tscn")
+const saveToDeck = preload("res://Scenes/SaveToDeck.tscn")
 
 func _process(_delta: float) -> void:
 	disabled = word_list_component.is_anything_selected()
@@ -10,4 +10,4 @@ func _process(_delta: float) -> void:
 
 func _on_pressed() -> void:
 	JsonManager.create_temp_cards(word_list_component.selected)
-	SceneManager.main.render(addToDeck, false)
+	SceneManager.main.render(saveToDeck, false)

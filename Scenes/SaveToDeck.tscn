@@ -1,0 +1,231 @@
+[gd_scene load_steps=13 format=3 uid="uid://gnpnncnmiee6"]
+
+[ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="2_u26kj"]
+[ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="3_bikyb"]
+[ext_resource type="Script" path="res://Scenes/Scripts/new_words_container.gd" id="4_ymm4r"]
+[ext_resource type="Theme" uid="uid://c253vp51ejqap" path="res://Themes/LineEditTheme.tres" id="5_redwm"]
+[ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="6_0i4x7"]
+[ext_resource type="PackedScene" uid="uid://dy4gf7t6n5uc0" path="res://Scenes/Components/DeckList.tscn" id="7_gljc4"]
+[ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="8_3cog4"]
+[ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="9_yp34l"]
+[ext_resource type="Script" path="res://Scenes/Scripts/add_to_deck_btn.gd" id="10_coc24"]
+[ext_resource type="Texture2D" uid="uid://ce6y8an4ut4t4" path="res://Assets/Arrow.svg" id="11_wp47c"]
+[ext_resource type="Script" path="res://Scenes/Scripts/cancel_btn.gd" id="12_ax0mt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5eaj"]
+bg_color = Color(0.278431, 0.741176, 0.658824, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="SaveToDeck" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_top = 32.0
+offset_right = 360.0
+offset_bottom = 1152.0
+grow_horizontal = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_right = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="IconSVG" type="TextureRect" parent="VBoxContainer/Control"]
+modulate = Color(0.278431, 0.741176, 0.658824, 1)
+layout_mode = 1
+offset_right = 124.0
+offset_bottom = 60.0
+texture = ExtResource("2_u26kj")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[left][color=47BDA8][font_size=58] Salvar em categoria"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="WordsPanel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(640, 300)
+layout_mode = 2
+theme = ExtResource("3_bikyb")
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/WordsPanel"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -31.5
+offset_right = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/WordsPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Front" type="RichTextLabel" parent="VBoxContainer/WordsPanel/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=black][font_size={24}]Palavra(s): "
+fit_content = true
+
+[node name="NewWordsContainer" type="ScrollContainer" parent="VBoxContainer/WordsPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("4_ymm4r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/WordsPanel/VBoxContainer/NewWordsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(640, 600)
+layout_mode = 2
+theme = ExtResource("3_bikyb")
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Panel"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -31.5
+offset_right = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_redwm")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Input" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("6_0i4x7")]
+layout_mode = 2
+placeholder_text = "Pesquisar Categoria"
+placeholder = "Pesquisar Categoria"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="DeckList" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("7_gljc4")]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 144)
+layout_mode = 2
+
+[node name="AddWordBtn" type="Panel" parent="VBoxContainer/Panel"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -288.0
+offset_top = -60.0
+offset_right = -16.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_q5eaj")
+script = ExtResource("8_3cog4")
+
+[node name="AddToDeckBtn" type="Button" parent="VBoxContainer/Panel/AddWordBtn"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_yp34l")
+theme_override_font_sizes/font_size = 24
+text = "Adicionar"
+icon = ExtResource("2_u26kj")
+icon_alignment = 2
+expand_icon = true
+script = ExtResource("10_coc24")
+
+[node name="SkipBtn" type="Panel" parent="VBoxContainer/Panel"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -288.0
+offset_top = -132.0
+offset_right = -16.0
+offset_bottom = -76.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_q5eaj")
+
+[node name="CancelBtn" type="Button" parent="VBoxContainer/Panel/SkipBtn"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_yp34l")
+theme_override_font_sizes/font_size = 24
+text = "Cancelar"
+icon = ExtResource("11_wp47c")
+icon_alignment = 2
+expand_icon = true
+script = ExtResource("12_ax0mt")
+
+[connection signal="pressed" from="VBoxContainer/Panel/AddWordBtn/AddToDeckBtn" to="VBoxContainer/Panel/AddWordBtn/AddToDeckBtn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Panel/SkipBtn/CancelBtn" to="VBoxContainer/Panel/SkipBtn/CancelBtn" method="_on_pressed"]

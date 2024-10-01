@@ -1,6 +1,6 @@
 extends Button
 
-@onready var word_list_component: WordList = $"../../../WordListComponent"
+@onready var word_list_component: WordList = $"../../../WordList/WordListComponent"
 
 const saveToDeck = preload("res://Scenes/SaveToDeck.tscn")
 

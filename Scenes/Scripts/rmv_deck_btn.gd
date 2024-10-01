@@ -1,7 +1,7 @@
 extends Button
 
-@onready var deck_list: DeckList = $"../../../DeckList"
-@onready var confirmation: CanvasLayer = $"../../../../../Confirmation"
+@onready var deck_list: DeckList = $"../../../DeckListPanel/DeckList"
+@onready var confirmation: CanvasLayer = $"../../../../Confirmation"
 
 func _process(_delta: float) -> void:
 	disabled = deck_list.is_anything_selected()

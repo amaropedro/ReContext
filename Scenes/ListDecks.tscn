@@ -162,28 +162,20 @@ theme = ExtResource("2_wno41")
 [node name="DeckList" parent="VBoxContainer/DeckListPanel" instance=ExtResource("6_egw3a")]
 layout_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/DeckListPanel"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -296.0
-offset_top = -128.0
-offset_right = -8.0
-grow_horizontal = 0
-grow_vertical = 0
+[node name="VBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
 alignment = 1
 
-[node name="RmvDeck" type="Panel" parent="VBoxContainer/DeckListPanel/VBoxContainer"]
+[node name="RmvDeck" type="Panel" parent="VBoxContainer/VBoxContainer2"]
+visible = false
 custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_1s13g")
 script = ExtResource("8_8cc0s")
 
-[node name="rmvDeckBtn" type="Button" parent="VBoxContainer/DeckListPanel/VBoxContainer/RmvDeck"]
+[node name="rmvDeckBtn" type="Button" parent="VBoxContainer/VBoxContainer2/RmvDeck"]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -202,14 +194,16 @@ icon = ExtResource("8_yhtb7")
 expand_icon = true
 script = ExtResource("10_8t8bt")
 
-[node name="ManageBtn" type="Panel" parent="VBoxContainer/DeckListPanel/VBoxContainer"]
+[node name="ManageBtn" type="Panel" parent="VBoxContainer/VBoxContainer2"]
+visible = false
 custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_wj086")
 script = ExtResource("8_8cc0s")
 
-[node name="manageDeckBtn" type="Button" parent="VBoxContainer/DeckListPanel/VBoxContainer/ManageBtn"]
+[node name="manageDeckBtn" type="Button" parent="VBoxContainer/VBoxContainer2/ManageBtn"]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -330,6 +324,6 @@ expand_icon = true
 script = ExtResource("10_kqlvb")
 
 [connection signal="pressed" from="VBoxContainer/Panel/GotoAddCatBtn/GotoCatBtn" to="VBoxContainer/Panel/GotoAddCatBtn/GotoCatBtn" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer/DeckListPanel/VBoxContainer/RmvDeck/rmvDeckBtn" to="VBoxContainer/DeckListPanel/VBoxContainer/RmvDeck/rmvDeckBtn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer2/RmvDeck/rmvDeckBtn" to="VBoxContainer/VBoxContainer2/RmvDeck/rmvDeckBtn" method="_on_pressed"]
 [connection signal="pressed" from="Confirmation/Panel/VBoxContainer/VBoxContainer/Não/CancelRmvDeckBtn" to="Confirmation/Panel/VBoxContainer/VBoxContainer/Não/CancelRmvDeckBtn" method="_on_pressed"]
 [connection signal="pressed" from="Confirmation/Panel/VBoxContainer/VBoxContainer/RmvWordBtn/ConfirmRvmDeckBtn" to="Confirmation/Panel/VBoxContainer/VBoxContainer/RmvWordBtn/ConfirmRvmDeckBtn" method="_on_pressed"]

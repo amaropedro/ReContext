@@ -148,29 +148,18 @@ theme = ExtResource("2_le10t")
 [node name="WordListComponent" parent="VBoxContainer/WordList" instance=ExtResource("7_dq0ox")]
 layout_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/WordList"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -296.0
-offset_top = -128.0
-offset_right = -8.0
-grow_horizontal = 0
-grow_vertical = 0
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
 alignment = 1
 
-[node name="RmvWordBtn" type="Panel" parent="VBoxContainer/WordList/VBoxContainer"]
+[node name="RmvWordBtn" type="Panel" parent="VBoxContainer/VBoxContainer"]
 visible = false
-custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_3ruvf")
 script = ExtResource("8_xotd6")
 
-[node name="rmvBtn" type="Button" parent="VBoxContainer/WordList/VBoxContainer/RmvWordBtn"]
+[node name="rmvBtn" type="Button" parent="VBoxContainer/VBoxContainer/RmvWordBtn"]
 visible = false
 layout_mode = 1
 anchors_preset = 14
@@ -190,15 +179,15 @@ icon = ExtResource("9_tgwte")
 expand_icon = true
 script = ExtResource("10_m1ikv")
 
-[node name="AddWordBtn" type="Panel" parent="VBoxContainer/WordList/VBoxContainer"]
+[node name="AddWordBtn" type="Panel" parent="VBoxContainer/VBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_yvh4m")
 script = ExtResource("8_xotd6")
 
-[node name="addToDeckBtn" type="Button" parent="VBoxContainer/WordList/VBoxContainer/AddWordBtn"]
+[node name="addToDeckBtn" type="Button" parent="VBoxContainer/VBoxContainer/AddWordBtn"]
 visible = false
 layout_mode = 1
 anchors_preset = 14
@@ -321,7 +310,7 @@ expand_icon = true
 script = ExtResource("13_78k7m")
 
 [connection signal="pressed" from="VBoxContainer/Panel/GotoAddWordBtn/GotoAddBtn" to="VBoxContainer/Panel/GotoAddWordBtn/GotoAddBtn" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer/WordList/VBoxContainer/RmvWordBtn/rmvBtn" to="VBoxContainer/WordList/VBoxContainer/RmvWordBtn/rmvBtn" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer/WordList/VBoxContainer/AddWordBtn/addToDeckBtn" to="VBoxContainer/WordList/VBoxContainer/AddWordBtn/addToDeckBtn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/RmvWordBtn/rmvBtn" to="VBoxContainer/VBoxContainer/RmvWordBtn/rmvBtn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/AddWordBtn/addToDeckBtn" to="VBoxContainer/VBoxContainer/AddWordBtn/addToDeckBtn" method="_on_pressed"]
 [connection signal="pressed" from="Confirmation/Panel/VBoxContainer/VBoxContainer/Não/CancelRmvBtn" to="Confirmation/Panel/VBoxContainer/VBoxContainer/Não/CancelRmvBtn" method="_on_pressed"]
 [connection signal="pressed" from="Confirmation/Panel/VBoxContainer/VBoxContainer/RmvWordBtn/ConfirmRvmBtn" to="Confirmation/Panel/VBoxContainer/VBoxContainer/RmvWordBtn/ConfirmRvmBtn" method="_on_pressed"]

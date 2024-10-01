@@ -5,7 +5,7 @@ class_name SelectableLine
 @export var deck: bool
 
 var deck_list: DeckList
-var word_list: WordList
+var word_list
 @onready var col_1: VBoxContainer = $Col1
 @onready var col_2: VBoxContainer = $Col2
 @onready var col_1_text: RichTextLabel = $Col1/Col1Text

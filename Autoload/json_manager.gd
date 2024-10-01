@@ -44,7 +44,7 @@ func add_card(front: String, back: String) -> bool:
 	return false
 
 func get_all_cards() -> Dictionary:
-	var file = FileAccess.open(path, FileAccess.READ_WRITE)
+	var file = FileAccess.open(path, FileAccess.READ)
 	var all_words = JSON.parse_string(file.get_as_text())
 	
 	file.close()
@@ -119,6 +119,14 @@ func get_decks() -> Array:
 		decks.append(file.substr(0, file.length()-5))
 	
 	return decks
+
+func get_deck_cards(deckName: String) -> Dictionary:
+	var deck_path = deck_folder + deckName + ".json"
+	var file = FileAccess.open(deck_path, FileAccess.READ)
+	var all_words = JSON.parse_string(file.get_as_text())
+	
+	file.close()
+	return all_words
 
 func add_to_deck(front: String, back: String, deckName: String):
 	var deck_path = deck_folder + deckName + ".json"

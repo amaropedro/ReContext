@@ -31,6 +31,9 @@ func del_selected_decks():
 func is_anything_selected():
 	return selected.is_empty()
 
+func is_only_one_selected():
+	return selected.size() == 1
+
 func add_item(deckName: String):
 	var line = item.instantiate()
 	line.deck = true

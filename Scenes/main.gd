@@ -34,3 +34,12 @@ func render(scene: PackedScene, clear_btn: bool = true):
 	rendered_scene.add_child(instance)
 	if clear_btn:
 		clear_selected_btn()
+
+func reload(scenePath: String):
+	var scene = load(scenePath)
+	
+	if rendered_scene.get_child_count() > 0:
+		rendered_scene.get_child(0).queue_free()
+	
+	var instance = scene.instantiate()
+	rendered_scene.add_child(instance)

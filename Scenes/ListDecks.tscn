@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://pvwrb0013kvv"]
+[gd_scene load_steps=20 format=3 uid="uid://pvwrb0013kvv"]
 
 [ext_resource type="Texture2D" uid="uid://dvf7ipmmmv8k0" path="res://Assets/Group.svg" id="1_5q8d3"]
 [ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="2_wno41"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ft4woqw7oydh" path="res://Assets/Search.svg" id="10_1b48i"]
 [ext_resource type="Script" path="res://Scenes/Scripts/rmv_deck_btn.gd" id="10_8t8bt"]
 [ext_resource type="Script" path="res://Scenes/Scripts/confirm_rvm_deck_btn.gd" id="10_kqlvb"]
+[ext_resource type="Script" path="res://Scenes/Scripts/manage_deck_btn.gd" id="12_kr7p4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5eaj"]
 bg_color = Color(0.278431, 0.741176, 0.658824, 1)
@@ -220,6 +221,7 @@ theme_override_font_sizes/font_size = 24
 text = "Gerenciar Categoria"
 icon = ExtResource("10_1b48i")
 expand_icon = true
+script = ExtResource("12_kr7p4")
 
 [node name="Confirmation" type="CanvasLayer" parent="."]
 layer = 100
@@ -325,5 +327,6 @@ script = ExtResource("10_kqlvb")
 
 [connection signal="pressed" from="VBoxContainer/Panel/GotoAddCatBtn/GotoCatBtn" to="VBoxContainer/Panel/GotoAddCatBtn/GotoCatBtn" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer2/RmvDeck/rmvDeckBtn" to="VBoxContainer/VBoxContainer2/RmvDeck/rmvDeckBtn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer2/ManageBtn/manageDeckBtn" to="VBoxContainer/VBoxContainer2/ManageBtn/manageDeckBtn" method="_on_pressed"]
 [connection signal="pressed" from="Confirmation/Panel/VBoxContainer/VBoxContainer/Não/CancelRmvDeckBtn" to="Confirmation/Panel/VBoxContainer/VBoxContainer/Não/CancelRmvDeckBtn" method="_on_pressed"]
 [connection signal="pressed" from="Confirmation/Panel/VBoxContainer/VBoxContainer/RmvWordBtn/ConfirmRvmDeckBtn" to="Confirmation/Panel/VBoxContainer/VBoxContainer/RmvWordBtn/ConfirmRvmDeckBtn" method="_on_pressed"]

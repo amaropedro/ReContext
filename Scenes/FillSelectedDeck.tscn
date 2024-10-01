@@ -1,17 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://df0mo1isncqev"]
+[gd_scene load_steps=13 format=3 uid="uid://djjkcgkasiie1"]
 
-[ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="1_7t313"]
-[ext_resource type="Texture2D" uid="uid://djkinp8vgm08l" path="res://Assets/Ellipse.svg" id="2_1vmms"]
-[ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="3_nycjx"]
-[ext_resource type="Script" path="res://Scenes/Scripts/new_deck_container.gd" id="4_bqvcm"]
-[ext_resource type="Theme" uid="uid://c253vp51ejqap" path="res://Themes/LineEditTheme.tres" id="5_oi40s"]
-[ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="6_x6f4e"]
-[ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="7_h6y8e"]
-[ext_resource type="PackedScene" uid="uid://op156r078hkp" path="res://Scenes/Components/WordListComponent.tscn" id="7_okwiy"]
-[ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="8_arfao"]
-[ext_resource type="Script" path="res://Scenes/Scripts/fill_deck_btn.gd" id="10_0jqg6"]
-[ext_resource type="Texture2D" uid="uid://ce6y8an4ut4t4" path="res://Assets/Arrow.svg" id="10_2c7i3"]
-[ext_resource type="Script" path="res://Scenes/Scripts/add_deck_btn.gd" id="10_8tir4"]
+[ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="1_b33w3"]
+[ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="3_1dsxf"]
+[ext_resource type="Script" path="res://Scenes/Scripts/new_deck_container.gd" id="4_316fc"]
+[ext_resource type="Theme" uid="uid://c253vp51ejqap" path="res://Themes/LineEditTheme.tres" id="5_6ohxc"]
+[ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="6_nyeko"]
+[ext_resource type="PackedScene" uid="uid://op156r078hkp" path="res://Scenes/Components/WordListComponent.tscn" id="7_2ngrd"]
+[ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="8_m35qp"]
+[ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="9_wgff4"]
+[ext_resource type="Script" path="res://Scenes/Scripts/fill_deck_btn.gd" id="10_2rsis"]
+[ext_resource type="Texture2D" uid="uid://ce6y8an4ut4t4" path="res://Assets/Arrow.svg" id="11_eo51l"]
+[ext_resource type="Script" path="res://Scenes/Scripts/add_deck_btn.gd" id="12_2243t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5eaj"]
 bg_color = Color(0.278431, 0.741176, 0.658824, 1)
@@ -20,7 +19,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="AddWordsToDeck" type="Control"]
+[node name="FillSelectedDeck" type="Control"]
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
@@ -53,7 +52,7 @@ modulate = Color(0.278431, 0.741176, 0.658824, 1)
 layout_mode = 1
 offset_right = 124.0
 offset_bottom = 60.0
-texture = ExtResource("1_7t313")
+texture = ExtResource("1_b33w3")
 expand_mode = 2
 stretch_mode = 4
 
@@ -68,64 +67,6 @@ grow_vertical = 2
 bbcode_enabled = true
 text = "[left][color=47BDA8][font_size=58] Preencher Categoria"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 0
-alignment = 1
-
-[node name="PageGuide1" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
-modulate = Color(0.964706, 0.968627, 0.984314, 1)
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-texture = ExtResource("2_1vmms")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PageGuide1"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/PageGuide1/VBoxContainer"]
-layout_mode = 2
-bbcode_enabled = true
-text = "[center][color=black][font_size={24}]1"
-fit_content = true
-
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(128, 3)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0, 0, 0, 1)
-
-[node name="PageGuide2" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
-modulate = Color(0.415686, 0.886275, 0.772549, 1)
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-texture = ExtResource("2_1vmms")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PageGuide2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/PageGuide2/VBoxContainer"]
-layout_mode = 2
-bbcode_enabled = true
-text = "[center][color=black][font_size={24}]2"
-fit_content = true
-
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
@@ -133,7 +74,7 @@ layout_mode = 2
 [node name="WordsPanel" type="Panel" parent="VBoxContainer"]
 custom_minimum_size = Vector2(640, 150)
 layout_mode = 2
-theme = ExtResource("3_nycjx")
+theme = ExtResource("3_1dsxf")
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/WordsPanel"]
@@ -161,7 +102,8 @@ fit_content = true
 [node name="NewDeckContainer" type="ScrollContainer" parent="VBoxContainer/WordsPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("4_bqvcm")
+script = ExtResource("4_316fc")
+isSelected = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/WordsPanel/VBoxContainer/NewDeckContainer"]
 layout_mode = 2
@@ -175,7 +117,7 @@ layout_mode = 2
 [node name="Panel" type="Panel" parent="VBoxContainer"]
 custom_minimum_size = Vector2(640, 500)
 layout_mode = 2
-theme = ExtResource("3_nycjx")
+theme = ExtResource("3_1dsxf")
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Panel"]
@@ -189,13 +131,13 @@ offset_left = -31.5
 offset_right = 31.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("5_oi40s")
+theme = ExtResource("5_6ohxc")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="Input" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("6_x6f4e")]
+[node name="Input" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("6_nyeko")]
 layout_mode = 2
 placeholder_text = "Pesquisar Palavra"
 placeholder = "Pesquisar Palavra"
@@ -204,8 +146,9 @@ placeholder = "Pesquisar Palavra"
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
-[node name="WordListComponent" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("7_okwiy")]
+[node name="WordListComponent" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("7_2ngrd")]
 layout_mode = 2
+filter_deckWords = true
 
 [node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 144)
@@ -227,7 +170,7 @@ grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_q5eaj")
-script = ExtResource("7_h6y8e")
+script = ExtResource("8_m35qp")
 
 [node name="FillDeckBtn" type="Button" parent="VBoxContainer/Panel/AddWordBtn"]
 layout_mode = 1
@@ -241,13 +184,14 @@ offset_right = -8.0
 offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("8_arfao")
+theme = ExtResource("9_wgff4")
 theme_override_font_sizes/font_size = 24
 text = "Adicionar"
-icon = ExtResource("1_7t313")
+icon = ExtResource("1_b33w3")
 icon_alignment = 2
 expand_icon = true
-script = ExtResource("10_0jqg6")
+script = ExtResource("10_2rsis")
+is_selected = true
 
 [node name="SkipBtn" type="Panel" parent="VBoxContainer/Panel"]
 custom_minimum_size = Vector2(0, 56)
@@ -278,13 +222,14 @@ offset_right = -8.0
 offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("8_arfao")
+theme = ExtResource("9_wgff4")
 theme_override_font_sizes/font_size = 24
-text = "Pular"
-icon = ExtResource("10_2c7i3")
+text = "Cancelar"
+icon = ExtResource("11_eo51l")
 icon_alignment = 2
 expand_icon = true
-script = ExtResource("10_8tir4")
+script = ExtResource("12_2243t")
+is_selected = true
 
 [connection signal="pressed" from="VBoxContainer/Panel/AddWordBtn/FillDeckBtn" to="VBoxContainer/Panel/AddWordBtn/FillDeckBtn" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Panel/SkipBtn/AddDeckBtn" to="VBoxContainer/Panel/SkipBtn/AddDeckBtn" method="_on_pressed"]

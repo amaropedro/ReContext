@@ -7,4 +7,4 @@ extends Button
 func _on_pressed() -> void:
 	deck_word_list_component.remove_selected_cards_from_deck()
 	confirmation.visible = false
-	SceneManager.main.reload("res://Scenes/ManageDeck.tscn")
+	SceneManager.main.load_render("res://Scenes/ManageDeck.tscn")

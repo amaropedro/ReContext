@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://vndtetnd2iix"]
+[gd_scene load_steps=17 format=3 uid="uid://vndtetnd2iix"]
 
 [ext_resource type="Texture2D" uid="uid://dvf7ipmmmv8k0" path="res://Assets/Group.svg" id="1_1hko7"]
 [ext_resource type="Script" path="res://Scenes/Scripts/manage_deck.gd" id="1_d8k7j"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="3_d6i5h"]
 [ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="4_8xqsm"]
 [ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="5_a3mwo"]
+[ext_resource type="Script" path="res://Scenes/Scripts/goto_fill_selected_btn.gd" id="6_ykqfc"]
 [ext_resource type="PackedScene" uid="uid://wymk35o873pe" path="res://Scenes/Components/DeckWordListComponent.tscn" id="7_63c63"]
 [ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="7_ixlde"]
 [ext_resource type="Texture2D" uid="uid://uhnfeddhutx" path="res://Assets/Trash.svg" id="8_2c5kw"]
@@ -128,7 +129,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_q5eaj")
 
-[node name="GotoAddBtn" type="Button" parent="VBoxContainer/Panel/VBoxContainer/HBoxContainer/GotoAddWordBtn"]
+[node name="GotoFillSelectedBtn" type="Button" parent="VBoxContainer/Panel/VBoxContainer/HBoxContainer/GotoAddWordBtn"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -145,6 +146,7 @@ theme_override_font_sizes/font_size = 24
 text = "Adicionar à Categoria"
 icon = ExtResource("4_8xqsm")
 expand_icon = true
+script = ExtResource("6_ykqfc")
 
 [node name="Input" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("5_a3mwo")]
 layout_mode = 2
@@ -297,7 +299,7 @@ icon = ExtResource("8_2c5kw")
 expand_icon = true
 script = ExtResource("12_j5434")
 
-[connection signal="pressed" from="VBoxContainer/Panel/VBoxContainer/HBoxContainer/GotoAddWordBtn/GotoAddBtn" to="VBoxContainer/Panel/VBoxContainer/HBoxContainer/GotoAddWordBtn/GotoAddBtn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Panel/VBoxContainer/HBoxContainer/GotoAddWordBtn/GotoFillSelectedBtn" to="VBoxContainer/Panel/VBoxContainer/HBoxContainer/GotoAddWordBtn/GotoFillSelectedBtn" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/RmvWordBtn/rmvFromDeckBtn" to="VBoxContainer/VBoxContainer/RmvWordBtn/rmvFromDeckBtn" method="_on_pressed"]
 [connection signal="pressed" from="Confirmation/Panel/VBoxContainer/VBoxContainer/Não/CancelRmvBtn" to="Confirmation/Panel/VBoxContainer/VBoxContainer/Não/CancelRmvBtn" method="_on_pressed"]
 [connection signal="pressed" from="Confirmation/Panel/VBoxContainer/VBoxContainer/RmvWordBtn/ConfirmRvmFromDeckBtn" to="Confirmation/Panel/VBoxContainer/VBoxContainer/RmvWordBtn/ConfirmRvmFromDeckBtn" method="_on_pressed"]

@@ -6,9 +6,15 @@ class_name WordList
 
 const item = preload("res://Scenes/Components/SelectableLine.tscn")
 @export var selected: Dictionary = {}
+@export var filter_deckWords: bool = false
 
 func _ready() -> void:
 	var cards = JsonManager.get_all_cards()
+	
+	if filter_deckWords:
+		var deckWords = JsonManager.get_deck_cards(SceneManager.deckToManage)
+		for key in deckWords.keys():
+			cards.erase(key)
 	
 	for c in cards.keys():
 		add_item(cards[c], c)
@@ -17,7 +23,13 @@ func is_anything_selected():
 	return selected.is_empty()
 
 func fill_deck():
-	var deck = JsonManager.save_temp_deck()
+	var deck
+	
+	if filter_deckWords:
+		deck = SceneManager.deckToManage
+	else:
+		deck = JsonManager.save_temp_deck()
+		
 	
 	#As vezes acontecia um problema aqui que não encontrava o arquivo do deck. Não consegui replicar com consistencia
 	for i in selected.keys():

@@ -35,7 +35,7 @@ func render(scene: PackedScene, clear_btn: bool = true):
 	if clear_btn:
 		clear_selected_btn()
 
-func reload(scenePath: String):
+func load_render(scenePath: String):
 	var scene = load(scenePath)
 	
 	if rendered_scene.get_child_count() > 0:

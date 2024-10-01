@@ -31,7 +31,6 @@ func fill_deck():
 		deck = JsonManager.save_temp_deck()
 		
 	
-	#As vezes acontecia um problema aqui que não encontrava o arquivo do deck. Não consegui replicar com consistencia
 	for i in selected.keys():
 		JsonManager.add_to_deck(i, selected[i], deck)
 

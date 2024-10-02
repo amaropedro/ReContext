@@ -35,8 +35,8 @@ func parse_gemini_response(body):
 	var content = response_string['candidates'][0]['content']['parts'][0]['text']
 	return content
 
-func generate_sentence(keyword: String, display_node: RichTextLabel):
-	display_node.text = "sending..." # Debug
+func generate_sentence(keyword: String, display_node: RichTextLabel, format: String = ""):
+	display_node.text = format + "Gerando..."
 	
 	generate_content(
 		"Create a sentence that contains the word: '" 
@@ -44,4 +44,4 @@ func generate_sentence(keyword: String, display_node: RichTextLabel):
 		+ "Don't respond with anything else besides the sentance."
 	)
 	await requestCompleted
-	display_node.text = response_str
+	display_node.text = format + response_str

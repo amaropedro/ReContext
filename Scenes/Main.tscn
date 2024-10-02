@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://28cgr1b5gr3d"]
+[gd_scene load_steps=15 format=3 uid="uid://28cgr1b5gr3d"]
 
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="1_7inlb"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_ltsr1"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b0ei7dbjr4xef" path="res://Scenes/ListWords.tscn" id="8_l2aia"]
 [ext_resource type="PackedScene" uid="uid://bjj87jfo810oo" path="res://Scenes/AddWords.tscn" id="9_vf5rx"]
 [ext_resource type="PackedScene" uid="uid://pvwrb0013kvv" path="res://Scenes/ListDecks.tscn" id="10_544yn"]
+[ext_resource type="Script" path="res://Scenes/Scripts/about_btn.gd" id="13_4lcr3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mslt7"]
 bg_color = Color(0.964706, 0.968627, 0.984314, 1)
@@ -20,7 +21,11 @@ shadow_size = 1
 
 [node name="Main" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_7inlb")
 script = ExtResource("1_ltsr1")
 
@@ -92,3 +97,8 @@ page = ExtResource("10_544yn")
 layout_mode = 2
 icon_file = ExtResource("7_75f6f")
 page = ExtResource("9_vf5rx")
+
+[node name="AboutBtn" type="Node" parent="."]
+script = ExtResource("13_4lcr3")
+
+[node name="GuideBtn" type="Node" parent="."]

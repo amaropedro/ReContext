@@ -8,6 +8,8 @@ extends Control
 @onready var list: NavBtn = $BottomNavBar/NavBarContainer/NavBar/List
 @onready var decks: NavBtn = $BottomNavBar/NavBarContainer/NavBar/Decks
 @onready var add: NavBtn = $BottomNavBar/NavBarContainer/NavBar/Add
+@onready var about_btn: Node = $AboutBtn
+@onready var guide_btn: Node = $GuideBtn
 
 @onready var btn_dict = {
 	"JOGAR": play,
@@ -15,7 +17,7 @@ extends Control
 	"LISTA DE PALAVRAS": list,
 	"ADICIONAR PALAVRAS": add,
 	"COMO USAR": home,
-	"SOBRE": home
+	"SOBRE": about_btn
 }
 
 func _ready() -> void:

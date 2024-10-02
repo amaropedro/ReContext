@@ -1,16 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://cfwdxnrj245c4"]
+[gd_scene load_steps=9 format=3 uid="uid://cfwdxnrj245c4"]
 
 [ext_resource type="Texture2D" uid="uid://xm3t37crrmte" path="res://Assets/Revise.svg" id="1_3xb7r"]
+[ext_resource type="Script" path="res://Scenes/Scripts/flashcards.gd" id="1_piwwg"]
 [ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="2_4duvr"]
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="4_d5q8g"]
-[ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="5_1inp7"]
+[ext_resource type="Texture2D" uid="uid://ce6y8an4ut4t4" path="res://Assets/Arrow.svg" id="5_xlb6c"]
 [ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="8_o32by"]
-[ext_resource type="Texture2D" uid="uid://uhnfeddhutx" path="res://Assets/Trash.svg" id="9_pw47w"]
-[ext_resource type="Script" path="res://Scenes/Scripts/rmv_btn.gd" id="10_lsn82"]
-[ext_resource type="Script" path="res://Scenes/Scripts/add_to_specific_deck_btn.gd" id="11_8k1sv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ruvf"]
-bg_color = Color(0.839216, 0.180392, 0.180392, 1)
+bg_color = Color(0.278431, 0.741176, 0.658824, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -33,6 +31,7 @@ offset_top = 32.0
 offset_right = 360.0
 offset_bottom = 1152.0
 grow_horizontal = 2
+script = ExtResource("1_piwwg")
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -75,33 +74,99 @@ text = "[left][color=47BDA8][font_size=64] Revisar Palavras"
 layout_mode = 2
 alignment = 1
 
-[node name="Panel" type="Panel" parent="VBoxContainer"]
+[node name="DonePanel" type="Panel" parent="VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(640, 200)
 layout_mode = 2
 theme = ExtResource("2_4duvr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/DonePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Front" type="RichTextLabel" parent="VBoxContainer/DonePanel/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size={48}][color=Black]Parabéns!
+Categiria Concluida"
+fit_content = true
+scroll_active = false
+
+[node name="FrontPanel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(640, 200)
+layout_mode = 2
+theme = ExtResource("2_4duvr")
+
+[node name="Legend" type="RichTextLabel" parent="VBoxContainer/FrontPanel"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 16.0
+offset_right = 630.0
+offset_bottom = 35.0
+bbcode_enabled = true
+text = "[left][color=black]Inglês"
+fit_content = true
+scroll_active = false
+
+[node name="Front" type="RichTextLabel" parent="VBoxContainer/FrontPanel"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 48.0
+offset_right = 630.0
+offset_bottom = 184.0
+bbcode_enabled = true
+text = "[center][font_size={48}][color=Black]Frente"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="WordList" type="Panel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(640, 728)
+[node name="BackPanel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(640, 200)
 layout_mode = 2
 theme = ExtResource("2_4duvr")
 
-[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Legend" type="RichTextLabel" parent="VBoxContainer/BackPanel"]
 layout_mode = 2
-alignment = 1
+offset_left = 10.0
+offset_top = 16.0
+offset_right = 630.0
+offset_bottom = 35.0
+bbcode_enabled = true
+text = "[left][color=black]Português"
+fit_content = true
+scroll_active = false
 
-[node name="RmvWordBtn" type="Panel" parent="VBoxContainer/VBoxContainer"]
+[node name="Back" type="RichTextLabel" parent="VBoxContainer/BackPanel"]
 visible = false
 layout_mode = 2
-size_flags_horizontal = 3
+offset_left = 10.0
+offset_top = 48.0
+offset_right = 630.0
+offset_bottom = 184.0
+bbcode_enabled = true
+text = "[center][font_size={48}][color=Black]Verso"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="RevealContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Reveal" type="Panel" parent="VBoxContainer/RevealContainer"]
+custom_minimum_size = Vector2(318, 56)
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3ruvf")
 script = ExtResource("8_o32by")
 
-[node name="rmvBtn" type="Button" parent="VBoxContainer/VBoxContainer/RmvWordBtn"]
-visible = false
+[node name="RevealBtn" type="Button" parent="VBoxContainer/RevealContainer/Reveal"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -115,21 +180,46 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_d5q8g")
 theme_override_font_sizes/font_size = 24
-text = "Remover Palavras(s)"
-icon = ExtResource("9_pw47w")
+text = "Relevar Verso"
 expand_icon = true
-script = ExtResource("10_lsn82")
 
-[node name="AddWordBtn" type="Panel" parent="VBoxContainer/VBoxContainer"]
+[node name="OptionsContainer" type="HBoxContainer" parent="VBoxContainer"]
 visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="TryAgain" type="Panel" parent="VBoxContainer/OptionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ruvf")
+script = ExtResource("8_o32by")
+
+[node name="TryAgainBtn" type="Button" parent="VBoxContainer/OptionsContainer/TryAgain"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_d5q8g")
+theme_override_font_sizes/font_size = 24
+text = "Tentar de novo"
+icon_alignment = 2
+expand_icon = true
+
+[node name="Next" type="Panel" parent="VBoxContainer/OptionsContainer"]
 custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_yvh4m")
 script = ExtResource("8_o32by")
 
-[node name="addToDeckBtn" type="Button" parent="VBoxContainer/VBoxContainer/AddWordBtn"]
-visible = false
+[node name="NextBtn" type="Button" parent="VBoxContainer/OptionsContainer/Next"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -143,10 +233,68 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_d5q8g")
 theme_override_font_sizes/font_size = 24
-text = "Salvar em categoria"
-icon = ExtResource("5_1inp7")
+text = "Próximo"
+icon = ExtResource("5_xlb6c")
+icon_alignment = 2
 expand_icon = true
-script = ExtResource("11_8k1sv")
 
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/RmvWordBtn/rmvBtn" to="VBoxContainer/VBoxContainer/RmvWordBtn/rmvBtn" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/AddWordBtn/addToDeckBtn" to="VBoxContainer/VBoxContainer/AddWordBtn/addToDeckBtn" method="_on_pressed"]
+[node name="DoneContainer" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="TryAgain" type="Panel" parent="VBoxContainer/DoneContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ruvf")
+script = ExtResource("8_o32by")
+
+[node name="BeginAgainBtn" type="Button" parent="VBoxContainer/DoneContainer/TryAgain"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_d5q8g")
+theme_override_font_sizes/font_size = 24
+text = "Tentar de novo do inicio"
+icon_alignment = 2
+expand_icon = true
+
+[node name="Done" type="Panel" parent="VBoxContainer/DoneContainer"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_yvh4m")
+script = ExtResource("8_o32by")
+
+[node name="DoneBtn" type="Button" parent="VBoxContainer/DoneContainer/Done"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_d5q8g")
+theme_override_font_sizes/font_size = 24
+text = "Concluir"
+icon = ExtResource("5_xlb6c")
+icon_alignment = 2
+expand_icon = true
+
+[connection signal="pressed" from="VBoxContainer/RevealContainer/Reveal/RevealBtn" to="." method="_on_reveal_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsContainer/TryAgain/TryAgainBtn" to="." method="_on_try_again_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsContainer/Next/NextBtn" to="." method="_on_next_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/DoneContainer/TryAgain/BeginAgainBtn" to="." method="_on_begin_again_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/DoneContainer/Done/DoneBtn" to="." method="_on_done_btn_pressed"]

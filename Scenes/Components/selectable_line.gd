@@ -47,15 +47,16 @@ func _on_check_box_pressed() -> void:
 	word_pressed()
 
 func deck_pressed():
+	var text = text_1 if text_1 != "Todas as Palavras" else "AllWords"
 	if check_box.button_pressed:
 		bbCodeColor = "[color=47BDA8]"
 		updade_text()
-		deck_list.selected.append(text_1)
+		deck_list.selected.append(text)
 		return
 	
 	bbCodeColor = "[color=black]"
 	updade_text()
-	deck_list.selected.erase(text_1)
+	deck_list.selected.erase(text)
 
 func word_pressed():
 	if check_box.button_pressed:

@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://cp1v15lakxckh"]
+
+[ext_resource type="PackedScene" uid="uid://csoapptgsx6gu" path="res://Scenes/Components/PlayBtn.tscn" id="1_t8cco"]
+[ext_resource type="Texture2D" uid="uid://c57g273sfkrsv" path="res://Assets/Cards.svg" id="2_tjgf5"]
+[ext_resource type="Texture2D" uid="uid://d180xb0rvjjrh" path="res://Assets/Write.svg" id="2_wu2xr"]
+[ext_resource type="Texture2D" uid="uid://xm3t37crrmte" path="res://Assets/Revise.svg" id="3_qimf8"]
+[ext_resource type="PackedScene" uid="uid://bq2ava2putlav" path="res://Scenes/Complete.tscn" id="4_e6n87"]
+[ext_resource type="PackedScene" uid="uid://cfwdxnrj245c4" path="res://Scenes/Flashcards.tscn" id="6_kdyqj"]
+[ext_resource type="PackedScene" uid="uid://b268riqbx111w" path="res://Scenes/Translate.tscn" id="7_xnujr"]
+
+[node name="Home" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_top = 32.0
+offset_right = 360.0
+offset_bottom = 1120.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_right = 320.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="IconSVG" type="TextureRect" parent="VBoxContainer/Control"]
+modulate = Color(0.278431, 0.741176, 0.658824, 1)
+layout_mode = 1
+offset_right = 124.0
+offset_bottom = 60.0
+texture = ExtResource("2_tjgf5")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[left][color=47BDA8][font_size=64] Jogar"
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 32
+columns = 2
+
+[node name="PlayBtn" parent="VBoxContainer/GridContainer" instance=ExtResource("1_t8cco")]
+layout_mode = 2
+icon_svg = ExtResource("2_wu2xr")
+card_name = "COMPLETAR FRASES"
+scene = ExtResource("4_e6n87")
+GameName = "Complete"
+
+[node name="PlayBtn2" parent="VBoxContainer/GridContainer" instance=ExtResource("1_t8cco")]
+layout_mode = 2
+icon_svg = ExtResource("3_qimf8")
+card_name = "REVISAR PALAVRAS"
+scene = ExtResource("6_kdyqj")
+GameName = "Flashcards"
+
+[node name="PlayBtn3" parent="VBoxContainer/GridContainer" instance=ExtResource("1_t8cco")]
+layout_mode = 2
+card_name = "MEMORIZAR TRADUÇÕES"
+scene = ExtResource("7_xnujr")
+GameName = "Translate"

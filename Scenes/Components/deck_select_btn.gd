@@ -6,14 +6,15 @@ class_name DeckList
 
 const item = preload("res://Scenes/Components/SelectableLine.tscn")
 @export var selected: Array[String] = []
+@export var listAllWordsOption: bool = false
 
 func _ready() -> void:
 	var decks = JsonManager.get_decks()
 	
-	if decks.size() == 1:
-		return
-	
-	decks.erase("AllWords")
+	if !listAllWordsOption:
+		if decks.size() == 1:
+			return
+		decks.erase("AllWords")
 	
 	for d in decks:
 		add_item(d)
@@ -37,7 +38,7 @@ func is_only_one_selected():
 func add_item(deckName: String):
 	var line = item.instantiate()
 	line.deck = true
-	line.text_1 = deckName
+	line.text_1 = "Todas as Palavras" if deckName == "AllWords" else deckName
 	line.text_2 = str(JsonManager.get_deck_size(deckName))
 	v_box_container.add_child(line)
 	v_box_container.add_child(MarginContainer.new())

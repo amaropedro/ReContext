@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://28cgr1b5gr3d"]
+[gd_scene load_steps=16 format=3 uid="uid://28cgr1b5gr3d"]
 
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="1_7inlb"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_ltsr1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://crtrny11c6j0s" path="res://Assets/List.svg" id="5_xp04p"]
 [ext_resource type="Texture2D" uid="uid://dvf7ipmmmv8k0" path="res://Assets/Group.svg" id="6_yrngx"]
 [ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="7_75f6f"]
+[ext_resource type="PackedScene" uid="uid://cp1v15lakxckh" path="res://Scenes/Play.tscn" id="7_wubof"]
 [ext_resource type="PackedScene" uid="uid://b0ei7dbjr4xef" path="res://Scenes/ListWords.tscn" id="8_l2aia"]
 [ext_resource type="PackedScene" uid="uid://bjj87jfo810oo" path="res://Scenes/AddWords.tscn" id="9_vf5rx"]
 [ext_resource type="PackedScene" uid="uid://pvwrb0013kvv" path="res://Scenes/ListDecks.tscn" id="10_544yn"]
@@ -82,6 +83,7 @@ page = ExtResource("5_oe7lw")
 [node name="Play" parent="BottomNavBar/NavBarContainer/NavBar" instance=ExtResource("1_op4ys")]
 layout_mode = 2
 icon_file = ExtResource("4_dt2t0")
+page = ExtResource("7_wubof")
 
 [node name="List" parent="BottomNavBar/NavBarContainer/NavBar" instance=ExtResource("1_op4ys")]
 layout_mode = 2

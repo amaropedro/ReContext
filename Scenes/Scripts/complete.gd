@@ -13,6 +13,9 @@ extends Control
 @onready var done_container: HBoxContainer = $VBoxContainer/DoneContainer
 @onready var answer_container: HBoxContainer = $VBoxContainer/AnswerContainer
 @onready var answer_btn: Button = $VBoxContainer/AnswerContainer/Confirm/AnswerBtn
+@onready var done_panel: Panel = $VBoxContainer/DonePanel
+@onready var sentence_panel: Panel = $VBoxContainer/SentencePanel
+@onready var options_panel: Panel = $VBoxContainer/OptionsPanel
 
 var current_card_key = ""
 
@@ -24,6 +27,7 @@ var option_dict = {
 }
 
 func _ready() -> void:
+	hide_done()
 	cards = JsonManager.get_deck_cards(SceneManager.selectedDeck)
 	
 	if cards.is_empty():
@@ -42,14 +46,14 @@ func reset_answer():
 
 func handle_card():
 	reset_answer()
+	item_list.clear()
 	
 	HttpManager.generate_sentence(current_card_key, sentence, "[left][font_size={32}][color=Black]")
-	
+	await HttpManager.requestCompleted
 	var all_cards = JsonManager.get_all_cards()
 	var options = []
 	
 	all_cards.erase(current_card_key)
-	item_list.clear()
 	
 	for i in range(3):
 		if !all_cards.is_empty():
@@ -70,8 +74,25 @@ func handle_next():
 	current_card_key = cards.keys().pick_random()
 	handle_card()
 
+func hide_done():
+	answer_container.visible = false
+	confirm_container.visible = false
+	options_container.visible = false
+	confirm_container.visible = true
+	done_container.visible = false
+	done_panel.visible = false
+	sentence_panel.visible = true
+	options_panel.visible = true
+
 func hanlde_done():
-	pass
+	answer_container.visible = false
+	confirm_container.visible = false
+	options_container.visible = false
+	confirm_container.visible = false
+	done_container.visible = true
+	done_panel.visible = true
+	sentence_panel.visible = false
+	options_panel.visible = false
 
 func _on_confirm_btn_pressed() -> void:
 	var choice = item_list.get_item_text(item_list.get_selected_items()[0])
@@ -94,15 +115,15 @@ func _on_try_again_btn_pressed() -> void:
 	options_container.visible = false
 
 func _on_next_btn_pressed() -> void:
-	handle_next()
 	confirm_container.visible = true
 	options_container.visible = false
+	handle_next()
 
 func _on_begin_again_btn_pressed() -> void:
-	pass # Replace with function body.
+	_ready()
 
 func _on_done_btn_pressed() -> void:
-	pass # Replace with function body.
+	SceneManager.main.play._on_pressed()
 
 func _on_answer_btn_pressed() -> void:
 	if answer_btn.button_pressed:

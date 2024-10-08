@@ -93,7 +93,7 @@ func new_deck(DeckName: String) -> bool:
 		file.close()
 		return true
 	
-	print("Erro: já existe um deck com esse nome")
+	SceneManager.alert("Erro: já existe um deck com esse nome", "Red")
 	return false
 
 func delete_deck(DeckName: String) -> bool:
@@ -141,7 +141,7 @@ func add_to_deck(front: String, back: String, deckName: String):
 		return true
 	
 	file.close()
-	print('Palavra já está nesse deck')
+	SceneManager.alert("Palavra já está nesse deck")
 	return false
 
 func add_temp_cards_to_deck(deckName: String):

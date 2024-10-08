@@ -336,8 +336,8 @@ icon = ExtResource("5_5psd1")
 icon_alignment = 2
 expand_icon = true
 
-[connection signal="pressed" from="VBoxContainer/AnswerContainer/Confirm/AnswerBtn" to="." method="_on_answer_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/AnswerContainer/Confirm/AnswerBtn" to="." method="_on_confirm_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/AnswerContainer/Confirm/AnswerBtn" to="." method="_on_answer_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/ConfirmContainer/Confirm/ConfirmBtn" to="." method="_on_confirm_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsContainer/TryAgain/TryAgainBtn" to="." method="_on_try_again_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsContainer/Next/NextBtn" to="." method="_on_next_btn_pressed"]

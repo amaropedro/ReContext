@@ -41,6 +41,7 @@ func add_card(front: String, back: String) -> bool:
 	
 	file.close()
 	word_added.emit()
+	SceneManager.alert("Palavra já adicionada")
 	return false
 
 func get_all_cards() -> Dictionary:

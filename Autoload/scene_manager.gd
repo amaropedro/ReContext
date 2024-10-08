@@ -25,12 +25,7 @@ func alert(msg: String, color: String = "Yellow" ) -> void:
 	new_theme.shadow_size = 1
 	panel.add_theme_stylebox_override("panel", new_theme)
 	
-	if color == "Yellow":
-		rich_text_label.text = "[color=black]"
-	else:
-		rich_text_label.text = ""
-	
-	rich_text_label.text += "[font_size={32}]" + msg
+	rich_text_label.text = "[font_size={32}]" + msg
 	timer.start(4)
 	progress_bar.max_value = 4
 

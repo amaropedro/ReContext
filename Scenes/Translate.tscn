@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://b268riqbx111w"]
 
-[ext_resource type="Texture2D" uid="uid://xm3t37crrmte" path="res://Assets/Revise.svg" id="1_63r6j"]
 [ext_resource type="Script" path="res://Scenes/Scripts/translate.gd" id="1_v83pl"]
 [ext_resource type="Texture2D" uid="uid://r31lt02cjght" path="res://Assets/wrong.svg" id="2_hpyd0"]
 [ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="2_srvxq"]
 [ext_resource type="Theme" uid="uid://d2otcyr4v4nk2" path="res://Themes/ItemListTheme.tres" id="3_ugbfp"]
 [ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="3_xdbk8"]
+[ext_resource type="Texture2D" uid="uid://n5hydq8xpmni" path="res://Assets/translate.svg" id="4_1x3eb"]
 [ext_resource type="Texture2D" uid="uid://clejfwcarfl62" path="res://Assets/check.svg" id="4_oskjr"]
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="4_pwknd"]
 [ext_resource type="Texture2D" uid="uid://ce6y8an4ut4t4" path="res://Assets/Arrow.svg" id="7_yvj1s"]
@@ -60,7 +60,7 @@ modulate = Color(0.278431, 0.741176, 0.658824, 1)
 layout_mode = 1
 offset_right = 124.0
 offset_bottom = 60.0
-texture = ExtResource("1_63r6j")
+texture = ExtResource("4_1x3eb")
 expand_mode = 2
 stretch_mode = 4
 

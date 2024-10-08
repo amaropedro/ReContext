@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cp1v15lakxckh"]
+[gd_scene load_steps=9 format=3 uid="uid://cp1v15lakxckh"]
 
 [ext_resource type="PackedScene" uid="uid://csoapptgsx6gu" path="res://Scenes/Components/PlayBtn.tscn" id="1_t8cco"]
 [ext_resource type="Texture2D" uid="uid://c57g273sfkrsv" path="res://Assets/Cards.svg" id="2_tjgf5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://xm3t37crrmte" path="res://Assets/Revise.svg" id="3_qimf8"]
 [ext_resource type="PackedScene" uid="uid://bq2ava2putlav" path="res://Scenes/Complete.tscn" id="4_e6n87"]
 [ext_resource type="PackedScene" uid="uid://cfwdxnrj245c4" path="res://Scenes/Flashcards.tscn" id="6_kdyqj"]
+[ext_resource type="Texture2D" uid="uid://n5hydq8xpmni" path="res://Assets/translate.svg" id="7_b40mf"]
 [ext_resource type="PackedScene" uid="uid://b268riqbx111w" path="res://Scenes/Translate.tscn" id="7_xnujr"]
 
 [node name="Home" type="Control"]
@@ -79,6 +80,7 @@ GameName = "Flashcards"
 
 [node name="PlayBtn3" parent="VBoxContainer/GridContainer" instance=ExtResource("1_t8cco")]
 layout_mode = 2
+icon_svg = ExtResource("7_b40mf")
 card_name = "MEMORIZAR TRADUÇÕES"
 scene = ExtResource("7_xnujr")
 GameName = "Translate"

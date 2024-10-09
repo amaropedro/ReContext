@@ -17,6 +17,8 @@ extends Control
 @onready var sentence_panel: Panel = $VBoxContainer/SentencePanel
 @onready var options_panel: Panel = $VBoxContainer/OptionsPanel
 
+@onready var DoneText: RichTextLabel = $VBoxContainer/DonePanel/VBoxContainer/Front
+
 var current_card_key = ""
 
 var option_dict = {
@@ -26,7 +28,16 @@ var option_dict = {
 	3: "d) "
 }
 
+var rights = 0
+var wrongs = 0
+var retries = 0
+var playtime: float = 0.0
+
 func _ready() -> void:
+	rights = 0
+	wrongs = 0
+	retries = 0
+	playtime = 0.0
 	hide_done()
 	cards = JsonManager.get_deck_cards(SceneManager.selectedDeck)
 	
@@ -36,8 +47,10 @@ func _ready() -> void:
 	current_card_key = cards.keys().pick_random()
 	handle_card()
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	confirm_btn.disabled = !item_list.is_anything_selected()
+	
+	playtime += delta
 
 func reset_answer():
 	answer_container.visible = false
@@ -93,6 +106,16 @@ func hanlde_done():
 	done_panel.visible = true
 	sentence_panel.visible = false
 	options_panel.visible = false
+	
+	var m = playtime/60
+	var h = m/60
+	var s = fmod(playtime, 60)
+	m = fmod(m, 60)
+	var timer = "\nTempo: %02d:%02d:%02d" % [h, m, s]
+	
+	DoneText.text = "[color=Black][center][font_size={48}]\nParabéns!\nCategoria Concluída[/font_size][/center]"
+	DoneText.text += "[left][font_size={32}]\nAcuracia: %.02f %%\nAcertos: %s\nErros: %s\nGeradas Novamente: %s" % [(100*float(rights)/float(rights+wrongs)), rights, wrongs, retries]
+	DoneText.text += timer
 
 func _on_confirm_btn_pressed() -> void:
 	var choice = item_list.get_item_text(item_list.get_selected_items()[0])
@@ -101,8 +124,10 @@ func _on_confirm_btn_pressed() -> void:
 		item_list.set_item_disabled(i, true)
 	
 	if choice == current_card_key:
+		rights += 1
 		item_list.set_item_icon(item_list.get_selected_items()[0], check)
 	else:
+		wrongs += 1
 		item_list.set_item_icon(item_list.get_selected_items()[0], wrong)
 		answer_container.visible = true
 	
@@ -110,6 +135,7 @@ func _on_confirm_btn_pressed() -> void:
 	options_container.visible = true
 
 func _on_try_again_btn_pressed() -> void:
+	retries += 1
 	handle_card()
 	confirm_container.visible = true
 	options_container.visible = false

@@ -93,7 +93,7 @@ alignment = 1
 layout_mode = 2
 bbcode_enabled = true
 text = "[center][font_size={48}][color=Black]Parabéns!
-Categiria Concluida"
+Categoria Concluída"
 fit_content = true
 scroll_active = false
 
@@ -263,7 +263,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_d5q8g")
 theme_override_font_sizes/font_size = 24
-text = "Tentar de novo do inicio"
+text = "Tentar de novo do início"
 icon_alignment = 2
 expand_icon = true
 

@@ -7,13 +7,15 @@ signal requestCompleted
 
 @onready var http_request: HTTPRequest = $HTTPRequest
 
-func _on_http_request_request_completed(result, response_code, headers, body):
+func _on_http_request_request_completed(_result, response_code, _headers, body):
 	if response_code == 200:
 		response_str = parse_gemini_response(body)
 		requestCompleted.emit()
 		return
 	
-	response_str = "Error: response: " + str(response_code) + " result: " + str(result) + " headers: " + str(headers)
+	SceneManager.alert("Erro " + str(response_code) + " na api. Tente novamente mais tarde.", "Red")
+	#"Error: response: " + str(response_code) + " result: " + str(result) + " headers: " + str(headers)
+	response_str = ""
 	requestCompleted.emit()
 
 func generate_content(prompt):

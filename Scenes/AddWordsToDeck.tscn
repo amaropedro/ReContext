@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://bmlg3s0uvtwt0"]
+[gd_scene load_steps=17 format=3 uid="uid://bmlg3s0uvtwt0"]
 
+[ext_resource type="Script" path="res://Scenes/Scripts/add_words_to_deck.gd" id="1_bwkdv"]
 [ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="1_t10sh"]
 [ext_resource type="Texture2D" uid="uid://djkinp8vgm08l" path="res://Assets/Ellipse.svg" id="2_qend3"]
 [ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="3_tu2pg"]
@@ -20,6 +21,20 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpst7"]
+bg_color = Color(0.278431, 0.741176, 0.658824, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aexqt"]
+bg_color = Color(0.839216, 0.180392, 0.180392, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [node name="AddWordsToDeck" type="Control"]
 layout_mode = 3
 anchors_preset = 5
@@ -30,6 +45,7 @@ offset_top = 32.0
 offset_right = 360.0
 offset_bottom = 1152.0
 grow_horizontal = 2
+script = ExtResource("1_bwkdv")
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -286,5 +302,108 @@ icon_alignment = 2
 expand_icon = true
 script = ExtResource("7_bi44i")
 
+[node name="Synonym" type="CanvasLayer" parent="."]
+layer = 100
+visible = false
+
+[node name="TextureRect" type="ColorRect" parent="Synonym"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Panel" type="Panel" parent="Synonym"]
+custom_minimum_size = Vector2(600, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_tu2pg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Synonym/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_right = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Synonym/Panel/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][color=black][font_size={36}]Deseja adicionar sinônimos?[/font_size]
+[font_size={24}]A inteligência artificial irá gerar sinônimos dessa palavra que então serão adicionadas à mesma categoria da palavra original, se possuir.
+Caso deseje remover essas palavras, terá que fazer individualmente."
+fit_content = true
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Synonym/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Yes" type="Panel" parent="Synonym/Panel/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_lpst7")
+
+[node name="AddSyn" type="Button" parent="Synonym/Panel/VBoxContainer/VBoxContainer/Yes"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_06bgv")
+theme_override_font_sizes/font_size = 24
+text = "Sim, adicionar sinônimos"
+expand_icon = true
+
+[node name="No" type="Panel" parent="Synonym/Panel/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_aexqt")
+
+[node name="DontAddSyn" type="Button" parent="Synonym/Panel/VBoxContainer/VBoxContainer/No"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_06bgv")
+theme_override_font_sizes/font_size = 24
+text = "Não, somente a original"
+expand_icon = true
+
 [connection signal="pressed" from="VBoxContainer/Panel/AddWordBtn/AddToDeckBtn" to="VBoxContainer/Panel/AddWordBtn/AddToDeckBtn" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Panel/SkipBtn/AddBtn" to="VBoxContainer/Panel/SkipBtn/AddBtn" method="_on_pressed"]
+[connection signal="pressed" from="Synonym/Panel/VBoxContainer/VBoxContainer/Yes/AddSyn" to="." method="_on_add_syn_pressed"]
+[connection signal="pressed" from="Synonym/Panel/VBoxContainer/VBoxContainer/No/DontAddSyn" to="." method="_on_dont_add_syn_pressed"]

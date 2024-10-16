@@ -25,6 +25,12 @@ func add_to_selected_decks():
 	
 	JsonManager.save_temp_card()
 
+func add_word_to_selected_decks(front: String, back: String):
+	for i in selected:
+		JsonManager.add_to_deck(front, back, i)
+	
+	JsonManager.add_card(front, back)
+
 func del_selected_decks():
 	for d in selected:
 		JsonManager.delete_deck(d)

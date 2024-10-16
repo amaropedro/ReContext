@@ -1,5 +1,7 @@
 extends Button
 
+@onready var synonym: CanvasLayer = $"../../../../Synonym"
+
 func _on_pressed() -> void:
-	JsonManager.save_temp_card()
-	SceneManager.main.list._on_pressed()
+	disabled = true
+	synonym.visible = true

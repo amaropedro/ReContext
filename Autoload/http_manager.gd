@@ -47,3 +47,19 @@ func generate_sentence(keyword: String, display_node: RichTextLabel, format: Str
 	)
 	await requestCompleted
 	display_node.text = format + response_str
+
+func generate_synonyms(keyword: String) -> Dictionary:
+	generate_content(
+		"Generate up to 5 synonyms to the word '"
+		+ keyword +
+		"' , if they exist. Also, translate them to Portuguese. Format the answer in JSON, like so {\"X1\": \"Y1\", \"X2\": \"Y2\", ...}. Where X is the English word and Y is the Portuguese word. Always respond with only the JSON string."
+	)
+	await  requestCompleted
+	
+	var dict = JSON.parse_string(response_str)
+	
+	if dict == null:
+		SceneManager.alert("Erro gerando sinônimos. Verifique se a palavra em inglês foi escrita corretamente.")
+		return {}
+	
+	return JSON.parse_string(response_str)

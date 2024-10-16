@@ -67,15 +67,6 @@ func remove_card_from_deck(front: String, deckName: String):
 	file.store_string(JSON.stringify(words, "\t"))
 	file.close()
 
-# Para iterar o deck seria algo do tipo
-# Posso também pegar aleatoriamente uma palavra e ir removendo ela do array
-func iterate_deck(deck):
-	if deck == 'all':
-		var all_words = get_all_cards()
-		var values = all_words.keys()
-		for word in values:
-			print(word, " ", all_words[word])
-
 func create_temp_deck(deckName: String):
 	newDeck = deckName
 

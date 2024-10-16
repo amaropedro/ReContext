@@ -1,11 +1,27 @@
 extends Node
 
 const RECONTEXT_KEY = preload("res://credentials.json").data.Key
-const url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + RECONTEXT_KEY
+const BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key="
+var url = ""
 var response_str: String
 signal requestCompleted
 
 @onready var http_request: HTTPRequest = $HTTPRequest
+
+func _ready() -> void:
+	var path = "user://customKey.json"
+	
+	if FileAccess.file_exists(path):
+		var file = FileAccess.open(path, FileAccess.READ)
+		 
+		var settings = JSON.parse_string(file.get_as_text())
+		file.close()
+		
+		if settings["Enabled"] == true:
+			url = BASE_URL + settings["CustomKey"]
+			return
+	
+	url = BASE_URL + RECONTEXT_KEY
 
 func _on_http_request_request_completed(_result, response_code, _headers, body):
 	if response_code == 200:

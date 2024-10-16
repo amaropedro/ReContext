@@ -1,0 +1,126 @@
+[gd_scene load_steps=6 format=3 uid="uid://bx4pd12mbtue7"]
+
+[ext_resource type="Texture2D" uid="uid://bwtshfccwvxs8" path="res://Assets/gear.svg" id="1_aehde"]
+[ext_resource type="Script" path="res://Scenes/Scripts/change_key.gd" id="1_axmga"]
+[ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="2_gyn8y"]
+[ext_resource type="Theme" uid="uid://d2otcyr4v4nk2" path="res://Themes/ItemListTheme.tres" id="3_0xb28"]
+[ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="4_pcyn2"]
+
+[node name="ChangeKey" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_axmga")
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_right = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="IconSVG" type="TextureRect" parent="VBoxContainer/Control"]
+modulate = Color(0.278431, 0.741176, 0.658824, 1)
+layout_mode = 1
+offset_right = 124.0
+offset_bottom = 60.0
+texture = ExtResource("1_aehde")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[left][color=black][font_size=48] Configurações Avançadas"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(640, 600)
+layout_mode = 2
+theme = ExtResource("2_gyn8y")
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/Panel"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+offset_right = 584.0
+offset_bottom = 68.0
+theme = ExtResource("3_0xb28")
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Usar chave própria para a API"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -128.0
+offset_right = -16.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[left][color=3E3E3E][font_size=28]ATENÇÃO: O ReContext utiliza da API do gemini para gerar frases e sinônimos. Uma chave é sua credencial para utilizar a API.
+Tenha certeza que está usando uma chave própria valida ou o aplicativo não irá funcionar adequadamente."
+fit_content = true
+
+[node name="Input" parent="VBoxContainer/Panel" instance=ExtResource("4_pcyn2")]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -216.0
+offset_right = -20.0
+offset_bottom = -152.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder = "Chave da API"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/Panel/CheckBox" to="." method="_on_check_box_pressed"]
+[connection signal="text_submitted" from="VBoxContainer/Panel/Input" to="." method="_on_input_text_submitted"]

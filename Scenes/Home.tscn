@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://btr3inifrxa8h"]
+[gd_scene load_steps=11 format=3 uid="uid://btr3inifrxa8h"]
 
 [ext_resource type="PackedScene" uid="uid://chtapnkoca6b5" path="res://Scenes/Components/HomeBtn.tscn" id="1_cgygg"]
+[ext_resource type="Script" path="res://Scenes/Scripts/home.gd" id="1_uljba"]
 [ext_resource type="Texture2D" uid="uid://c57g273sfkrsv" path="res://Assets/Cards.svg" id="2_q6hld"]
 [ext_resource type="Texture2D" uid="uid://dvf7ipmmmv8k0" path="res://Assets/Group.svg" id="3_grjft"]
 [ext_resource type="Texture2D" uid="uid://crtrny11c6j0s" path="res://Assets/List.svg" id="4_ehhdg"]
 [ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="5_ijm55"]
 [ext_resource type="Texture2D" uid="uid://dl4v5rb7jrg0k" path="res://Assets/Question.svg" id="6_3166c"]
 [ext_resource type="Texture2D" uid="uid://ft4woqw7oydh" path="res://Assets/Search.svg" id="7_a552g"]
+[ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="8_a5glq"]
+[ext_resource type="Texture2D" uid="uid://bwtshfccwvxs8" path="res://Assets/gear.svg" id="8_ck6o1"]
 
 [node name="Home" type="Control"]
 layout_mode = 3
@@ -15,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_uljba")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
@@ -82,3 +86,22 @@ card_name = "COMO USAR"
 layout_mode = 2
 icon_svg = ExtResource("7_a552g")
 card_name = "SOBRE"
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 64.0
+grow_horizontal = 0
+theme = ExtResource("8_a5glq")
+icon = ExtResource("8_ck6o1")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

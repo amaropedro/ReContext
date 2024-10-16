@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hmsybdyfgyhm"
-path="res://.godot/imported/RC logo.png-3dbc42ec27684f9a389eb6d24f8b1d88.ctex"
+uid="uid://b63inidvilg75"
+path="res://.godot/imported/bg.png-64432bce5747e600e0ea0c78077e288b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/RC logo.png"
-dest_files=["res://.godot/imported/RC logo.png-3dbc42ec27684f9a389eb6d24f8b1d88.ctex"]
+source_file="res://Assets/AndroidIcon/bg.png"
+dest_files=["res://.godot/imported/bg.png-64432bce5747e600e0ea0c78077e288b.ctex"]
 
 [params]
 

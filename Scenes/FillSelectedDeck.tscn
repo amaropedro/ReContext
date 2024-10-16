@@ -114,6 +114,7 @@ layout_mode = 2
 [node name="Panel" type="Panel" parent="VBoxContainer"]
 custom_minimum_size = Vector2(640, 500)
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("3_1dsxf")
 metadata/_edit_lock_ = true
 
@@ -227,6 +228,10 @@ icon_alignment = 2
 expand_icon = true
 script = ExtResource("12_2243t")
 is_selected = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
 
 [connection signal="pressed" from="VBoxContainer/Panel/AddWordBtn/FillDeckBtn" to="VBoxContainer/Panel/AddWordBtn/FillDeckBtn" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Panel/SkipBtn/AddDeckBtn" to="VBoxContainer/Panel/SkipBtn/AddDeckBtn" method="_on_pressed"]

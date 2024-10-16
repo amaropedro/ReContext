@@ -138,4 +138,8 @@ icon_alignment = 2
 expand_icon = true
 script = ExtResource("10_6v1ac")
 
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
 [connection signal="pressed" from="VBoxContainer/VBoxContainer2/Confirm/SelectDeckBtn" to="VBoxContainer/VBoxContainer2/Confirm/SelectDeckBtn" method="_on_pressed"]

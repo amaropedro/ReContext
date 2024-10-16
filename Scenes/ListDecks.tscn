@@ -156,6 +156,7 @@ layout_mode = 2
 [node name="DeckListPanel" type="Panel" parent="VBoxContainer"]
 custom_minimum_size = Vector2(640, 700)
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("2_wno41")
 
 [node name="DeckList" parent="VBoxContainer/DeckListPanel" instance=ExtResource("6_egw3a")]
@@ -220,6 +221,10 @@ text = "Gerenciar Categoria"
 icon = ExtResource("10_1b48i")
 expand_icon = true
 script = ExtResource("12_kr7p4")
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
 
 [node name="Confirmation" type="CanvasLayer" parent="."]
 layer = 100

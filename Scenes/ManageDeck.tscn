@@ -158,6 +158,7 @@ layout_mode = 2
 [node name="WordList" type="Panel" parent="VBoxContainer"]
 custom_minimum_size = Vector2(640, 728)
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("2_7uyjk")
 
 [node name="DeckWordListComponent" parent="VBoxContainer/WordList" instance=ExtResource("7_63c63")]
@@ -194,6 +195,10 @@ text = "Remover Palavras(s)"
 icon = ExtResource("8_2c5kw")
 expand_icon = true
 script = ExtResource("10_mcdi5")
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
 
 [node name="Confirmation" type="CanvasLayer" parent="."]
 layer = 100

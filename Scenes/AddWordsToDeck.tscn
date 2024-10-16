@@ -211,10 +211,11 @@ theme = ExtResource("4_o6oq3")
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="Input" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("6_4aaxh")]
+[node name="Input" parent="VBoxContainer/Panel/VBoxContainer" node_paths=PackedStringArray("filter_target") instance=ExtResource("6_4aaxh")]
 layout_mode = 2
 placeholder_text = "Pesquisar Categoria"
 placeholder = "Pesquisar Categoria"
+filter_target = NodePath("../DeckList")
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 16)

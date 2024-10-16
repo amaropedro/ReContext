@@ -107,7 +107,7 @@ custom_minimum_size = Vector2(640, 200)
 layout_mode = 2
 theme = ExtResource("2_wno41")
 
-[node name="Input" parent="VBoxContainer/Panel" instance=ExtResource("3_14r60")]
+[node name="Input" parent="VBoxContainer/Panel" node_paths=PackedStringArray("filter_target") instance=ExtResource("3_14r60")]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -117,6 +117,7 @@ offset_right = -24.0
 offset_bottom = 96.0
 grow_horizontal = 2
 placeholder = "Pesquisar Categoria"
+filter_target = NodePath("../../DeckListPanel/DeckList")
 
 [node name="GotoAddCatBtn" type="Panel" parent="VBoxContainer/Panel"]
 custom_minimum_size = Vector2(0, 32)

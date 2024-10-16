@@ -195,10 +195,11 @@ theme = ExtResource("5_oi40s")
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="Input" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("6_x6f4e")]
+[node name="Input" parent="VBoxContainer/Panel/VBoxContainer" node_paths=PackedStringArray("filter_target") instance=ExtResource("6_x6f4e")]
 layout_mode = 2
 placeholder_text = "Pesquisar Palavra"
 placeholder = "Pesquisar Palavra"
+filter_target = NodePath("../WordListComponent")
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 16)

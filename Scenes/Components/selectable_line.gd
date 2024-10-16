@@ -68,3 +68,13 @@ func word_pressed():
 	bbCodeColor = "[color=black]"
 	word_list.selected.erase(text_2.capitalize())
 	updade_text()
+
+func check_filter(filter: String):
+	if filter.is_subsequence_ofn(text_1):
+		#print(filter, " match ", text_1)
+		visible = true
+	elif filter.is_subsequence_ofn(text_2):
+		#print(filter, " match ", text_2)
+		visible = true
+	else:
+		visible = false

@@ -49,5 +49,10 @@ func add_item(deckName: String):
 	v_box_container.add_child(line)
 	v_box_container.add_child(MarginContainer.new())
 
+func filter_list(filter: String):
+	for child in v_box_container.get_children():
+		if child is SelectableLine:
+			child.check_filter(filter)
+
 func _process(_delta: float) -> void:
 	pass

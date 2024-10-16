@@ -93,9 +93,10 @@ bbcode_enabled = true
 text = "[center][color=47BDA8][font_size=48] Escolha uma Categoria"
 fit_content = true
 
-[node name="Input" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("3_ka3bw")]
+[node name="Input" parent="VBoxContainer/Panel/VBoxContainer" node_paths=PackedStringArray("filter_target") instance=ExtResource("3_ka3bw")]
 layout_mode = 2
 placeholder = "Pesquisar Categoria"
+filter_target = NodePath("../../../DeckListPanel/DeckList")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)

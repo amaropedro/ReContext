@@ -1,6 +1,6 @@
 extends Control
 
-@onready var rendered_scene: CanvasLayer = $RenderedScene
+@onready var rendered_scene: Control = $RenderedScene
 @onready var nav_bar: HBoxContainer = $BottomNavBar/NavBarContainer/NavBar
 
 @onready var home: NavBtn = $BottomNavBar/NavBarContainer/NavBar/Home

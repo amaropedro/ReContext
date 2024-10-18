@@ -53,16 +53,15 @@ func parse_gemini_response(body):
 	var content = response_string['candidates'][0]['content']['parts'][0]['text']
 	return content
 
-func generate_sentence(keyword: String, display_node: RichTextLabel, format: String = ""):
-	display_node.text = format + "Gerando..."
-	
+func generate_sentence(keyword: String):
 	generate_content(
 		"Create a sentence that contains the word: '" 
-		+ keyword + "' and then format it such that the word is blank. "
-		+ "Don't respond with anything else besides the sentance."
+		+ keyword + "' and then format it such that the word is blank (underlines). "
+		+ "Also translate it to Portuguese. Format the answer in a JSON as such {English: ..., Portuguese: ...}" 
+		+ "Don't respond with anything else besides the JSON."
 	)
 	await requestCompleted
-	display_node.text = format + response_str
+	return JSON.parse_string(response_str)
 
 func generate_synonyms(keyword: String) -> Dictionary:
 	generate_content(

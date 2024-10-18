@@ -32,6 +32,7 @@ var rights = 0
 var wrongs = 0
 var retries = 0
 var playtime: float = 0.0
+var response: Dictionary
 
 func _ready() -> void:
 	rights = 0
@@ -61,8 +62,11 @@ func handle_card():
 	reset_answer()
 	item_list.clear()
 	
-	HttpManager.generate_sentence(current_card_key, sentence, "[left][font_size={32}][color=Black]")
-	await HttpManager.requestCompleted
+	var format = "[left][font_size={32}][color=Black]"
+	
+	sentence.text = format + "Gerando..."
+	response = await HttpManager.generate_sentence(current_card_key)
+	sentence.text = format + response["English"]
 	var all_cards = JsonManager.get_all_cards()
 	var options = []
 	
@@ -153,6 +157,7 @@ func _on_done_btn_pressed() -> void:
 
 func _on_answer_btn_pressed() -> void:
 	if answer_btn.button_pressed:
+		sentence.text += "\n[color=47BDA8]" + response["Portuguese"]
 		answer_btn.text = current_card_key + " - " + cards[current_card_key]
 		answer_btn.disabled = true
 		return

@@ -117,8 +117,14 @@ func hanlde_done():
 	m = fmod(m, 60)
 	var timer = "\nTempo: %02d:%02d:%02d" % [h, m, s]
 	
-	DoneText.text = "[color=Black][center][font_size={48}]\nParabéns!\nCategoria Concluída[/font_size][/center]"
-	DoneText.text += "[left][font_size={32}]\nAcuracia: %.02f %%\nAcertos: %s\nErros: %s\nGeradas Novamente: %s" % [(100*float(rights)/float(rights+wrongs)), rights, wrongs, retries]
+	var acc = (100*float(rights)/float(rights+wrongs))
+	var encourage = "Parabéns!"
+	
+	if acc < 60:
+		encourage = "Continue Tentando!"
+	
+	DoneText.text = "[color=Black][center][font_size={48}]\n" + encourage + "\nCategoria Concluída[/font_size][/center]"
+	DoneText.text += "[left][font_size={32}]\nAcurácia: %.02f %%\nAcertos: %s\nErros: %s\nGeradas Novamente: %s" % [acc, rights, wrongs, retries]
 	DoneText.text += timer
 
 func _on_confirm_btn_pressed() -> void:

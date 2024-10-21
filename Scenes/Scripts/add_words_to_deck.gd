@@ -8,7 +8,7 @@ extends Control
 @onready var no: Panel = $Synonym/Panel/VBoxContainer/VBoxContainer/No
 @onready var rich_text_label: RichTextLabel = $Synonym/Panel/VBoxContainer/RichTextLabel
 
-@onready var add_to_deck_btn: Button = $VBoxContainer/Panel/AddWordBtn/AddToDeckBtn
+@onready var add_to_deck_btn: Button = $VBoxContainer/HBoxContainer2/AddWordBtn/AddToDeckBtn
 @onready var synonym: CanvasLayer = $Synonym
 
 func _process(_delta: float) -> void:

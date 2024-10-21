@@ -22,8 +22,6 @@ func _ready() -> void:
 func add_to_selected_decks():
 	for i in selected:
 		JsonManager.add_temp_cards_to_deck(i)
-	
-	JsonManager.save_temp_card()
 
 func add_saved_to_selected_decks():
 	for i in selected:

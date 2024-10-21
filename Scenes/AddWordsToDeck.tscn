@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bmlg3s0uvtwt0"]
+[gd_scene load_steps=17 format=3 uid="uid://bmlg3s0uvtwt0"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/add_words_to_deck.gd" id="1_bwkdv"]
 [ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="1_t10sh"]
@@ -14,6 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://ce6y8an4ut4t4" path="res://Assets/Arrow.svg" id="8_yfawe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5eaj"]
+bg_color = Color(0.278431, 0.741176, 0.658824, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8yyen"]
 bg_color = Color(0.278431, 0.741176, 0.658824, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
@@ -143,7 +150,7 @@ custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
 [node name="WordsPanel" type="Panel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(640, 300)
+custom_minimum_size = Vector2(640, 250)
 layout_mode = 2
 theme = ExtResource("3_tu2pg")
 metadata/_edit_lock_ = true
@@ -221,29 +228,46 @@ layout_mode = 2
 [node name="DeckList" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("6_rbkyp")]
 layout_mode = 2
 
-[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 144)
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+alignment = 2
 
-[node name="AddWordBtn" type="Panel" parent="VBoxContainer/Panel"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -288.0
-offset_top = -60.0
-offset_right = -16.0
-offset_bottom = -4.0
-grow_horizontal = 0
-grow_vertical = 0
+[node name="SkipBtn" type="Panel" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_q5eaj")
+
+[node name="AddBtn" type="Button" parent="VBoxContainer/HBoxContainer2/SkipBtn"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_06bgv")
+theme_override_font_sizes/font_size = 24
+text = "Não, Apenas Salvar"
+icon = ExtResource("8_yfawe")
+icon_alignment = 2
+expand_icon = true
+script = ExtResource("7_bi44i")
+
+[node name="AddWordBtn" type="Panel" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_8yyen")
 script = ExtResource("5_ivims")
 
-[node name="AddToDeckBtn" type="Button" parent="VBoxContainer/Panel/AddWordBtn"]
+[node name="AddToDeckBtn" type="Button" parent="VBoxContainer/HBoxContainer2/AddWordBtn"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -261,43 +285,6 @@ text = "Adicionar"
 icon = ExtResource("1_t10sh")
 icon_alignment = 2
 expand_icon = true
-
-[node name="SkipBtn" type="Panel" parent="VBoxContainer/Panel"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -288.0
-offset_top = -132.0
-offset_right = -16.0
-offset_bottom = -76.0
-grow_horizontal = 0
-grow_vertical = 0
-size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxFlat_q5eaj")
-
-[node name="AddBtn" type="Button" parent="VBoxContainer/Panel/SkipBtn"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 8.0
-offset_top = -12.0
-offset_right = -8.0
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("6_06bgv")
-theme_override_font_sizes/font_size = 24
-text = "Pular"
-icon = ExtResource("8_yfawe")
-icon_alignment = 2
-expand_icon = true
-script = ExtResource("7_bi44i")
 
 [node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
@@ -404,7 +391,7 @@ theme_override_font_sizes/font_size = 24
 text = "Não, somente a original"
 expand_icon = true
 
-[connection signal="pressed" from="VBoxContainer/Panel/AddWordBtn/AddToDeckBtn" to="." method="_on_add_to_deck_btn_pressed"]
-[connection signal="pressed" from="VBoxContainer/Panel/SkipBtn/AddBtn" to="VBoxContainer/Panel/SkipBtn/AddBtn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/SkipBtn/AddBtn" to="VBoxContainer/HBoxContainer2/SkipBtn/AddBtn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/AddWordBtn/AddToDeckBtn" to="." method="_on_add_to_deck_btn_pressed"]
 [connection signal="pressed" from="Synonym/Panel/VBoxContainer/VBoxContainer/Yes/AddSyn" to="." method="_on_add_syn_pressed"]
 [connection signal="pressed" from="Synonym/Panel/VBoxContainer/VBoxContainer/No/DontAddSyn" to="." method="_on_dont_add_syn_pressed"]

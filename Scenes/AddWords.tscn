@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjj87jfo810oo"]
+[gd_scene load_steps=14 format=3 uid="uid://bjj87jfo810oo"]
 
+[ext_resource type="Script" path="res://Scenes/Scripts/add_words.gd" id="1_5lqli"]
 [ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="1_m886k"]
 [ext_resource type="Texture2D" uid="uid://djkinp8vgm08l" path="res://Assets/Ellipse.svg" id="2_a6j0w"]
 [ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="2_kea7k"]
@@ -8,9 +9,24 @@
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="4_pdp1e"]
 [ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="5_ep2ny"]
 [ext_resource type="Script" path="res://Scenes/Scripts/add_next_step_btn.gd" id="7_a0jgg"]
+[ext_resource type="Texture2D" uid="uid://ce6y8an4ut4t4" path="res://Assets/Arrow.svg" id="9_t38px"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5eaj"]
 bg_color = Color(0.278431, 0.741176, 0.658824, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pt4w6"]
+bg_color = Color(0.278431, 0.741176, 0.658824, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xq8ve"]
+bg_color = Color(0.839216, 0.180392, 0.180392, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -23,6 +39,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5lqli")
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -124,7 +141,7 @@ custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(640, 900)
+custom_minimum_size = Vector2(640, 400)
 layout_mode = 2
 theme = ExtResource("2_kea7k")
 metadata/_edit_lock_ = true
@@ -136,8 +153,8 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -31.5
-offset_right = 31.5
+offset_left = -300.0
+offset_right = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_uj3x4")
@@ -170,25 +187,46 @@ fit_content = true
 layout_mode = 2
 placeholder = "Palavra em Português"
 
-[node name="AddWordBtn" type="Panel" parent="VBoxContainer/Panel"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -288.0
-offset_top = -84.0
-offset_right = -16.0
-offset_bottom = -28.0
-grow_horizontal = 0
-grow_vertical = 0
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="AddWordBtn" type="Panel" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_q5eaj")
 script = ExtResource("4_5aj18")
 
-[node name="AddNextStepBtn" type="Button" parent="VBoxContainer/Panel/AddWordBtn"]
+[node name="saveWord" type="Button" parent="VBoxContainer/HBoxContainer2/AddWordBtn"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_pdp1e")
+theme_override_font_sizes/font_size = 24
+text = "Salvar palavra"
+icon = ExtResource("1_m886k")
+expand_icon = true
+script = ExtResource("7_a0jgg")
+
+[node name="AddWordBtn2" type="Panel" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_q5eaj")
+script = ExtResource("4_5aj18")
+
+[node name="AddNextStepBtn" type="Button" parent="VBoxContainer/HBoxContainer2/AddWordBtn2"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -203,9 +241,117 @@ grow_vertical = 2
 theme = ExtResource("4_pdp1e")
 theme_override_font_sizes/font_size = 24
 text = "Adicionar à categoria"
-icon = ExtResource("1_m886k")
+icon = ExtResource("9_t38px")
 icon_alignment = 2
 expand_icon = true
 script = ExtResource("7_a0jgg")
 
-[connection signal="pressed" from="VBoxContainer/Panel/AddWordBtn/AddNextStepBtn" to="VBoxContainer/Panel/AddWordBtn/AddNextStepBtn" method="_on_pressed"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Synonym" type="CanvasLayer" parent="."]
+layer = 100
+visible = false
+
+[node name="TextureRect" type="ColorRect" parent="Synonym"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Panel" type="Panel" parent="Synonym"]
+custom_minimum_size = Vector2(600, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_kea7k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Synonym/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_right = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Synonym/Panel/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][color=black][font_size={36}]Deseja adicionar sinônimos?[/font_size]
+[font_size={24}]A inteligência artificial irá gerar sinônimos dessa palavra que então serão adicionadas à mesma categoria da palavra original, se possuir.
+Caso deseje remover essas palavras, terá que fazer individualmente."
+fit_content = true
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Synonym/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Yes" type="Panel" parent="Synonym/Panel/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_pt4w6")
+
+[node name="AddSyn" type="Button" parent="Synonym/Panel/VBoxContainer/VBoxContainer/Yes"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_pdp1e")
+theme_override_font_sizes/font_size = 24
+text = "Sim, adicionar sinônimos"
+expand_icon = true
+
+[node name="No" type="Panel" parent="Synonym/Panel/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_xq8ve")
+
+[node name="DontAddSyn" type="Button" parent="Synonym/Panel/VBoxContainer/VBoxContainer/No"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_pdp1e")
+theme_override_font_sizes/font_size = 24
+text = "Não, somente a original"
+expand_icon = true
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/AddWordBtn/saveWord" to="." method="_on_save_word_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/AddWordBtn2/AddNextStepBtn" to="." method="_on_add_next_step_btn_pressed"]
+[connection signal="pressed" from="Synonym/Panel/VBoxContainer/VBoxContainer/Yes/AddSyn" to="." method="_on_add_syn_pressed"]
+[connection signal="pressed" from="Synonym/Panel/VBoxContainer/VBoxContainer/No/DontAddSyn" to="." method="_on_dont_add_syn_pressed"]

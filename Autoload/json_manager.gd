@@ -76,6 +76,11 @@ func save_temp_deck() -> String:
 	newDeck = ""
 	return d.capitalize() 
 
+func get_temp_deck() -> String:
+	var d = newDeck
+	newDeck = ""
+	return d.capitalize() 
+
 func new_deck(DeckName: String) -> bool:
 	var new_deck_path = deck_folder + DeckName.capitalize() + ".json"
 	if !FileAccess.file_exists(new_deck_path):

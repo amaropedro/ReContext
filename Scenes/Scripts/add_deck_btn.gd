@@ -7,5 +7,4 @@ func _on_pressed() -> void:
 		SceneManager.main.load_render("res://Scenes/ManageDeck.tscn")
 		return
 	
-	JsonManager.save_temp_deck()
 	SceneManager.main.decks._on_pressed()

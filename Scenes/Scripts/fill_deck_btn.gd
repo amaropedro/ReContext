@@ -1,6 +1,6 @@
 extends Button
 
-@onready var word_list_component: WordList = $"../../VBoxContainer/WordListComponent"
+@onready var word_list_component: WordList = $"../../../Panel/VBoxContainer/WordListComponent"
 
 @export var is_selected: bool = false
 

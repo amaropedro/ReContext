@@ -206,29 +206,46 @@ layout_mode = 2
 [node name="WordListComponent" parent="VBoxContainer/Panel/VBoxContainer" instance=ExtResource("7_okwiy")]
 layout_mode = 2
 
-[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 144)
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+alignment = 2
 
-[node name="AddWordBtn" type="Panel" parent="VBoxContainer/Panel"]
+[node name="SkipBtn" type="Panel" parent="VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_q5eaj")
+
+[node name="AddDeckBtn" type="Button" parent="VBoxContainer/HBoxContainer2/SkipBtn"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -288.0
-offset_top = -60.0
-offset_right = -16.0
-offset_bottom = -4.0
-grow_horizontal = 0
-grow_vertical = 0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_arfao")
+theme_override_font_sizes/font_size = 24
+text = "Não, Apenas Salvar"
+icon = ExtResource("10_2c7i3")
+icon_alignment = 2
+expand_icon = true
+script = ExtResource("10_8tir4")
+
+[node name="AddWordBtn" type="Panel" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_q5eaj")
 script = ExtResource("7_h6y8e")
 
-[node name="FillDeckBtn" type="Button" parent="VBoxContainer/Panel/AddWordBtn"]
+[node name="FillDeckBtn" type="Button" parent="VBoxContainer/HBoxContainer2/AddWordBtn"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -248,46 +265,9 @@ icon_alignment = 2
 expand_icon = true
 script = ExtResource("10_0jqg6")
 
-[node name="SkipBtn" type="Panel" parent="VBoxContainer/Panel"]
-custom_minimum_size = Vector2(0, 56)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -288.0
-offset_top = -132.0
-offset_right = -16.0
-offset_bottom = -76.0
-grow_horizontal = 0
-grow_vertical = 0
-size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxFlat_q5eaj")
-
-[node name="AddDeckBtn" type="Button" parent="VBoxContainer/Panel/SkipBtn"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 8.0
-offset_top = -12.0
-offset_right = -8.0
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("8_arfao")
-theme_override_font_sizes/font_size = 24
-text = "Pular"
-icon = ExtResource("10_2c7i3")
-icon_alignment = 2
-expand_icon = true
-script = ExtResource("10_8tir4")
-
 [node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[connection signal="pressed" from="VBoxContainer/Panel/AddWordBtn/FillDeckBtn" to="VBoxContainer/Panel/AddWordBtn/FillDeckBtn" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer/Panel/SkipBtn/AddDeckBtn" to="VBoxContainer/Panel/SkipBtn/AddDeckBtn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/SkipBtn/AddDeckBtn" to="VBoxContainer/HBoxContainer2/SkipBtn/AddDeckBtn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/AddWordBtn/FillDeckBtn" to="VBoxContainer/HBoxContainer2/AddWordBtn/FillDeckBtn" method="_on_pressed"]

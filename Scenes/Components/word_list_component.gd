@@ -28,8 +28,7 @@ func fill_deck():
 	if filter_deckWords:
 		deck = SceneManager.deckToManage
 	else:
-		deck = JsonManager.save_temp_deck()
-		
+		deck = JsonManager.get_temp_deck()
 	
 	for i in selected.keys():
 		JsonManager.add_to_deck(i, selected[i], deck)

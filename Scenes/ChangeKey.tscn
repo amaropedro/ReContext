@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bx4pd12mbtue7"]
 
-[ext_resource type="Texture2D" uid="uid://bwtshfccwvxs8" path="res://Assets/gear.svg" id="1_aehde"]
 [ext_resource type="Script" path="res://Scenes/Scripts/change_key.gd" id="1_axmga"]
 [ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="2_gyn8y"]
+[ext_resource type="Texture2D" uid="uid://dqymb62mxv20l" path="res://Assets/Gear.svg" id="2_pnyt8"]
 [ext_resource type="Theme" uid="uid://d2otcyr4v4nk2" path="res://Themes/ItemListTheme.tres" id="3_0xb28"]
 [ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="4_pcyn2"]
 
@@ -33,11 +33,11 @@ custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
 [node name="IconSVG" type="TextureRect" parent="VBoxContainer/Control"]
-modulate = Color(0.278431, 0.741176, 0.658824, 1)
+modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 offset_right = 124.0
 offset_bottom = 60.0
-texture = ExtResource("1_aehde")
+texture = ExtResource("2_pnyt8")
 expand_mode = 2
 stretch_mode = 4
 

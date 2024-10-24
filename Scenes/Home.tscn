@@ -58,6 +58,11 @@ theme_override_constants/h_separation = 32
 theme_override_constants/v_separation = 32
 columns = 2
 
+[node name="HomeBtn4" parent="GridContainer" instance=ExtResource("1_cgygg")]
+layout_mode = 2
+icon_svg = ExtResource("5_ijm55")
+card_name = "ADICIONAR PALAVRAS"
+
 [node name="HomeBtn" parent="GridContainer" instance=ExtResource("1_cgygg")]
 z_index = 100
 z_as_relative = false
@@ -75,20 +80,15 @@ layout_mode = 2
 icon_svg = ExtResource("4_ehhdg")
 card_name = "LISTA DE PALAVRAS"
 
-[node name="HomeBtn4" parent="GridContainer" instance=ExtResource("1_cgygg")]
+[node name="HomeBtn6" parent="GridContainer" instance=ExtResource("1_cgygg")]
 layout_mode = 2
-icon_svg = ExtResource("5_ijm55")
-card_name = "ADICIONAR PALAVRAS"
+icon_svg = ExtResource("7_a552g")
+card_name = "SOBRE"
 
 [node name="HomeBtn5" parent="GridContainer" instance=ExtResource("1_cgygg")]
 layout_mode = 2
 icon_svg = ExtResource("6_3166c")
 card_name = "COMO USAR"
-
-[node name="HomeBtn6" parent="GridContainer" instance=ExtResource("1_cgygg")]
-layout_mode = 2
-icon_svg = ExtResource("7_a552g")
-card_name = "SOBRE"
 
 [node name="Quit" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(0, 56)

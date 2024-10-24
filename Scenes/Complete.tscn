@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bq2ava2putlav"]
+[gd_scene load_steps=13 format=3 uid="uid://bq2ava2putlav"]
 
 [ext_resource type="Texture2D" uid="uid://d180xb0rvjjrh" path="res://Assets/Write.svg" id="1_gb308"]
 [ext_resource type="Script" path="res://Scenes/Scripts/complete.gd" id="1_wjrxc"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://clejfwcarfl62" path="res://Assets/check.svg" id="3_43ii6"]
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="4_5np55"]
 [ext_resource type="Texture2D" uid="uid://ce6y8an4ut4t4" path="res://Assets/Arrow.svg" id="5_5psd1"]
+[ext_resource type="Texture2D" uid="uid://pyrc8gpajpo5" path="res://Assets/Retry.svg" id="9_ti1pp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_macim"]
 bg_color = Color(0.278431, 0.741176, 0.658824, 1)
@@ -253,7 +254,7 @@ grow_vertical = 2
 theme = ExtResource("4_5np55")
 theme_override_font_sizes/font_size = 24
 text = "Gerar outra frase"
-icon_alignment = 2
+icon = ExtResource("9_ti1pp")
 expand_icon = true
 
 [node name="Next" type="Panel" parent="VBoxContainer/OptionsContainer"]
@@ -308,7 +309,7 @@ grow_vertical = 2
 theme = ExtResource("4_5np55")
 theme_override_font_sizes/font_size = 24
 text = "Tentar de novo do início"
-icon_alignment = 2
+icon = ExtResource("9_ti1pp")
 expand_icon = true
 
 [node name="Done" type="Panel" parent="VBoxContainer/DoneContainer"]

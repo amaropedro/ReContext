@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfwdxnrj245c4"]
+[gd_scene load_steps=10 format=3 uid="uid://cfwdxnrj245c4"]
 
 [ext_resource type="Texture2D" uid="uid://xm3t37crrmte" path="res://Assets/Revise.svg" id="1_3xb7r"]
 [ext_resource type="Script" path="res://Scenes/Scripts/flashcards.gd" id="1_piwwg"]
 [ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="2_4duvr"]
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="4_d5q8g"]
 [ext_resource type="Texture2D" uid="uid://ce6y8an4ut4t4" path="res://Assets/Arrow.svg" id="5_xlb6c"]
+[ext_resource type="Texture2D" uid="uid://pyrc8gpajpo5" path="res://Assets/Retry.svg" id="7_4l3j8"]
 [ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="8_o32by"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ruvf"]
@@ -206,7 +207,7 @@ grow_vertical = 2
 theme = ExtResource("4_d5q8g")
 theme_override_font_sizes/font_size = 24
 text = "Tentar de novo"
-icon_alignment = 2
+icon = ExtResource("7_4l3j8")
 expand_icon = true
 
 [node name="Next" type="Panel" parent="VBoxContainer/OptionsContainer"]
@@ -261,7 +262,7 @@ grow_vertical = 2
 theme = ExtResource("4_d5q8g")
 theme_override_font_sizes/font_size = 24
 text = "Tentar de novo do início"
-icon_alignment = 2
+icon = ExtResource("7_4l3j8")
 expand_icon = true
 
 [node name="Done" type="Panel" parent="VBoxContainer/DoneContainer"]

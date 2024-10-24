@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cp1v15lakxckh"]
+[gd_scene load_steps=13 format=3 uid="uid://cp1v15lakxckh"]
 
+[ext_resource type="Script" path="res://Scenes/Scripts/play.gd" id="1_ey1t2"]
 [ext_resource type="PackedScene" uid="uid://csoapptgsx6gu" path="res://Scenes/Components/PlayBtn.tscn" id="1_t8cco"]
 [ext_resource type="Texture2D" uid="uid://c57g273sfkrsv" path="res://Assets/Cards.svg" id="2_tjgf5"]
 [ext_resource type="Texture2D" uid="uid://d180xb0rvjjrh" path="res://Assets/Write.svg" id="2_wu2xr"]
@@ -8,14 +9,24 @@
 [ext_resource type="PackedScene" uid="uid://cfwdxnrj245c4" path="res://Scenes/Flashcards.tscn" id="6_kdyqj"]
 [ext_resource type="Texture2D" uid="uid://n5hydq8xpmni" path="res://Assets/translate.svg" id="7_b40mf"]
 [ext_resource type="PackedScene" uid="uid://b268riqbx111w" path="res://Scenes/Translate.tscn" id="7_xnujr"]
+[ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="10_frwoj"]
+[ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="11_gr46r"]
 
-[node name="Home" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jrhx"]
+bg_color = Color(0.278431, 0.741176, 0.658824, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Play" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ey1t2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(640, 0)
@@ -81,3 +92,82 @@ icon_svg = ExtResource("7_b40mf")
 card_name = "MEMORIZAR TRADUÇÕES"
 scene = ExtResource("7_xnujr")
 GameName = "Translate"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+visible = false
+
+[node name="TextureRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+custom_minimum_size = Vector2(600, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_frwoj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_right = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][color=black][font_size={36}]Você não tem nenhuma Palavra![/font_size]
+
+[font_size={32}]Para jogar, é preciso adicionar algumas palavras ao aplicativo."
+fit_content = true
+
+[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Yes" type="Panel" parent="CanvasLayer/Panel/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_2jrhx")
+
+[node name="AddSyn" type="Button" parent="CanvasLayer/Panel/VBoxContainer/VBoxContainer/Yes"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_gr46r")
+theme_override_font_sizes/font_size = 24
+text = "Ok, adicionar palavras"
+expand_icon = true
+
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/VBoxContainer/Yes/AddSyn" to="." method="_on_add_syn_pressed"]

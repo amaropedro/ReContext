@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7lmf6bclmgjc"]
+[gd_scene load_steps=6 format=3 uid="uid://b7lmf6bclmgjc"]
 
 [ext_resource type="Texture2D" uid="uid://ft4woqw7oydh" path="res://Assets/Search.svg" id="1_76v8p"]
 [ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="3_003w6"]
+[ext_resource type="Texture2D" uid="uid://d3ijmy4kfk3la" path="res://Assets/Exit.svg" id="3_ejruj"]
+[ext_resource type="Texture2D" uid="uid://cnpwf8qildqs4" path="res://Assets/Back.svg" id="4_0nq4y"]
+[ext_resource type="Script" path="res://Scenes/Scripts/back_button.gd" id="5_o6m5s"]
 
 [node name="About" type="Control"]
 layout_mode = 3
@@ -98,3 +101,52 @@ THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+
+[node name="Back" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -168.0
+offset_top = 8.0
+offset_right = -16.0
+offset_bottom = 64.0
+grow_horizontal = 0
+theme = ExtResource("3_003w6")
+
+[node name="BackButton" type="Button" parent="Back"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -23.0
+offset_right = 76.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_disabled_color = Color(0.552941, 0.552941, 0.552941, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.552941, 0.552941, 0.552941, 1)
+theme_override_colors/font_hover_color = Color(0.552941, 0.552941, 0.552941, 1)
+theme_override_colors/font_pressed_color = Color(0.552941, 0.552941, 0.552941, 1)
+theme_override_colors/font_focus_color = Color(0.552941, 0.552941, 0.552941, 1)
+theme_override_colors/font_color = Color(0.552941, 0.552941, 0.552941, 1)
+theme_override_colors/font_outline_color = Color(0.552941, 0.552941, 0.552941, 1)
+theme_override_colors/icon_normal_color = Color(0.552941, 0.552941, 0.552941, 1)
+theme_override_colors/icon_focus_color = Color(0.552941, 0.552941, 0.552941, 1)
+theme_override_colors/icon_pressed_color = Color(0.552941, 0.552941, 0.552941, 1)
+theme_override_colors/icon_hover_color = Color(0.552941, 0.552941, 0.552941, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.552941, 0.552941, 0.552941, 1)
+theme_override_colors/icon_disabled_color = Color(0.552941, 0.552941, 0.552941, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_icons/icon = ExtResource("3_ejruj")
+text = "Voltar"
+icon = ExtResource("4_0nq4y")
+flat = true
+expand_icon = true
+script = ExtResource("5_o6m5s")
+
+[connection signal="pressed" from="Back/BackButton" to="Back/BackButton" method="_on_pressed"]

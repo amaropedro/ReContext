@@ -178,7 +178,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_d5q8g")
 theme_override_font_sizes/font_size = 24
-text = "Relevar Verso"
+text = "Revelar Verso"
 expand_icon = true
 
 [node name="OptionsContainer" type="HBoxContainer" parent="VBoxContainer"]

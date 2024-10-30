@@ -23,6 +23,14 @@ func _ready() -> void:
 	
 	url = BASE_URL + RECONTEXT_KEY
 
+func parce_sentence(sentence: String):
+	var pattern = RegEx.new()
+	pattern.compile("_(\\w+)_")  # Matches underscores with a word in between
+	
+	var corrected_sentence = pattern.sub(sentence, "____", false)
+	
+	return corrected_sentence
+
 func _on_http_request_request_completed(_result, response_code, _headers, body):
 	if response_code == 200:
 		response_str = parse_gemini_response(body)

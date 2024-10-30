@@ -66,7 +66,7 @@ func handle_card():
 	
 	sentence.text = format + "Gerando..."
 	response = await HttpManager.generate_sentence(current_card_key)
-	sentence.text = format + response["English"]
+	sentence.text = format + HttpManager.parce_sentence(response["English"])
 	var all_cards = JsonManager.get_all_cards()
 	var options = []
 	
@@ -163,7 +163,7 @@ func _on_done_btn_pressed() -> void:
 
 func _on_answer_btn_pressed() -> void:
 	if answer_btn.button_pressed:
-		sentence.text += "\n[color=47BDA8]" + response["Portuguese"]
+		sentence.text += "\n[color=47BDA8]" + HttpManager.parce_sentence(response["Portuguese"])
 		answer_btn.text = current_card_key + " - " + cards[current_card_key]
 		answer_btn.disabled = true
 		return

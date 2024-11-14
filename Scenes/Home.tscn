@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://btr3inifrxa8h"]
+[gd_scene load_steps=14 format=3 uid="uid://btr3inifrxa8h"]
 
 [ext_resource type="PackedScene" uid="uid://chtapnkoca6b5" path="res://Scenes/Components/HomeBtn.tscn" id="1_cgygg"]
 [ext_resource type="Script" path="res://Scenes/Scripts/home.gd" id="1_uljba"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="5_ijm55"]
 [ext_resource type="Texture2D" uid="uid://dl4v5rb7jrg0k" path="res://Assets/Question.svg" id="6_3166c"]
 [ext_resource type="Texture2D" uid="uid://ft4woqw7oydh" path="res://Assets/Search.svg" id="7_a552g"]
+[ext_resource type="Script" path="res://Scenes/Components/redirect.gd" id="8_7mg3j"]
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="8_a5glq"]
 [ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="11_lhsb4"]
 [ext_resource type="Texture2D" uid="uid://d3ijmy4kfk3la" path="res://Assets/Exit.svg" id="12_dkolx"]
@@ -87,6 +88,7 @@ card_name = "SOBRE"
 
 [node name="HomeBtn5" parent="GridContainer" instance=ExtResource("1_cgygg")]
 layout_mode = 2
+script = ExtResource("8_7mg3j")
 icon_svg = ExtResource("6_3166c")
 card_name = "COMO USAR"
 

@@ -59,6 +59,8 @@ func parse_gemini_response(body):
 	var response_string = JSON.parse_string(body.get_string_from_utf8())
 	
 	var content = response_string['candidates'][0]['content']['parts'][0]['text']
+	var begin = content.find('{')
+	content = content.substr(begin, content.find('}') - begin + 1)
 	return content
 
 func generate_sentence(keyword: String):
@@ -69,6 +71,7 @@ func generate_sentence(keyword: String):
 		+ "Don't respond with anything else besides the JSON."
 	)
 	await requestCompleted
+	#print(response_str)
 	return JSON.parse_string(response_str)
 
 func generate_synonyms(keyword: String) -> Dictionary:

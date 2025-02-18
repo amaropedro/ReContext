@@ -23,11 +23,16 @@ func _ready() -> void:
 	
 	url = BASE_URL + RECONTEXT_KEY
 
-func parce_sentence(sentence: String):
+func parse_sentence(sentence: String):
 	var pattern = RegEx.new()
 	pattern.compile("_(\\w+)_")  # Matches underscores with a word in between
 	
 	var corrected_sentence = pattern.sub(sentence, "____", false)
+	print(corrected_sentence)
+	
+	pattern.compile("<u>(\\w+)</u>")  # Matches <u></u> with a word in between
+	corrected_sentence = pattern.sub(corrected_sentence, "____", false)
+	print(corrected_sentence)
 	
 	return corrected_sentence
 
@@ -80,7 +85,7 @@ func generate_synonyms(keyword: String) -> Dictionary:
 		+ keyword +
 		"' , if they exist. Also, translate them to Portuguese. Format the answer in JSON, like so {\"X1\": \"Y1\", \"X2\": \"Y2\", ...}. Where X is the English word and Y is the Portuguese word. Always respond with only the JSON string."
 	)
-	await  requestCompleted
+	await requestCompleted
 	
 	var dict = JSON.parse_string(response_str)
 	

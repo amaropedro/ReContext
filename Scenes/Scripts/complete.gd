@@ -34,6 +34,8 @@ var retries = 0
 var playtime: float = 0.0
 var response: Dictionary
 
+var curr_sentence
+
 func _ready() -> void:
 	rights = 0
 	wrongs = 0
@@ -66,7 +68,8 @@ func handle_card():
 	
 	sentence.text = format + "Gerando..."
 	response = await HttpManager.generate_sentence(current_card_key)
-	sentence.text = format + HttpManager.parse_sentence(response["English"])
+	curr_sentence = HttpManager.parse_sentence(response["English"])
+	sentence.text = format + curr_sentence
 	var all_cards = JsonManager.get_all_cards()
 	var options = []
 	
@@ -167,3 +170,6 @@ func _on_answer_btn_pressed() -> void:
 		answer_btn.text = current_card_key + " - " + cards[current_card_key]
 		answer_btn.disabled = true
 		return
+
+func _on_flag_scentence_pressed() -> void:
+	OS.shell_open("mailto:recontexapp@gmail.com?subject=Frase Inapropriada&body="+curr_sentence)

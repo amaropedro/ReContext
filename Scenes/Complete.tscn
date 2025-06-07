@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bq2ava2putlav"]
+[gd_scene load_steps=14 format=3 uid="uid://bq2ava2putlav"]
 
 [ext_resource type="Texture2D" uid="uid://d180xb0rvjjrh" path="res://Assets/Write.svg" id="1_gb308"]
 [ext_resource type="Script" path="res://Scenes/Scripts/complete.gd" id="1_wjrxc"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://clejfwcarfl62" path="res://Assets/check.svg" id="3_43ii6"]
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="4_5np55"]
 [ext_resource type="Texture2D" uid="uid://ce6y8an4ut4t4" path="res://Assets/Arrow.svg" id="5_5psd1"]
+[ext_resource type="Texture2D" uid="uid://qk8jap4g4apk" path="res://Assets/flag-svgrepo-com.svg" id="5_7yec7"]
 [ext_resource type="Texture2D" uid="uid://pyrc8gpajpo5" path="res://Assets/Retry.svg" id="9_ti1pp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_macim"]
@@ -75,7 +76,25 @@ text = "[left][color=47BDA8][font_size=64] Completar Frases"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-alignment = 1
+size_flags_vertical = 4
+alignment = 2
+
+[node name="FlagScentence" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(134, 0)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.192157, 0.192157, 0.192157, 1)
+theme_override_colors/font_pressed_color = Color(0.190762, 0.190762, 0.190762, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Reportar"
+icon = ExtResource("5_7yec7")
+flat = true
+icon_alignment = 2
+expand_icon = true
 
 [node name="DonePanel" type="Panel" parent="VBoxContainer"]
 visible = false
@@ -338,6 +357,7 @@ icon = ExtResource("5_5psd1")
 icon_alignment = 2
 expand_icon = true
 
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/FlagScentence" to="." method="_on_flag_scentence_pressed"]
 [connection signal="pressed" from="VBoxContainer/AnswerContainer/Confirm/AnswerBtn" to="." method="_on_answer_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/ConfirmContainer/Confirm/ConfirmBtn" to="." method="_on_confirm_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsContainer/TryAgain/TryAgainBtn" to="." method="_on_try_again_btn_pressed"]

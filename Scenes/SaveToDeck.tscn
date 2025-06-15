@@ -2,15 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="2_u26kj"]
 [ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="3_bikyb"]
-[ext_resource type="Script" path="res://Scenes/Scripts/new_words_container.gd" id="4_ymm4r"]
+[ext_resource type="Script" uid="uid://d2dydk86nr7wl" path="res://Scenes/Scripts/new_words_container.gd" id="4_ymm4r"]
 [ext_resource type="Theme" uid="uid://c253vp51ejqap" path="res://Themes/LineEditTheme.tres" id="5_redwm"]
 [ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="6_0i4x7"]
 [ext_resource type="PackedScene" uid="uid://dy4gf7t6n5uc0" path="res://Scenes/Components/DeckList.tscn" id="7_gljc4"]
-[ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="8_3cog4"]
+[ext_resource type="Script" uid="uid://dh0f33w3pwks2" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="8_3cog4"]
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="9_yp34l"]
-[ext_resource type="Script" path="res://Scenes/Scripts/add_to_deck_btn.gd" id="10_coc24"]
+[ext_resource type="Script" uid="uid://cthqptjpx68dt" path="res://Scenes/Scripts/add_to_deck_btn.gd" id="10_coc24"]
 [ext_resource type="Texture2D" uid="uid://ce6y8an4ut4t4" path="res://Assets/Arrow.svg" id="11_wp47c"]
-[ext_resource type="Script" path="res://Scenes/Scripts/cancel_btn.gd" id="12_ax0mt"]
+[ext_resource type="Script" uid="uid://dq4u0wh8fotuc" path="res://Scenes/Scripts/cancel_btn.gd" id="12_ax0mt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5eaj"]
 bg_color = Color(0.278431, 0.741176, 0.658824, 1)

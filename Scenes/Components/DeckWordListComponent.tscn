@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://wymk35o873pe"]
 
-[ext_resource type="Script" path="res://Scenes/Components/deck_word_list_component.gd" id="1_umjec"]
+[ext_resource type="Script" uid="uid://per4hkwfcgdh" path="res://Scenes/Components/deck_word_list_component.gd" id="1_umjec"]
 
 [node name="DeckWordListComponent" type="ScrollContainer"]
 anchors_preset = 15

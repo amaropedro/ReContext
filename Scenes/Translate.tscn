@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://b268riqbx111w"]
 
-[ext_resource type="Script" path="res://Scenes/Scripts/translate.gd" id="1_v83pl"]
+[ext_resource type="Script" uid="uid://dltti2l33s2tl" path="res://Scenes/Scripts/translate.gd" id="1_v83pl"]
 [ext_resource type="Texture2D" uid="uid://r31lt02cjght" path="res://Assets/wrong.svg" id="2_hpyd0"]
 [ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="2_srvxq"]
 [ext_resource type="Theme" uid="uid://d2otcyr4v4nk2" path="res://Themes/ItemListTheme.tres" id="3_ugbfp"]
-[ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="3_xdbk8"]
+[ext_resource type="Script" uid="uid://dh0f33w3pwks2" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="3_xdbk8"]
 [ext_resource type="Texture2D" uid="uid://n5hydq8xpmni" path="res://Assets/translate.svg" id="4_1x3eb"]
 [ext_resource type="Texture2D" uid="uid://clejfwcarfl62" path="res://Assets/check.svg" id="4_oskjr"]
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="4_pwknd"]

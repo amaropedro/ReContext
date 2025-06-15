@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dfi376l1qo3jk"]
 
-[ext_resource type="Script" path="res://Scenes/Components/word_list_line.gd" id="1_fil5j"]
+[ext_resource type="Script" uid="uid://bhe3uhyoqywmq" path="res://Scenes/Components/word_list_line.gd" id="1_fil5j"]
 
 [node name="WordListLine" type="GridContainer"]
 custom_minimum_size = Vector2(0, 20)

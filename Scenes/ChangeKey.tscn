@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://bx4pd12mbtue7"]
 
-[ext_resource type="Script" path="res://Scenes/Scripts/change_key.gd" id="1_axmga"]
+[ext_resource type="Script" uid="uid://bradxsqpiaa3y" path="res://Scenes/Scripts/change_key.gd" id="1_axmga"]
 [ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="2_gyn8y"]
 [ext_resource type="Texture2D" uid="uid://dqymb62mxv20l" path="res://Assets/Gear.svg" id="2_pnyt8"]
 [ext_resource type="Theme" uid="uid://d2otcyr4v4nk2" path="res://Themes/ItemListTheme.tres" id="3_0xb28"]
 [ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="4_pcyn2"]
 [ext_resource type="Texture2D" uid="uid://d3ijmy4kfk3la" path="res://Assets/Exit.svg" id="6_ypajk"]
 [ext_resource type="Texture2D" uid="uid://cnpwf8qildqs4" path="res://Assets/Back.svg" id="7_nfgq6"]
-[ext_resource type="Script" path="res://Scenes/Scripts/back_button.gd" id="8_v4tgo"]
+[ext_resource type="Script" uid="uid://cn8y8pv7tcvls" path="res://Scenes/Scripts/back_button.gd" id="8_v4tgo"]
 
 [node name="ChangeKey" type="Control"]
 layout_mode = 3

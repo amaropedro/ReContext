@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://28cgr1b5gr3d"]
 
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="1_7inlb"]
-[ext_resource type="Script" path="res://Scenes/main.gd" id="1_ltsr1"]
+[ext_resource type="Script" uid="uid://ctaonvdu3mv2v" path="res://Scenes/main.gd" id="1_ltsr1"]
 [ext_resource type="PackedScene" uid="uid://wv7webjyd443" path="res://Scenes/Components/BaseBarBtn.tscn" id="1_op4ys"]
 [ext_resource type="Texture2D" uid="uid://dkvkic830pjlg" path="res://Assets/Home.svg" id="3_32c14"]
 [ext_resource type="Texture2D" uid="uid://c57g273sfkrsv" path="res://Assets/Cards.svg" id="4_dt2t0"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b0ei7dbjr4xef" path="res://Scenes/ListWords.tscn" id="8_l2aia"]
 [ext_resource type="PackedScene" uid="uid://bjj87jfo810oo" path="res://Scenes/AddWords.tscn" id="9_vf5rx"]
 [ext_resource type="PackedScene" uid="uid://pvwrb0013kvv" path="res://Scenes/ListDecks.tscn" id="10_544yn"]
-[ext_resource type="Script" path="res://Scenes/Scripts/about_btn.gd" id="13_4lcr3"]
+[ext_resource type="Script" uid="uid://y85b4qoj66bl" path="res://Scenes/Scripts/about_btn.gd" id="13_4lcr3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mslt7"]
 bg_color = Color(0.964706, 0.968627, 0.984314, 1)

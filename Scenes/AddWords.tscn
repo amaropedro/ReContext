@@ -1,14 +1,14 @@
 [gd_scene load_steps=14 format=3 uid="uid://bjj87jfo810oo"]
 
-[ext_resource type="Script" path="res://Scenes/Scripts/add_words.gd" id="1_5lqli"]
+[ext_resource type="Script" uid="uid://cscb54avj7ltw" path="res://Scenes/Scripts/add_words.gd" id="1_5lqli"]
 [ext_resource type="Texture2D" uid="uid://bcisnhvl0qque" path="res://Assets/Plus.svg" id="1_m886k"]
 [ext_resource type="Texture2D" uid="uid://djkinp8vgm08l" path="res://Assets/Ellipse.svg" id="2_a6j0w"]
 [ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="2_kea7k"]
 [ext_resource type="Theme" uid="uid://c253vp51ejqap" path="res://Themes/LineEditTheme.tres" id="3_uj3x4"]
-[ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="4_5aj18"]
+[ext_resource type="Script" uid="uid://dh0f33w3pwks2" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="4_5aj18"]
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="4_pdp1e"]
 [ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="5_ep2ny"]
-[ext_resource type="Script" path="res://Scenes/Scripts/add_next_step_btn.gd" id="7_a0jgg"]
+[ext_resource type="Script" uid="uid://blfe13mh1dde5" path="res://Scenes/Scripts/add_next_step_btn.gd" id="7_a0jgg"]
 [ext_resource type="Texture2D" uid="uid://ce6y8an4ut4t4" path="res://Assets/Arrow.svg" id="9_t38px"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5eaj"]

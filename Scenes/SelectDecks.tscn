@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://d1hufr2rfm6xu"]
 
-[ext_resource type="Script" path="res://Scenes/Scripts/select_decks.gd" id="1_7rjtd"]
+[ext_resource type="Script" uid="uid://btu6hdnyvvve" path="res://Scenes/Scripts/select_decks.gd" id="1_7rjtd"]
 [ext_resource type="Texture2D" uid="uid://c57g273sfkrsv" path="res://Assets/Cards.svg" id="1_d865h"]
 [ext_resource type="Theme" uid="uid://vdp0ma3noevw" path="res://Themes/HomeBtn.tres" id="2_esclw"]
 [ext_resource type="PackedScene" uid="uid://buf31y3lahf5b" path="res://Scenes/Components/Input.tscn" id="3_ka3bw"]
 [ext_resource type="Theme" uid="uid://bpg62mkgrlu4" path="res://Themes/MainTheme.tres" id="4_6m566"]
 [ext_resource type="Texture2D" uid="uid://ce6y8an4ut4t4" path="res://Assets/Arrow.svg" id="7_0khw7"]
 [ext_resource type="PackedScene" uid="uid://dy4gf7t6n5uc0" path="res://Scenes/Components/DeckList.tscn" id="7_njx0f"]
-[ext_resource type="Script" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="8_fr0d7"]
-[ext_resource type="Script" path="res://Scenes/Scripts/select_deck_btn.gd" id="10_6v1ac"]
+[ext_resource type="Script" uid="uid://dh0f33w3pwks2" path="res://Scenes/Scripts/add_word_btn_panel.gd" id="8_fr0d7"]
+[ext_resource type="Script" uid="uid://chulsm87pjpjj" path="res://Scenes/Scripts/select_deck_btn.gd" id="10_6v1ac"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wj086"]
 bg_color = Color(0.278431, 0.741176, 0.658824, 1)

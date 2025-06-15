@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://buf31y3lahf5b"]
 
 [ext_resource type="Theme" uid="uid://c253vp51ejqap" path="res://Themes/LineEditTheme.tres" id="1_ugpes"]
-[ext_resource type="Script" path="res://Scenes/Components/input.gd" id="2_kpcko"]
+[ext_resource type="Script" uid="uid://q2vvju2rmtit" path="res://Scenes/Components/input.gd" id="2_kpcko"]
 
 [node name="Input" type="LineEdit"]
 custom_minimum_size = Vector2(0, 64)

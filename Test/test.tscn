@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://ddy1t5ppfrpth"]
 
-[ext_resource type="Script" path="res://Test/test.gd" id="1_1brqb"]
-[ext_resource type="Script" path="res://Test/button.gd" id="2_ch7x0"]
-[ext_resource type="Script" path="res://Test/rich_text_label_2.gd" id="2_e4qf0"]
-[ext_resource type="Script" path="res://Test/button_2.gd" id="4_4pls2"]
-[ext_resource type="Script" path="res://Test/option_button.gd" id="5_6ke0q"]
-[ext_resource type="Script" path="res://Test/button_3.gd" id="6_1mvyy"]
-[ext_resource type="Script" path="res://Test/option_button_2.gd" id="7_pot2d"]
+[ext_resource type="Script" uid="uid://bst1m5xyjeoml" path="res://Test/test.gd" id="1_1brqb"]
+[ext_resource type="Script" uid="uid://d0rbt0qaerkxm" path="res://Test/button.gd" id="2_ch7x0"]
+[ext_resource type="Script" uid="uid://b4opev5irt2l7" path="res://Test/rich_text_label_2.gd" id="2_e4qf0"]
+[ext_resource type="Script" uid="uid://bbix34dsatxux" path="res://Test/button_2.gd" id="4_4pls2"]
+[ext_resource type="Script" uid="uid://citgw0xxf1eok" path="res://Test/option_button.gd" id="5_6ke0q"]
+[ext_resource type="Script" uid="uid://bysit4vaccgt6" path="res://Test/button_3.gd" id="6_1mvyy"]
+[ext_resource type="Script" uid="uid://c5mgc74ofkhrh" path="res://Test/option_button_2.gd" id="7_pot2d"]
 
 [node name="Test" type="Control"]
 layout_mode = 3

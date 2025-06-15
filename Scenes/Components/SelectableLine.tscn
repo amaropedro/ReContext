@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dljdgtp85rxq8"]
 
-[ext_resource type="Script" path="res://Scenes/Components/selectable_line.gd" id="1_uolgb"]
+[ext_resource type="Script" uid="uid://b6tjjdmfig4hi" path="res://Scenes/Components/selectable_line.gd" id="1_uolgb"]
 [ext_resource type="Theme" uid="uid://d2otcyr4v4nk2" path="res://Themes/ItemListTheme.tres" id="2_5wkg3"]
 
 [node name="SelectableLine" type="HBoxContainer"]

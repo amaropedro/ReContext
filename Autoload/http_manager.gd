@@ -1,7 +1,7 @@
 extends Node
 
 const RECONTEXT_KEY = preload("res://credentials.json").data.Key
-const BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key="
+const BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key="
 var url = ""
 var response_str: String
 signal requestCompleted
